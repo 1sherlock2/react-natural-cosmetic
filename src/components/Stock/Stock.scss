@@ -1,0 +1,184 @@
+.stock {
+	display: grid;
+	position: relative;
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+	height: auto;
+	grid-template-rows: 500px;
+
+	// For_us>
+	.for_us {
+		position: absolute;
+		left: 0;
+		top: 20px;
+		display: inline-grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		grid-gap: 30px;
+		justify-content: center;
+		transition: all 0.9s;
+
+		.block_stock {
+			text-decoration: none;
+			color: #333;
+
+			.block_stock_div {
+				.block_stock_div_p {
+					p {
+						font-family: 'IBM Plex Sans', sans-serif;
+						color: #333;
+						font-size: 15px;
+						line-height: 18px;
+					}
+				}
+
+				.block_stock_span {
+					margin: 0 auto;
+					text-align: center;
+
+					.span_old_price {
+						margin-right: 5px;
+						text-decoration: line-through;
+					}
+
+					.span_new_price {
+						text-decoration: underline;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+
+	//best_sellers>
+	.best_sellers {
+		position: absolute;
+		left: 0;
+		top: 20px;
+		visibility: hidden;
+		display: inline-grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		grid-gap: 30px;
+		justify-content: center;
+
+		.block_stock {
+			text-decoration: none;
+			color: #333;
+
+			.block_stock_div {
+				.block_stock_div_p {
+					p {
+						font-family: 'IBM Plex Sans', sans-serif;
+						color: #333;
+						font-size: 15px;
+						line-height: 18px;
+					}
+				}
+
+				.block_stock_span {
+					margin: 0 auto;
+					text-align: center;
+
+					.span_old_price {
+						margin-right: 5px;
+						text-decoration: line-through;
+					}
+
+					.span_new_price {
+						text-decoration: underline;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+
+	//new_collection>
+	.new_collection {
+		position: absolute;
+		left: 0;
+		top: 20px;
+		visibility: hidden;
+		display: inline-grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		grid-gap: 30px;
+		justify-content: center;
+
+		.block_stock {
+			text-decoration: none;
+			color: #333;
+
+			.block_stock_div {
+				.block_stock_div_p {
+					p {
+						font-family: 'IBM Plex Sans', sans-serif;
+						color: #333;
+						font-size: 15px;
+						line-height: 18px;
+					}
+				}
+
+				.block_stock_span {
+					margin: 0 auto;
+					text-align: center;
+
+					.span_old_price {
+						margin-right: 5px;
+						text-decoration: line-through;
+					}
+
+					.span_new_price {
+						text-decoration: underline;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+
+	.idea_for_gift {
+		position: absolute;
+		left: 0;
+		top: 20px;
+		visibility: hidden;
+		display: inline-grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: auto;
+		grid-gap: 30px;
+		justify-content: center;
+
+		.block_stock {
+			text-decoration: none;
+			color: #333;
+
+			.block_stock_div {
+				.block_stock_div_p {
+					p {
+						font-family: 'IBM Plex Sans', sans-serif;
+						color: #333;
+						font-size: 15px;
+						line-height: 18px;
+					}
+				}
+
+				.block_stock_span {
+					margin: 0 auto;
+					text-align: center;
+
+					.span_old_price {
+						margin-right: 5px;
+						text-decoration: line-through;
+					}
+
+					.span_new_price {
+						text-decoration: underline;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}

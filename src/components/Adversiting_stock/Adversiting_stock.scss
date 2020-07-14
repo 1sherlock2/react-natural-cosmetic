@@ -1,0 +1,18 @@
+.adversiting_stock {
+	width: 100%;
+	margin: 0 auto;
+	justify-content: center;
+	display: inline-grid;
+	grid-template-columns: repeat(4, minmax(100px, 300px));
+	grid-template-rows: auto;
+	grid-gap: 8px;
+
+	.adversiting_stock_div {
+		.adversiting_stock_block_img {
+			position: relative;
+			img {
+				width: 300px;
+			}
+		}
+	}
+}
