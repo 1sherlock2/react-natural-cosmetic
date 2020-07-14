@@ -8,28 +8,28 @@ const Adversiting_stock = (props) => {
 			<div className='adversiting_stock_div'>
 				<NavLink to='#'>
 					<div className='adversiting_stock_block_img'>
-						<img src='app/img/adversiting_stock1.jpg' />
+						<img src='app/img/adversiting_stock1.jpg' alt='' />
 					</div>
 				</NavLink>
 			</div>
 			<div className='adversiting_stock_div'>
 				<NavLink to='#'>
 					<div className='adversiting_stock_block_img'>
-						<img src='app/img/adversiting_stock2.jpg' />
+						<img src='app/img/adversiting_stock2.jpg' alt='' />
 					</div>
 				</NavLink>
 			</div>
 			<div className='adversiting_stock_div'>
 				<NavLink to='#'>
 					<div className='adversiting_stock_block_img'>
-						<img src='app/img/adversiting_stock3.jpg' />
+						<img src='app/img/adversiting_stock3.jpg' alt='' />
 					</div>
 				</NavLink>
 			</div>
 			<div className='adversiting_stock_div'>
 				<NavLink to='#'>
 					<div className='adversiting_stock_block_img'>
-						<img src='app/img/adversiting_stock4.jpg' />
+						<img src='app/img/adversiting_stock4.jpg' alt='' />
 					</div>
 				</NavLink>
 			</div>

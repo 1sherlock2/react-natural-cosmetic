@@ -8,6 +8,8 @@ import Content_Container from './components/Content/Content_Container';
 import Navigation_product_Container from './components/Navigation_product/Navigation_product_Container';
 import Stock_Container from './components/Stock/Stock_Container';
 import Adversiting_stock_Container from './components/Adversiting_stock/Adversiting_stock_Container.';
+import { Provider } from 'react-redux';
+import store from './redux/store/Store';
 
 const App = () => {
 	return (
@@ -30,7 +32,9 @@ const AppContainer = withRouter(App);
 const MainApp = () => {
 	return (
 		<BrowserRouter>
-			<AppContainer />
+			<Provider store={store}>
+				<AppContainer />
+			</Provider>
 		</BrowserRouter>
 	);
 };

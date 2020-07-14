@@ -1,5 +1,7 @@
 import React from 'react';
 import './Wrapper_navigation.scss';
+import { NavLink } from 'react-router-dom';
+import { Nav_navigation_li } from '../Utils/Small_components/Nav_navigation_li';
 
 const Wrapper_navigation = (props) => {
 	return (
@@ -9,62 +11,17 @@ const Wrapper_navigation = (props) => {
 					<span></span>
 				</div>
 				<ul class='ul_navigation'>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Акции
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Korea
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Парфюмерия
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Макияж
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Уход за кожей
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Уход за волосами
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							{' '}
-							Мужчинам
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Аксессуары
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Детям
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Подарки
-						</a>
-					</li>
-					<li id='nav_navigation_li'>
-						<a href='#' class='a_navigation'>
-							Бренды
-						</a>
-					</li>
+					<Nav_navigation_li url={'#'} children={'Акции'} />
+					<Nav_navigation_li url={'#'} children={'Korea'} />
+					<Nav_navigation_li url={'#'} children={'Парфюмерия'} />
+					<Nav_navigation_li url={'#'} children={'Макияж'} />
+					<Nav_navigation_li url={'#'} children={'Уход за кожей'} />
+					<Nav_navigation_li url={'#'} children={'Уход за волосами'} />
+					<Nav_navigation_li url={'#'} children={'Мужчинам'} />
+					<Nav_navigation_li url={'#'} children={'Аксессуары'} />
+					<Nav_navigation_li url={'#'} children={'Детям'} />
+					<Nav_navigation_li url={'#'} children={'Подарки'} />
+					<Nav_navigation_li url={'#'} children={'Бренды'} />
 				</ul>
 			</div>
 		</div>
