@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import Accessories from './Accessories';
 
 const Accessories_Container = (props) => {
-	return <Accessories accessories={this.props.accessories} />;
+	return <Accessories />;
 };
 
 let mapStateToProps = (state) => {
 	return {
-		accessories: state.accessoriesData.accessories
+		...state
 	};
 };
 

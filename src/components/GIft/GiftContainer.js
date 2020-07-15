@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import Gift from './Gift';
 
 const Gift_Container = (props) => {
-	return <Gift gift={this.props.gift} />;
+	return <Gift />;
 };
 
 let mapStateToProps = (state) => {
 	return {
-		gift: state.giftData.gift
+		...state
 	};
 };
 

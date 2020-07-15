@@ -3,12 +3,12 @@ import SkinCare from './SkinCare';
 import { connect } from 'react-redux';
 
 const SkinCare_Container = (props) => {
-	return <SkinCare skinCare={this.props.skinCare} />;
+	return <SkinCare />;
 };
 
 let mapStateToProps = (state) => {
 	return {
-		skinCare: state.skinCareData.skinCare
+		...state
 	};
 };
 

@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import Perfumery from './Perfumery';
 
 const Perfumery_Container = (props) => {
-	return <Perfumery perfumery={this.props.perfumery} />;
+	return <Perfumery />;
 };
 
 let mapStateToProps = (state) => {
 	return {
-		stocks: state.stocksData.stocks
+		...state
 	};
 };
 

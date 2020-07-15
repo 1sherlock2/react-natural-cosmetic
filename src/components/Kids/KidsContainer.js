@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import Kids from './Kids';
 
 const Kids_Container = (props) => {
-	return <Kids kids={this.props.kids} />;
+	return <Kids />;
 };
 
 let mapStateToProps = (state) => {
 	return {
-		kids: state.kidsData.kids
+		...state
 	};
 };
 

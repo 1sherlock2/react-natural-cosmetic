@@ -1,6 +1,5 @@
 import React from 'react';
 import './Wrapper_title.scss';
-import { NavLink } from 'react-router-dom';
 
 const Wrapper_title = (props) => {
 	return (
@@ -12,7 +11,7 @@ const Wrapper_title = (props) => {
 						<button type='submit'></button>
 					</form>
 				</div>
-				<div className='wrapper1_block_grid_4'>
+				<div ref={props.sortRef} className='wrapper1_block_grid_4'>
 					<i className='fa fa-user-o' aria-hidden='true'></i>
 					<span onClick={props.onToggleEntry}>Войти</span>
 					{props.entry ? (
@@ -43,32 +42,32 @@ const Wrapper_title = (props) => {
 				<div className='wrapper1_block_grid_5'>
 					<i className='fa fa-shopping-basket' aria-hidden='true'></i>
 					<span onClick={props.onToggleBracket}>Корзина</span>
-				</div>
-				{props.bracket ? (
-					<div className='wrapper1_block_bracket'>
-						<div className='wrapper1_block_bracket_extra'>
-							<table className='wrapper1_block_table'>
-								<tr>
-									<td>Наименование товара</td>
-									<td>Количество</td>
-									<td>Отмена заказа</td>
-									<td>Отменить</td>
-								</tr>
-								{props.products &&
-									props.products.map((item, index) => {
-										return (
-											<tr key={index}>
-												<td>{item.id}</td>
-												<td>{item.product}</td>
-												<td>{item.count}</td>
-												<td>Х</td>
-											</tr>
-										);
-									})}
-							</table>
+					{props.bracket ? (
+						<div className='wrapper1_block_bracket'>
+							<div className='wrapper1_block_bracket_extra'>
+								<table className='wrapper1_block_table'>
+									<tr>
+										<td>Наименование товара</td>
+										<td>Количество</td>
+										<td>Отмена заказа</td>
+										<td>Отменить</td>
+									</tr>
+									{props.products &&
+										props.products.map((item, index) => {
+											return (
+												<tr key={index}>
+													<td>{item.id}</td>
+													<td>{item.product}</td>
+													<td>{item.count}</td>
+													<td>Х</td>
+												</tr>
+											);
+										})}
+								</table>
+							</div>
 						</div>
-					</div>
-				) : null}
+					) : null}
+				</div>
 			</div>
 		</div>
 	);

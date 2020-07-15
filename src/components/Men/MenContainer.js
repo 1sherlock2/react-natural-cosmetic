@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import Men from './Men';
 
 const Men_Container = (props) => {
-	return <Men men={this.props.men} />;
+	return <Men />;
 };
 let mapStateToProps = (state) => {
 	return {
-		men: state.menData.men
+		...state
 	};
 };
 
