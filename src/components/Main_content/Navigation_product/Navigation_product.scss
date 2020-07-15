@@ -16,13 +16,25 @@
 			grid-template-columns: repeat(4, minmax(150px, 300px));
 			grid-template-rows: 50px;
 
-			li {
-				padding: 10px;
-				list-style-type: none;
-				width: 100%;
-				vertical-align: middle;
-				text-align: center;
-				list-style-type: none;
+			a {
+				text-decoration: none;
+				color: #333;
+
+				li {
+					padding: 10px;
+					list-style-type: none;
+					width: 100%;
+					vertical-align: middle;
+					text-align: center;
+					list-style-type: none;
+				}
+				li:hover {
+					cursor: pointer;
+					background-color: #cfc3c3;
+				}
+				.nav_active {
+					background-color: #cfc3c3;
+				}
 			}
 		}
 	}

@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Wrapper_title from './Wrapper_title';
 
 const Wrapper_title_Container = (props) => {
-	return <Wrapper_title />;
+	const [entry, setEntry] = useState(false);
+	const [bracket, setBracket] = useState(false);
+	const onToggleEntry = () => {
+		setEntry(!entry);
+	};
+
+	const onToggleBracket = () => {
+		setBracket(!bracket);
+	};
+
+	const products = [
+		{ id: 1, product: 'wine', count: 1 },
+		{ id: 2, product: 'wine', count: 2 },
+		{ id: 3, product: 'wine', count: 15 }
+	];
+
+	return <Wrapper_title onToggleEntry={onToggleEntry} entry={entry} bracket={bracket} onToggleBracket={onToggleBracket} products={products} />;
 };
 
 export default Wrapper_title_Container;
