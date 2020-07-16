@@ -13,13 +13,17 @@
 	.wrapper_block {
 		position: relative;
 		display: inline-grid;
-		grid-template-columns: 1fr 0.5fr 0.5fr;
+		grid-template-columns: 0.5fr 1fr 0.5fr 0.5fr;
 		grid-template-rows: minmax(50px, 80px);
 		grid-gap: 10px;
 		.wrapper1_block_grid_1 {
-			display: inline-block;
-			// background: url(../../img/logo1.jpg) center no-repeat;
-			background-position: 15% 50%;
+			margin: 0 auto;
+			text-align: center;
+			img {
+				background-size: cover;
+				width: 30%;
+				height: 100%;
+			}
 		}
 
 		.wrapper1_block_grid_3 {
@@ -209,7 +213,6 @@
 		}
 		.wrapper1_block_grid_5 {
 			cursor: pointer;
-			margin-left: -70px;
 			position: relative;
 			i {
 				font-size: 20px;

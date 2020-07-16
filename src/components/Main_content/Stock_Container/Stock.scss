@@ -24,6 +24,11 @@
 			color: #333;
 
 			.block_stock_div {
+				img {
+					background-size: cover;
+					width: 100%;
+					height: 100%;
+				}
 				.block_stock_div_p {
 					p {
 						font-family: 'IBM Plex Sans', sans-serif;
@@ -51,134 +56,134 @@
 		}
 	}
 
-	//best_sellers>
-	.best_sellers {
-		position: absolute;
-		left: 0;
-		top: 20px;
-		visibility: hidden;
-		display: inline-grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: auto;
-		grid-gap: 30px;
-		justify-content: center;
+	// //best_sellers>
+	// .best_sellers {
+	// 	position: absolute;
+	// 	left: 0;
+	// 	top: 20px;
+	// 	visibility: hidden;
+	// 	display: inline-grid;
+	// 	grid-template-columns: repeat(3, 1fr);
+	// 	grid-template-rows: auto;
+	// 	grid-gap: 30px;
+	// 	justify-content: center;
 
-		.block_stock {
-			text-decoration: none;
-			color: #333;
+	// 	.block_stock {
+	// 		text-decoration: none;
+	// 		color: #333;
 
-			.block_stock_div {
-				.block_stock_div_p {
-					p {
-						font-family: 'IBM Plex Sans', sans-serif;
-						color: #333;
-						font-size: 15px;
-						line-height: 18px;
-					}
-				}
+	// 		.block_stock_div {
+	// 			.block_stock_div_p {
+	// 				p {
+	// 					font-family: 'IBM Plex Sans', sans-serif;
+	// 					color: #333;
+	// 					font-size: 15px;
+	// 					line-height: 18px;
+	// 				}
+	// 			}
 
-				.block_stock_span {
-					margin: 0 auto;
-					text-align: center;
+	// 			.block_stock_span {
+	// 				margin: 0 auto;
+	// 				text-align: center;
 
-					.span_old_price {
-						margin-right: 5px;
-						text-decoration: line-through;
-					}
+	// 				.span_old_price {
+	// 					margin-right: 5px;
+	// 					text-decoration: line-through;
+	// 				}
 
-					.span_new_price {
-						text-decoration: underline;
-						font-weight: bold;
-					}
-				}
-			}
-		}
-	}
+	// 				.span_new_price {
+	// 					text-decoration: underline;
+	// 					font-weight: bold;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 
-	//new_collection>
-	.new_collection {
-		position: absolute;
-		left: 0;
-		top: 20px;
-		visibility: hidden;
-		display: inline-grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: auto;
-		grid-gap: 30px;
-		justify-content: center;
+	// //new_collection>
+	// .new_collection {
+	// 	position: absolute;
+	// 	left: 0;
+	// 	top: 20px;
+	// 	visibility: hidden;
+	// 	display: inline-grid;
+	// 	grid-template-columns: repeat(3, 1fr);
+	// 	grid-template-rows: auto;
+	// 	grid-gap: 30px;
+	// 	justify-content: center;
 
-		.block_stock {
-			text-decoration: none;
-			color: #333;
+	// 	.block_stock {
+	// 		text-decoration: none;
+	// 		color: #333;
 
-			.block_stock_div {
-				.block_stock_div_p {
-					p {
-						font-family: 'IBM Plex Sans', sans-serif;
-						color: #333;
-						font-size: 15px;
-						line-height: 18px;
-					}
-				}
+	// 		.block_stock_div {
+	// 			.block_stock_div_p {
+	// 				p {
+	// 					font-family: 'IBM Plex Sans', sans-serif;
+	// 					color: #333;
+	// 					font-size: 15px;
+	// 					line-height: 18px;
+	// 				}
+	// 			}
 
-				.block_stock_span {
-					margin: 0 auto;
-					text-align: center;
+	// 			.block_stock_span {
+	// 				margin: 0 auto;
+	// 				text-align: center;
 
-					.span_old_price {
-						margin-right: 5px;
-						text-decoration: line-through;
-					}
+	// 				.span_old_price {
+	// 					margin-right: 5px;
+	// 					text-decoration: line-through;
+	// 				}
 
-					.span_new_price {
-						text-decoration: underline;
-						font-weight: bold;
-					}
-				}
-			}
-		}
-	}
+	// 				.span_new_price {
+	// 					text-decoration: underline;
+	// 					font-weight: bold;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 
-	.idea_for_gift {
-		position: absolute;
-		left: 0;
-		top: 20px;
-		visibility: hidden;
-		display: inline-grid;
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: auto;
-		grid-gap: 30px;
-		justify-content: center;
+	// .idea_for_gift {
+	// 	position: absolute;
+	// 	left: 0;
+	// 	top: 20px;
+	// 	visibility: hidden;
+	// 	display: inline-grid;
+	// 	grid-template-columns: repeat(3, 1fr);
+	// 	grid-template-rows: auto;
+	// 	grid-gap: 30px;
+	// 	justify-content: center;
 
-		.block_stock {
-			text-decoration: none;
-			color: #333;
+	// 	.block_stock {
+	// 		text-decoration: none;
+	// 		color: #333;
 
-			.block_stock_div {
-				.block_stock_div_p {
-					p {
-						font-family: 'IBM Plex Sans', sans-serif;
-						color: #333;
-						font-size: 15px;
-						line-height: 18px;
-					}
-				}
+	// 		.block_stock_div {
+	// 			.block_stock_div_p {
+	// 				p {
+	// 					font-family: 'IBM Plex Sans', sans-serif;
+	// 					color: #333;
+	// 					font-size: 15px;
+	// 					line-height: 18px;
+	// 				}
+	// 			}
 
-				.block_stock_span {
-					margin: 0 auto;
-					text-align: center;
+	// 			.block_stock_span {
+	// 				margin: 0 auto;
+	// 				text-align: center;
 
-					.span_old_price {
-						margin-right: 5px;
-						text-decoration: line-through;
-					}
+	// 				.span_old_price {
+	// 					margin-right: 5px;
+	// 					text-decoration: line-through;
+	// 				}
 
-					.span_new_price {
-						text-decoration: underline;
-						font-weight: bold;
-					}
-				}
-			}
-		}
-	}
+	// 				.span_new_price {
+	// 					text-decoration: underline;
+	// 					font-weight: bold;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 }

@@ -5,15 +5,18 @@ const Wrapper_title = (props) => {
 	return (
 		<div className='wrapper_title'>
 			<div className='wrapper_block'>
+				<div class='wrapper1_block_grid_1'>
+					<img src='img/logo.jpg' alt='' />
+				</div>
 				<div className='wrapper1_block_grid_3'>
 					<form method='post' action='#'>
 						<input className='input_1_1' type='search' id='search' placeholder='Search' name='post' />
 						<button type='submit'></button>
 					</form>
 				</div>
-				<div ref={props.sortRef} className='wrapper1_block_grid_4'>
+				<div className='wrapper1_block_grid_4' ref={props.entryRef} onClick={props.onToggleEntry}>
 					<i className='fa fa-user-o' aria-hidden='true'></i>
-					<span onClick={props.onToggleEntry}>Войти</span>
+					<span>Войти</span>
 					{props.entry ? (
 						<div className='wrapper1_block_grid_4_1'>
 							<div className='wrapper1_block_entrance'>
@@ -39,9 +42,9 @@ const Wrapper_title = (props) => {
 						</div>
 					) : null}
 				</div>
-				<div className='wrapper1_block_grid_5'>
+				<div className='wrapper1_block_grid_5' ref={props.bracketRef} onClick={props.onToggleBracket}>
 					<i className='fa fa-shopping-basket' aria-hidden='true'></i>
-					<span onClick={props.onToggleBracket}>Корзина</span>
+					<span>Корзина</span>
 					{props.bracket ? (
 						<div className='wrapper1_block_bracket'>
 							<div className='wrapper1_block_bracket_extra'>

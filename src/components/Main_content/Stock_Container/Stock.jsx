@@ -2,7 +2,6 @@
 import React from 'react';
 import './Stock.scss';
 import { NavLink } from 'react-router-dom';
-import { Block_stock } from '../../Utils/Small_components/Block_stock';
 
 const Stock = (props) => {
 	return (
@@ -13,7 +12,7 @@ const Stock = (props) => {
 						return (
 							<NavLink to={item.url} className='block_stock' key={item.id}>
 								<div className='block_stock_div'>
-									<img src={item.image === null ? item.image : '../../img/stock3.jpg'} alt={item.alt} />
+									<img src={item.image ? item.image : '../../img/stock4.jpg'} alt={item.alt} />
 									<div className='block_stock_p'>
 										<p>{item.text}</p>
 									</div>

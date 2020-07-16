@@ -4,7 +4,8 @@ import Wrapper_title from './Wrapper_title';
 const Wrapper_title_Container = (props) => {
 	const [entry, setEntry] = useState(false);
 	const [bracket, setBracket] = useState(false);
-	const sortRef = useRef();
+	const entryRef = useRef();
+	const bracketRef = useRef();
 
 	const onToggleEntry = () => {
 		setEntry(!entry);
@@ -12,16 +13,27 @@ const Wrapper_title_Container = (props) => {
 	const onToggleBracket = () => {
 		setBracket(!bracket);
 	};
-	console.log(sortRef);
 
-	const handleOutsideClick = (e) => {
-		console.log(e);
-	};
+	//! Chrome
+	// const handleOutsideClickEntry = (e) => {
+	// 	if (!e.path.includes(entryRef.current)) {
+	// 		setEntry(false);
+	// 		console.log('entry');
+	// 	}
+	// };
+	// const handleOutsideClickBracket = (e) => {
+	// 	if (!e.path.includes(bracketRef.current)) {
+	// 		setBracket(false);
+	// 		console.log('bracket');
+	// 	}
+	// };
+	// useEffect(() => {
+	// 	document.body.addEventListener('click', handleOutsideClickEntry);
+	// }, []);
+	// useEffect(() => {
+	// 	document.body.addEventListener('click', handleOutsideClickBracket);
+	// }, []);
 
-	useEffect(() => {
-		document.body.addEventListener('click', handleOutsideClick);
-		// console.log(sortRef.current);
-	}, []);
 	const products = [
 		{ id: 1, product: 'wine', count: 1 },
 		{ id: 2, product: 'wine', count: 2 },
@@ -30,7 +42,8 @@ const Wrapper_title_Container = (props) => {
 
 	return (
 		<Wrapper_title
-			sortRef={sortRef}
+			entryRef={entryRef}
+			bracketRef={bracketRef}
 			onToggleEntry={onToggleEntry}
 			entry={entry}
 			bracket={bracket}
