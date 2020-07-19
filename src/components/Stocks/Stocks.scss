@@ -1,0 +1,102 @@
+.container-fluid {
+	display: grid;
+	grid-template-columns: 1fr 0.85fr;
+	grid-template-rows: auto;
+	grid-gap: 1%;
+
+	.stock_container_info {
+		margin: 5% auto;
+		.card {
+			display: grid;
+			grid-template-columns: 1fr 0.8fr;
+			grid-template-rows: auto;
+			grid-gap: 1%;
+			width: 50rem;
+			margin: 0 auto;
+			img {
+				width: 100%;
+				height: 100%;
+				background-size: cover;
+				background-repeat: none;
+				text-align: center;
+				margin: 1% auto;
+				padding: 0;
+			}
+			.card-body {
+				display: grid;
+				grid-template-rows: repeat(auto-fill, 1fr);
+				h5 {
+					text-align: center;
+				}
+				.price_different {
+					width: 100%;
+					margin: auto auto;
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					grid-template-rows: 30px;
+					text-align: center;
+					text-align: center;
+					border: 1px solid rgba(51, 51, 51, 0.315);
+					// .price_different_1 {
+					// 	padding: 1%;
+					// 	border-right: 1px solid rgba(51, 51, 51, 0.329);
+					// 	text-align: center;
+					// }
+					// .price_different_2 {
+					// 	padding: 1%;
+					// 	text-align: center;
+					// }
+
+					span {
+						background-color: rgba(230, 203, 203, 0.233);
+						text-align: center;
+						width: 100%;
+						cursor: pointer;
+					}
+					.active {
+						background-color: rgb(230, 203, 203);
+						margin: 0 auto;
+						text-align: center;
+					}
+					.disable {
+						background-color: rgba(155, 151, 151, 0.698);
+						opacity: 0.4;
+					}
+				}
+				ul {
+					.product_price {
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+
+	.stock_container_products {
+		margin: 5% auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+
+		a {
+			width: 50%;
+			text-decoration: none;
+			text-align: center;
+			color: #333;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			.card {
+				display: grid;
+				grid-template-rows: 1fr 0.5fr;
+				width: 15rem;
+				height: 15rem;
+				img {
+					margin: 0 auto;
+					text-align: center;
+					width: 10rem;
+					padding: 1%;
+					background-size: cover;
+				}
+			}
+		}
+	}
+}

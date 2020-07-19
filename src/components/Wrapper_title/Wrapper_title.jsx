@@ -5,7 +5,7 @@ const Wrapper_title = (props) => {
 	return (
 		<div className='wrapper_title'>
 			<div className='wrapper_block'>
-				<div class='wrapper1_block_grid_1'>
+				<div className='wrapper1_block_grid_1'>
 					<img src='img/logo.jpg' alt='' />
 				</div>
 				<div className='wrapper1_block_grid_3'>
