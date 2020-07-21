@@ -2,6 +2,7 @@ import React from 'react';
 import './Stocks.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const Stocks = (props) => {
 	return (
@@ -29,13 +30,10 @@ const Stocks = (props) => {
 										{item}
 									</span>
 								))}
-								{/* <span className={props.activePriceDifferent === 0 ? 'price_different active' : ''}>Optom</span>
-								<span className={props.activePriceDifferent === 1 ? 'price_different active' : ''}>Roznica</span> */}
 							</div>
 							<ul className='list-group list-group-flush'>
 								<li className='list-group-item product_price'>{props.product.price}</li>
 								<li className='list-group-item'>{props.product.reviews}</li>
-								{/* <li className='list-group-item'>Vestibulum at eros</li> */}
 							</ul>
 						</div>
 					</div>
@@ -59,5 +57,7 @@ const Stocks = (props) => {
 		</div>
 	);
 };
+
+// Stocks.propTypes = { items: PropTypes.string, defaultProps: PropTypes.bool };
 
 export default Stocks;

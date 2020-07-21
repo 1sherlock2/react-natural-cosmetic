@@ -1,5 +1,6 @@
 import React from 'react';
 import Content from './Content';
+import { connect } from 'react-redux';
 
 const Content_Container = (props) => {
 	const items = [
@@ -35,7 +36,13 @@ const Content_Container = (props) => {
 		}
 	];
 
-	return <Content items={items} />;
+	return <Content items={props.items} />;
 };
 
-export default Content_Container;
+let mapStateToProps = (state) => {
+	return {
+		items: state.contentData.items
+	};
+};
+
+export default connect(mapStateToProps, {})(Content_Container);

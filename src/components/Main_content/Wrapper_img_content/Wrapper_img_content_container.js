@@ -1,16 +1,15 @@
 import React from 'react';
 import Wrapper_img_content from './Wrapper_img_content';
+import { connect } from 'react-redux';
 
 const Wrapper_img_content_Container = (props) => {
-	const items = [
-		{ id: 1, url: '#', src: './img/content1.jpg' },
-		{ id: 1, url: '#', src: './img/content2.jpg' },
-		{ id: 1, url: '#', src: './img/content3.jpg' },
-		{ id: 1, url: '#', src: './img/content4.jpg' },
-		{ id: 1, url: '#', src: './img/content5.jpg' },
-		{ id: 1, url: '#', src: './img/content6.jpg' }
-	];
-	return <Wrapper_img_content items={items} />;
+	return <Wrapper_img_content items={props.items} />;
 };
 
-export default Wrapper_img_content_Container;
+let mapStateToProps = (state) => {
+	return {
+		items: state.wrapperImgContentData.items
+	};
+};
+
+export default connect(mapStateToProps, {})(Wrapper_img_content_Container);
