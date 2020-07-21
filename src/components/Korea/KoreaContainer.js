@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Korea from './Korea';
+import { useSelector, useDispatch } from 'react-redux';
+import * as axios from 'axios';
+import { setKoreaThunk } from '../../redux/reducers/KoreaReducer';
 
 const Korea_Container = (props) => {
-	return <Korea />;
+	useEffect(() => {
+		props.setKoreaThunk();
+	}, [props]);
+	return <Korea product={props.product} items={props.items} />;
 };
-
 let mapStateToProps = (state) => {
 	return {
-		...state
+		items: state.koreaData.items,
+		product: state.koreaData.product
 	};
 };
-
-export default connect(mapStateToProps, {})(Korea_Container);
+export default connect(mapStateToProps, { setKoreaThunk })(Korea_Container);

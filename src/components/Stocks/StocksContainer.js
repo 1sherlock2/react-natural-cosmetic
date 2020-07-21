@@ -1,16 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Stocks from './Stocks';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import * as axios from 'axios';
+import { stocksThunk } from '../../redux/reducers/StocksReducer';
 
 const Stocks_Container = (props) => {
-	const defaultProps = {
-		img: 'https://images.unsplash.com/photo-1594651103761-4c88c06a7abe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=800',
-		stocksInformation: 'Today we are presentation new collections stock available'
-	};
-
 	const [activePriceDifferent, setActivePriceDifferent] = useState(props.product.types[0]);
 	const selectItem = (index) => {
 		setActivePriceDifferent(index);
+	};
+	useEffect(() => {
+		props.stocksThunk();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	const defaultProps = {
+		img: 'https://images.unsplash.com/photo-1594651103761-4c88c06a7abe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=800',
+		stocksInformation: 'Today we are presentation new collections stock available'
 	};
 	return (
 		<div>
@@ -21,16 +27,15 @@ const Stocks_Container = (props) => {
 				activePriceDifferent={activePriceDifferent}
 				selectItem={selectItem}
 			/>
-			{/* <Stocks /> */}
 		</div>
 	);
 };
 
 let mapStateToProps = (state) => {
 	return {
-		items: state.stocksData.items,
-		product: state.stocksData.product
+		product: state.stocksData.product,
+		items: state.stocksData.items
 	};
 };
 
-export default connect(mapStateToProps, {})(Stocks_Container);
+export default connect(mapStateToProps, { stocksThunk })(Stocks_Container);

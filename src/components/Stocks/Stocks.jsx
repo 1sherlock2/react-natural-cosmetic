@@ -2,7 +2,6 @@ import React from 'react';
 import './Stocks.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 
 const Stocks = (props) => {
 	return (
@@ -57,7 +56,5 @@ const Stocks = (props) => {
 		</div>
 	);
 };
-
-// Stocks.propTypes = { items: PropTypes.string, defaultProps: PropTypes.bool };
 
 export default Stocks;
