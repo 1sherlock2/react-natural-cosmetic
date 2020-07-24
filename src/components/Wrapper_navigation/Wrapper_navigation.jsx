@@ -1,7 +1,6 @@
 import React from 'react';
 import './Wrapper_navigation.scss';
 import { NavLink } from 'react-router-dom';
-import { Nav_navigation_li } from '../Utils/Small_components/Nav_navigation_li';
 import { useState } from 'react';
 
 const Wrapper_navigation = (props) => {

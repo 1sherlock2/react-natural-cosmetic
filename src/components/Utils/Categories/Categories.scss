@@ -1,0 +1,23 @@
+.card {
+	position: relative;
+	cursor: pointer;
+	width: 18rem;
+	margin-left: 70%;
+	.card-header {
+		width: 18rem;
+	}
+	.list-group {
+		z-index: 10;
+		position: absolute;
+		width: 100%;
+		left: 0;
+		top: 105%;
+		.list-group-item {
+			border: 0.1px solid rgba(51, 51, 51, 0.205);
+		}
+		.list-group-item:hover {
+			background-color: rgb(231, 213, 213);
+			color: #333;
+		}
+	}
+}

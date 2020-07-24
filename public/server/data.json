@@ -1,0 +1,144 @@
+{
+	"stocks": {
+		"isLoaded": {
+			"img": "https://images.unsplash.com/photo-1594651103761-4c88c06a7abe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=800",
+			"stocksInformation": "Today we are presentation new collections stock available"
+		},
+		"items": [
+			{
+				"id": 0,
+				"name": "name1",
+				"img": "img/stock1.jpg",
+				"description": "description1",
+				"price": 11,
+				"reviews": "reviews1",
+				"brend": "asd",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 1,
+				"date": "31.09.2010",
+				"name": "name2",
+				"img": "img/stock2.jpg",
+				"description": "description2",
+				"price": 22,
+				"reviews": "reviews2",
+				"brend": "fgdfg",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 2,
+				"date": "01.09.2010",
+				"name": "name3",
+				"img": "img/stock3.jpg",
+				"description": "description3",
+				"price": 3112,
+				"reviews": "reviews3",
+				"brend": "sdfsdf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 3,
+				"date": "23.09.2010",
+				"name": "name4",
+				"img": "img/stock4.jpg",
+				"description": "description4",
+				"price": 4,
+				"reviews": "reviews4",
+				"brend": "fadsf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 4,
+				"date": "11.09.2010",
+				"name": "name5",
+				"img": "img/stock5.jpg",
+				"description": "description5",
+				"price": 5,
+				"reviews": "reviews5",
+				"brend": "agr",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 5,
+				"date": "14.09.2010",
+				"name": "name6",
+				"img": "img/stock6.jpg",
+				"description": "description6",
+				"price": 26,
+				"reviews": "reviews6",
+				"brend": "hrter",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 6,
+				"date": "01.09.2010",
+				"name": "name7",
+				"img": "img/stock7.jpg",
+				"description": "description7",
+				"price": 7,
+				"reviews": "reviews7",
+				"brend": "sdfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 7,
+				"date": "23.09.2010",
+				"name": "name8",
+				"img": "img/stock8.jpg",
+				"description": "description8",
+				"price": 81,
+				"reviews": "reviews8",
+				"brend": "uuj",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 8,
+				"date": "51.09.2010",
+				"name": "name9",
+				"img": "img/stock9.jpg",
+				"description": "description9",
+				"price": 9,
+				"reviews": "reviews9",
+				"brend": "rhfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 9,
+				"date": "43.09.2010",
+				"name": "name10",
+				"img": "img/stock1.jpg",
+				"description": "description10",
+				"price": 10,
+				"brend": "fdsaf",
+				"reviews": "reviews10",
+				"text": ["оптом", "розница"]
+			}
+		]
+	},
+
+	"korea": {
+		"product": {
+			"id": 1,
+			"name": "name1",
+			"img": "img/stock1.jpg",
+			"description": "description1",
+			"types": [0, 1],
+			"text": ["optom", "roznica", "shtuka"],
+			"price": "price1",
+			"reviews": "reviews1"
+		},
+		"items": [
+			{ "id": 1, "name": "name1", "img": "img/stock1.jpg", "description": "description1", "price": "price1", "reviews": "reviews1" },
+			{ "id": 2, "name": "name2", "img": "img/stock2.jpg", "description": "description2", "price": "price2", "reviews": "reviews2`" },
+			{ "id": 3, "name": "name3", "img": "img/stock3.jpg", "description": "description3", "price": "price3", "reviews": "reviews3" },
+			{ "id": 4, "name": "name4", "img": "img/stock4.jpg", "description": "description4", "price": "price4", "reviews": "reviews4" },
+			{ "id": 5, "name": "name5", "img": "img/stock5.jpg", "description": "description5", "price": "price5", "reviews": "reviews5" },
+			{ "id": 6, "name": "name6", "img": "img/stock6.jpg", "description": "description6", "price": "price6", "reviews": "reviews6" },
+			{ "id": 7, "name": "name7", "img": "img/stock7.jpg", "description": "description7", "price": "price7", "reviews": "reviews7" },
+			{ "id": 8, "name": "name8", "img": "img/stock8.jpg", "description": "description8", "price": "price8", "reviews": "reviews8" },
+			{ "id": 9, "name": "name9", "img": "img/stock9.jpg", "description": "description9", "price": "price9", "reviews": "reviews9" },
+			{ "id": 10, "name": "name10", "img": "img/stock1.jpg", "description": "description10", "price": "price10", "reviews": "reviews10" }
+		]
+	}
+}
