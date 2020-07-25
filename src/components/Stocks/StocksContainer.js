@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Stocks from './Stocks';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { stocksThunk, selectStockDispatch, sortStockByPrice, sortStockByBrend, sortStockDate } from '../../redux/reducers/StocksReducer';
+import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 
 const Stocks_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -48,35 +49,39 @@ const Stocks_Container = React.memo((props) => {
 	const selectItem = (index) => {
 		setActivePriceDifferent(index);
 	};
-
-	return (
-		<div>
-			<Stocks
-				count={count}
-				increaseCount={increaseCount}
-				decreaseCount={decreaseCount}
-				isLoaded={props.isLoaded}
-				selectStockDispatch={props.selectStockDispatch}
-				selectCategoriesItemFunc={selectCategoriesItemFunc}
-				selectCategoriesItem={selectCategoriesItem}
-				activeCategoried={activeCategoried}
-				selectCategories={selectCategories}
-				defaultHeaderName={defaultHeaderName}
-				categories={categories}
-				items={props.items}
-				product={props.product}
-				activePriceDifferent={activePriceDifferent}
-				selectItem={selectItem}
-			/>
-		</div>
-	);
+	if (props.isLoding === false) {
+		return <ContentLoaderByComponent />;
+	} else {
+		return (
+			<div>
+				<Stocks
+					count={count}
+					increaseCount={increaseCount}
+					decreaseCount={decreaseCount}
+					isLoaded={props.isLoaded}
+					selectStockDispatch={props.selectStockDispatch}
+					selectCategoriesItemFunc={selectCategoriesItemFunc}
+					selectCategoriesItem={selectCategoriesItem}
+					activeCategoried={activeCategoried}
+					selectCategories={selectCategories}
+					defaultHeaderName={defaultHeaderName}
+					categories={categories}
+					items={props.items}
+					product={props.product}
+					activePriceDifferent={activePriceDifferent}
+					selectItem={selectItem}
+				/>
+			</div>
+		);
+	}
 });
 
 let mapStateToProps = (state) => {
 	return {
 		product: state.stocksData.product,
 		items: state.stocksData.items,
-		isLoaded: state.stocksData.isLoaded
+		isLoaded: state.stocksData.isLoaded,
+		isLoading: state.stocksData.isLoading
 	};
 };
 

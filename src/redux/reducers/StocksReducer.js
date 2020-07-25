@@ -6,11 +6,14 @@ const SORT_STOCK_BY_PRICE = 'SORT_STOCK_BY_PRICE';
 const SORT_STOCK_BY_BREND = 'SORT_STOCK_BY_BREND';
 const SORT_STOCK_BY_DATE = 'SORT_STOCK_BY_DATE';
 const SET_ISLOADED = 'SET_ISLOADED';
+const CHANGE_IS_LOADING_TRUE = 'CHANGE_IS_LOADING_TRUE';
+const CHANGE_IS_LOADING_FALSE = 'CHANGE_IS_LOADING_FALSE';
 
 let initialState = {
 	product: null,
 	items: null,
-	isLoaded: null
+	isLoaded: null,
+	isLoading: false
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -45,6 +48,16 @@ export const stocksReducer = (state = initialState, action) => {
 				...state,
 				isLoaded: action.isLoaded
 			};
+		case CHANGE_IS_LOADING_FALSE:
+			return {
+				...state,
+				isLoading: false
+			};
+		case CHANGE_IS_LOADING_TRUE:
+			return {
+				...state,
+				isLoading: true
+			};
 		default:
 			return {
 				...state
@@ -58,10 +71,16 @@ export const sortStockByPrice = () => ({ type: SORT_STOCK_BY_PRICE });
 export const sortStockByBrend = () => ({ type: SORT_STOCK_BY_BREND });
 export const sortStockDate = () => ({ type: SORT_STOCK_BY_DATE });
 const isLoadedDispatch = (isLoaded) => ({ type: SET_ISLOADED, isLoaded });
+const changeIsLoadingDispatchFalse = () => ({ type: CHANGE_IS_LOADING_FALSE });
+const changeIsLoadingDispatchTrue = () => ({ type: CHANGE_IS_LOADING_TRUE });
 
 export const stocksThunk = () => (dispatch) => {
+	dispatch(changeIsLoadingDispatchFalse());
 	return API.stocksAPI().then((response) => {
-		dispatch(stocksDispatch(response.data.items));
-		dispatch(isLoadedDispatch(response.data.isLoaded));
+		if (response.status === 200) {
+			dispatch(stocksDispatch(response.data.items));
+			dispatch(isLoadedDispatch(response.data.isLoaded));
+			dispatch(changeIsLoadingDispatchTrue());
+		}
 	});
 };
