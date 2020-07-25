@@ -1,10 +1,10 @@
 import React from 'react';
-import './Stocks.scss';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import { Categories } from '../Utils/Categories/Categories';
+import { Categories } from '../../components/Utils/Categories/Categories';
+import './ComponentHOC.scss';
 
-const Stocks = (props) => {
+const ComponentHOC = (props) => {
 	return (
 		<div>
 			<Categories
@@ -118,4 +118,4 @@ const Stocks = (props) => {
 	);
 };
 
-export default Stocks;
+export default ComponentHOC;

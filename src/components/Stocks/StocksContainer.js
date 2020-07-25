@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Stocks from './Stocks';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import * as axios from 'axios';
 import { stocksThunk, selectStockDispatch, sortStockByPrice, sortStockByBrend, sortStockDate } from '../../redux/reducers/StocksReducer';
 
 const Stocks_Container = (props) => {
