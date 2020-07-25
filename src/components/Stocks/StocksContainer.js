@@ -3,7 +3,7 @@ import Stocks from './Stocks';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { stocksThunk, selectStockDispatch, sortStockByPrice, sortStockByBrend, sortStockDate } from '../../redux/reducers/StocksReducer';
 
-const Stocks_Container = (props) => {
+const Stocks_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
 	const [categories, setCategories] = useState(['по цене', 'по бренду', 'по новизне']);
 	const [defaultHeaderName, setDefaultHeaderName] = useState('сортировка');
@@ -70,7 +70,7 @@ const Stocks_Container = (props) => {
 			/>
 		</div>
 	);
-};
+});
 
 let mapStateToProps = (state) => {
 	return {

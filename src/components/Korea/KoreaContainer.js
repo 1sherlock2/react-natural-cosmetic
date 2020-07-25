@@ -71,7 +71,8 @@ const Korea_Container = (props) => {
 let mapStateToProps = (state) => {
 	return {
 		items: state.koreaData.items,
-		product: state.koreaData.product
+		product: state.koreaData.product,
+		isLoaded: state.koreaData.isLoaded
 	};
 };
 export default connect(mapStateToProps, { koreaThunk, selectKoreaDispatch, sortKoreaByPrice, sortKoreaByBrend, sortKoreaDate })(Korea_Container);

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Categories } from '../Utils/Categories/Categories';
 import './Korea.scss';
 
-const Korea = (props) => {
+const Korea = React.memo((props) => {
 	return (
 		<div>
 			<Categories
@@ -116,6 +116,6 @@ const Korea = (props) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default Korea;
