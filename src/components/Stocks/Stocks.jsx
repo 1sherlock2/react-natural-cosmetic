@@ -1,8 +1,8 @@
 import React from 'react';
-import './Stocks.scss';
-import { NavLink } from 'react-router-dom';
-import classNames from 'classnames';
 import { Categories } from '../Utils/Categories/Categories';
+import classNames from 'classnames';
+import { NavLink } from 'react-router-dom';
+import './Stocks.scss';
 
 const Stocks = (props) => {
 	return (

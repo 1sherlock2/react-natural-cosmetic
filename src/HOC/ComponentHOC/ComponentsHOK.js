@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Categories } from '../../components/Utils/Categories/Categories';
 import './ComponentHOC.scss';
 
-const ComponentHOC = (props) => {
+const ComponentHOC = ({ props }) => {
 	return (
 		<div>
 			<Categories

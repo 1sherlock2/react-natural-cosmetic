@@ -1,0 +1,119 @@
+.container-fluid {
+	display: grid;
+	grid-template-columns: 1fr 0.85fr;
+	grid-template-rows: auto;
+	grid-gap: 1%;
+	.korea_container_info {
+		display: grid;
+		margin: 4% auto auto 5%;
+		.card {
+			width: 100%;
+			height: auto;
+			margin-left: 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 1%;
+			.card-body {
+				position: relative;
+				display: block;
+				height: 50%;
+				.card-img-top {
+					width: 100%;
+				}
+				h5 {
+					text-align: center;
+				}
+				display: grid;
+				grid-gap: 5%;
+				grid-template-rows: repeat(auto-fill, 1fr);
+				.price_different {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					span {
+						text-align: center;
+						padding: 5%;
+						border: 0.1px solid rgba(51, 51, 51, 0.192);
+					}
+					span:hover {
+						background-color: rgb(218, 195, 195);
+					}
+					.active {
+						background-color: rgb(218, 195, 195);
+					}
+				}
+				.list-group {
+					position: relative;
+					top: 0;
+					left: 0;
+					.korea_count {
+						display: grid;
+						grid-template-columns: 1fr 0.8fr;
+						margin: 5% auto;
+						width: 100%;
+						.korea_count_span {
+							.btn-secondary_1 {
+								background-color: rgba(218, 195, 195, 0.527);
+								color: #333;
+								font-weight: bold;
+								margin-right: 10px;
+							}
+							.btn-secondary_2 {
+								background-color: rgba(218, 195, 195, 0.527);
+								color: #333;
+								font-weight: 400;
+								margin-left: 10px;
+							}
+						}
+						.korea_count_ul {
+							.product_price {
+								margin-left: 5%;
+								padding: 8.5%;
+								text-align: center;
+								background-color: rgba(218, 195, 195, 0.527);
+							}
+						}
+					}
+				}
+			}
+		}
+		.reviews {
+			width: 100%;
+			margin: 10% auto;
+			text-align: center;
+			.card {
+				margin-top: 5%;
+				display: grid;
+				grid-template-columns: 1fr;
+				width: 100%;
+			}
+		}
+	}
+	.korea_container_products {
+		margin: 5% auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto;
+
+		a {
+			width: 50%;
+			text-decoration: none;
+			text-align: center;
+			color: #333;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			.card {
+				display: grid;
+				margin-left: 0;
+				grid-template-rows: 1fr 0.5fr;
+				width: 15rem;
+				height: 15rem;
+				img {
+					margin: 0 auto;
+					text-align: center;
+					width: 10rem;
+					padding: 1%;
+					background-size: cover;
+				}
+			}
+		}
+	}
+}
