@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Stocks from './Stocks';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { stocksThunk, selectStockDispatch, sortStockByPrice, sortStockByBrend, sortStockDate } from '../../redux/reducers/StocksReducer';
+import {
+	stocksThunk,
+	selectStockDispatch,
+	increasePriceDispatch,
+	sortStockByPrice,
+	sortStockByBrend,
+	sortStockDate,
+	decreasePriceDispatch
+} from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 
 const Stocks_Container = React.memo((props) => {
@@ -10,7 +18,7 @@ const Stocks_Container = React.memo((props) => {
 	const [defaultHeaderName, setDefaultHeaderName] = useState('сортировка');
 	const [activeCategoried, setActiveCategoried] = useState(false);
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
-	const [count, setCount] = useState(1);
+	let [count, setCount] = useState(1);
 
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
@@ -26,15 +34,21 @@ const Stocks_Container = React.memo((props) => {
 		setDefaultHeaderName(element);
 	};
 
-	if (count <= 0) {
-		setCount(1);
-	}
+	// if (count <= 0) {
+	// 	setCount(1);
+	// }
 	const decreaseCount = () => {
-		setCount(count - 1);
+		setCount(--count);
+		console.log(count);
+		props.decreasePriceDispatch(count);
+		console.log(props.product);
 	};
 
 	const increaseCount = () => {
-		setCount(count + 1);
+		setCount(++count);
+		console.log(count);
+		props.increasePriceDispatch(count);
+		// console.log(props.product);
 	};
 
 	const selectCategories = () => {
@@ -55,6 +69,8 @@ const Stocks_Container = React.memo((props) => {
 		return (
 			<div>
 				<Stocks
+					increasePriceDispatch={props.increasePriceDispatch}
+					decreasePriceDispatch={props.decreasePriceDispatch}
 					count={count}
 					increaseCount={increaseCount}
 					decreaseCount={decreaseCount}
@@ -81,8 +97,17 @@ let mapStateToProps = (state) => {
 		product: state.stocksData.product,
 		items: state.stocksData.items,
 		isLoaded: state.stocksData.isLoaded,
-		isLoading: state.stocksData.isLoading
+		isLoading: state.stocksData.isLoading,
+		count: state.stocksData.count
 	};
 };
 
-export default connect(mapStateToProps, { stocksThunk, selectStockDispatch, sortStockByPrice, sortStockByBrend, sortStockDate })(Stocks_Container);
+export default connect(mapStateToProps, {
+	decreasePriceDispatch,
+	increasePriceDispatch,
+	stocksThunk,
+	selectStockDispatch,
+	sortStockByPrice,
+	sortStockByBrend,
+	sortStockDate
+})(Stocks_Container);

@@ -8,12 +8,16 @@ const SORT_STOCK_BY_DATE = 'SORT_STOCK_BY_DATE';
 const SET_ISLOADED = 'SET_ISLOADED';
 const CHANGE_IS_LOADING_TRUE = 'CHANGE_IS_LOADING_TRUE';
 const CHANGE_IS_LOADING_FALSE = 'CHANGE_IS_LOADING_FALSE';
+const DECREASE_PRICE = 'DECREASE_PRICE';
+const INCREASE_PRICE = 'INCREASE_PRICE';
 
 let initialState = {
 	product: null,
 	items: null,
 	isLoaded: null,
-	isLoading: false
+	isLoading: false,
+	price: null
+	// count: 1
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -58,6 +62,32 @@ export const stocksReducer = (state = initialState, action) => {
 				...state,
 				isLoading: true
 			};
+		case DECREASE_PRICE:
+			return {
+				...state,
+				product: state.product.reduce((result, item) => {
+					item.price = item.price / action.count;
+					return result;
+				}, state.product)
+			};
+		case INCREASE_PRICE:
+			// const obj = state.product.reduce((result, item, index) => {
+			// 	result[index] = item;
+			// 	return result;
+			// });
+			// console.log(obj.price);
+			return {
+				...state,
+				price: state.product.reduce((result, item, index) => {
+					result[index] = item;
+					return result;
+				}),
+				product: state.product.reduce((result, item) => {
+					item.price = state.price * action.count;
+					console.log(state.price);
+					return result;
+				}, state.product)
+			};
 		default:
 			return {
 				...state
@@ -73,6 +103,8 @@ export const sortStockDate = () => ({ type: SORT_STOCK_BY_DATE });
 const isLoadedDispatch = (isLoaded) => ({ type: SET_ISLOADED, isLoaded });
 const changeIsLoadingDispatchFalse = () => ({ type: CHANGE_IS_LOADING_FALSE });
 const changeIsLoadingDispatchTrue = () => ({ type: CHANGE_IS_LOADING_TRUE });
+export const decreasePriceDispatch = (count) => ({ type: DECREASE_PRICE, count });
+export const increasePriceDispatch = (count) => ({ type: INCREASE_PRICE, count });
 
 export const stocksThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());

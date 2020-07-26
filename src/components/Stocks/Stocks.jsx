@@ -56,14 +56,14 @@ const Stocks = (props) => {
 															<button
 																type='button'
 																className='btn btn-secondary btn-secondary_1'
-																onClick={props.decreaseCount}>
+																onClick={() => props.decreaseCount()}>
 																-
 															</button>
 															<span>{props.count}</span>
 															<button
 																type='button'
 																className='btn btn-secondary btn-secondary_2'
-																onClick={props.increaseCount}>
+																onClick={() => props.increaseCount()}>
 																+
 															</button>
 														</div>
