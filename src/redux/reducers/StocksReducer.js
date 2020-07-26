@@ -17,7 +17,6 @@ let initialState = {
 	isLoaded: null,
 	isLoading: false,
 	price: null
-	// count: 1
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -28,9 +27,15 @@ export const stocksReducer = (state = initialState, action) => {
 				items: action.items
 			};
 		case SELECT_STOCK:
+			let b = state.items.filter((item) => item.id === action.id);
+			let obj = b.reduce((result, item, index) => {
+				result[index] = item;
+				return result;
+			});
 			return {
 				...state,
-				product: state.items.filter((item) => item.id === action.id)
+				product: state.items.filter((item) => item.id === action.id),
+				price: obj.price
 			};
 		case SORT_STOCK_BY_PRICE:
 			return {
@@ -66,25 +71,19 @@ export const stocksReducer = (state = initialState, action) => {
 			return {
 				...state,
 				product: state.product.reduce((result, item) => {
-					item.price = item.price / action.count;
-					return result;
+					if (action.count < 1) {
+						return state.product;
+					} else {
+						item.price = item.price - state.price;
+						return result;
+					}
 				}, state.product)
 			};
 		case INCREASE_PRICE:
-			// const obj = state.product.reduce((result, item, index) => {
-			// 	result[index] = item;
-			// 	return result;
-			// });
-			// console.log(obj.price);
 			return {
 				...state,
-				price: state.product.reduce((result, item, index) => {
-					result[index] = item;
-					return result;
-				}),
 				product: state.product.reduce((result, item) => {
 					item.price = state.price * action.count;
-					console.log(state.price);
 					return result;
 				}, state.product)
 			};

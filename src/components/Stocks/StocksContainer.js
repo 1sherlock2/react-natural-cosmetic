@@ -34,21 +34,19 @@ const Stocks_Container = React.memo((props) => {
 		setDefaultHeaderName(element);
 	};
 
-	// if (count <= 0) {
-	// 	setCount(1);
-	// }
+	if (count <= 0) {
+		setCount(1);
+	}
 	const decreaseCount = () => {
 		setCount(--count);
 		console.log(count);
 		props.decreasePriceDispatch(count);
-		console.log(props.product);
+		// console.log(props.product);
 	};
 
 	const increaseCount = () => {
 		setCount(++count);
-		console.log(count);
 		props.increasePriceDispatch(count);
-		// console.log(props.product);
 	};
 
 	const selectCategories = () => {
@@ -69,6 +67,7 @@ const Stocks_Container = React.memo((props) => {
 		return (
 			<div>
 				<Stocks
+					price={props.price}
 					increasePriceDispatch={props.increasePriceDispatch}
 					decreasePriceDispatch={props.decreasePriceDispatch}
 					count={count}
@@ -98,7 +97,8 @@ let mapStateToProps = (state) => {
 		items: state.stocksData.items,
 		isLoaded: state.stocksData.isLoaded,
 		isLoading: state.stocksData.isLoading,
-		count: state.stocksData.count
+		count: state.stocksData.count,
+		price: state.stocksData.price
 	};
 };
 
