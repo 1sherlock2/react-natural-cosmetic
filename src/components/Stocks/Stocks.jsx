@@ -50,28 +50,34 @@ const Stocks = (props) => {
 												))}
 											</div>
 											<ul className='list-group list-group-flush'>
-												<div>
-													<div className='btn-group stocks_count'>
-														<div className='stocks_count_span'>
-															<button
-																type='button'
-																className='btn btn-secondary btn-secondary_1'
-																onClick={() => props.decreaseCount()}>
-																-
-															</button>
-															<span>{props.count}</span>
-															<button
-																type='button'
-																className='btn btn-secondary btn-secondary_2'
-																onClick={() => props.increaseCount()}>
-																+
-															</button>
-														</div>
-														<div className='stocks_count_ul'>
-															<div className='list-group-item product_price'>{item.price} $</div>
+												{props.priceIndex === 0 ? (
+													<div>
+														<div className='btn-group stocks_count'>
+															<div className='stocks_count_span'>
+																<button
+																	type='button'
+																	className='btn btn-secondary btn-secondary_1'
+																	onClick={() => props.decreaseCount()}>
+																	-
+																</button>
+																<span>{props.count}</span>
+																<button
+																	type='button'
+																	className='btn btn-secondary btn-secondary_2'
+																	onClick={() => props.increaseCount()}>
+																	+
+																</button>
+															</div>
+															<div className='stocks_count_ul'>
+																<div className='list-group-item product_price'>{item.price} $</div>
+															</div>
 														</div>
 													</div>
-												</div>
+												) : (
+													<div className='stocks_count_ul'>
+														<div className='list-group-item product_price price_different_roznica'>{item.price} $</div>
+													</div>
+												)}
 											</ul>
 										</div>
 									</div>

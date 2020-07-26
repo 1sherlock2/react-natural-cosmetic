@@ -10,13 +10,15 @@ const CHANGE_IS_LOADING_TRUE = 'CHANGE_IS_LOADING_TRUE';
 const CHANGE_IS_LOADING_FALSE = 'CHANGE_IS_LOADING_FALSE';
 const DECREASE_PRICE = 'DECREASE_PRICE';
 const INCREASE_PRICE = 'INCREASE_PRICE';
+const PRICE_DIFFERENT_INDEX = 'PRICE_DIFFERENT_INDEX';
 
 let initialState = {
 	product: null,
 	items: null,
 	isLoaded: null,
 	isLoading: false,
-	price: null
+	price: null,
+	priceIndex: 1
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -87,6 +89,11 @@ export const stocksReducer = (state = initialState, action) => {
 					return result;
 				}, state.product)
 			};
+		case PRICE_DIFFERENT_INDEX:
+			return {
+				...state,
+				priceIndex: action.index
+			};
 		default:
 			return {
 				...state
@@ -104,6 +111,7 @@ const changeIsLoadingDispatchFalse = () => ({ type: CHANGE_IS_LOADING_FALSE });
 const changeIsLoadingDispatchTrue = () => ({ type: CHANGE_IS_LOADING_TRUE });
 export const decreasePriceDispatch = (count) => ({ type: DECREASE_PRICE, count });
 export const increasePriceDispatch = (count) => ({ type: INCREASE_PRICE, count });
+export const priceDifferentIndexDispatch = (index) => ({ type: PRICE_DIFFERENT_INDEX, index });
 
 export const stocksThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
