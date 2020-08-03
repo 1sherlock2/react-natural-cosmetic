@@ -1,12 +1,14 @@
 import React from 'react';
 import '../Wrapper_title.scss';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const initialValues = {
 	email: '',
 	password: ''
 };
 
+// native validate with errors object
 const validate = (values) => {
 	const errors = {};
 	const reg = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
@@ -22,10 +24,16 @@ const validate = (values) => {
 };
 
 const onSubmit = (values) => console.log(values); //? thunk on server
+
+const validationSchema = Yup.object({
+	email: Yup.string().email('Неправильный формат email').required('Необходимо заполнить поле'),
+	password: Yup.string().required('Необходимо заполнить поле').min(8, 'Не меньше 8 символов')
+});
+
 const Wrapper1_block_grid_4_1 = (props) => {
 	const formik = useFormik({
 		initialValues,
-		validate,
+		validationSchema,
 		onSubmit
 	});
 	console.log('Visited fields', formik.touched);
