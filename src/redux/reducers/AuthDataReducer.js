@@ -1,5 +1,5 @@
 const initialState = {
-	auth: null
+	isAuth: false
 };
 
 export const authDataReducer = (state = initialState, action) => {

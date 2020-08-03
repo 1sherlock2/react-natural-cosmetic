@@ -9,7 +9,8 @@ import {
 	sortStockByBrend,
 	sortStockDate,
 	decreasePriceDispatch,
-	priceDifferentIndexDispatch
+	priceDifferentIndexDispatch,
+	addInBasketDispatch
 } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 
@@ -62,6 +63,11 @@ const Stocks_Container = React.memo((props) => {
 		setActivePriceDifferent(index);
 		props.priceDifferentIndexDispatch(index);
 	};
+
+	const addInBasket = (item, count) => {
+		props.addInBasketDispatch(item, count);
+	};
+
 	if (props.isLoding === false) {
 		return <ContentLoaderByComponent />;
 	} else {
@@ -87,6 +93,7 @@ const Stocks_Container = React.memo((props) => {
 					product={props.product}
 					activePriceDifferent={activePriceDifferent}
 					selectItem={selectItem}
+					addInBasket={addInBasket}
 				/>
 			</div>
 		);
@@ -113,5 +120,6 @@ export default connect(mapStateToProps, {
 	sortStockByPrice,
 	sortStockByBrend,
 	sortStockDate,
+	addInBasketDispatch,
 	priceDifferentIndexDispatch
 })(Stocks_Container);

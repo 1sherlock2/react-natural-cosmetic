@@ -11,6 +11,8 @@ const CHANGE_IS_LOADING_FALSE = 'CHANGE_IS_LOADING_FALSE';
 const DECREASE_PRICE = 'DECREASE_PRICE';
 const INCREASE_PRICE = 'INCREASE_PRICE';
 const PRICE_DIFFERENT_INDEX = 'PRICE_DIFFERENT_INDEX';
+const ADD_IN_BASKET = 'ADD_IN_BASKET';
+const DELETE_BASKET_BY_ID = 'DELETE_BASKET_BY_ID';
 
 let initialState = {
 	product: null,
@@ -18,7 +20,8 @@ let initialState = {
 	isLoaded: null,
 	isLoading: false,
 	price: null,
-	priceIndex: 1
+	priceIndex: 1,
+	basket: []
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -94,6 +97,16 @@ export const stocksReducer = (state = initialState, action) => {
 				...state,
 				priceIndex: action.index
 			};
+		case ADD_IN_BASKET:
+			return {
+				...state,
+				basket: [...state.basket, action.item]
+			};
+		case DELETE_BASKET_BY_ID:
+			return {
+				...state,
+				basket: [...state.basket.filter((item) => item.id !== action.id)]
+			};
 		default:
 			return {
 				...state
@@ -112,6 +125,15 @@ const changeIsLoadingDispatchTrue = () => ({ type: CHANGE_IS_LOADING_TRUE });
 export const decreasePriceDispatch = (count) => ({ type: DECREASE_PRICE, count });
 export const increasePriceDispatch = (count) => ({ type: INCREASE_PRICE, count });
 export const priceDifferentIndexDispatch = (index) => ({ type: PRICE_DIFFERENT_INDEX, index });
+export const addInBasketDispatch = (item, count) => {
+	const countObj = count;
+	item.count = countObj;
+	return {
+		type: ADD_IN_BASKET,
+		item
+	};
+};
+export const deleteBasketByidDispatch = (id) => ({ type: DELETE_BASKET_BY_ID, id });
 
 export const stocksThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());

@@ -1,0 +1,1 @@
+npx json-server --watch public/server/data.json -p 3001

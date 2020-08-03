@@ -114,7 +114,8 @@
 				"reviews": "reviews10",
 				"text": ["оптом", "розница"]
 			}
-		]
+		],
+		"totalCount": 10
 	},
 
 	"korea": {

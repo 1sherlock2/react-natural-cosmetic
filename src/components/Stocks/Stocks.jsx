@@ -31,21 +31,20 @@ const Stocks = (props) => {
 						props.product.map((item, index) => {
 							return (
 								<div>
-									<div className='card' key={index}>
+									<div className='card' key={`${item.id} ${index}`}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
 											<h5 className='card-title'>{item.name}</h5>
 											<p className='card-text'>{item.description} </p>
 											<div className='price_different'>
-												{item.text.map((item, index) => (
+												{item.text.map((element, index) => (
 													<span
-														key={index}
+														key={`${element.id} ${index}`}
 														onClick={() => props.selectItem(index)}
 														className={classNames({
 															active: props.activePriceDifferent === index
-															// disable: !props.product.types.includes(index)
 														})}>
-														{item}
+														{element}
 													</span>
 												))}
 											</div>
@@ -79,6 +78,7 @@ const Stocks = (props) => {
 													</div>
 												)}
 											</ul>
+											<button onClick={() => props.addInBasket(item, props.count)}>Добавить в корзину</button>
 										</div>
 									</div>
 									<div сlassName='reviews'>
@@ -90,10 +90,10 @@ const Stocks = (props) => {
 												<p className='card-text'>
 													Some quick example text to build on the card title and make up the bulk of the card's content.
 												</p>
-												<span href='#' class='card-link'>
+												<span href='#' className='card-link'>
 													Card link
 												</span>
-												<span href='#' class='card-link'>
+												<span href='#' className='card-link'>
 													Another link
 												</span>
 											</div>
@@ -109,7 +109,7 @@ const Stocks = (props) => {
 						props.items.map((item, index) => {
 							return (
 								<NavLink to='#'>
-									<div className='card' key={`${index} ${item.name}`} onClick={() => props.selectStockDispatch(item.id)}>
+									<div className='card' key={`${index} ${item.id}`} onClick={() => props.selectStockDispatch(item.id)}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
 											<p className='card-text'>{item.name} </p>

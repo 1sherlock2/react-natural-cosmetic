@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Wrapper_title from './Wrapper_title';
+import { connect } from 'react-redux';
+import { deleteBasketByidDispatch } from '../../redux/reducers/StocksReducer';
 
 const Wrapper_title_Container = (props) => {
 	const [entry, setEntry] = useState(false);
@@ -13,6 +15,15 @@ const Wrapper_title_Container = (props) => {
 	const onToggleBracket = () => {
 		setBracket(!bracket);
 	};
+	const deleteBasketById = (id) => {
+		props.deleteBasketByidDispatch(id);
+	};
+
+	// useEffect(() => {
+	// 	console.log('useEffect');
+	// 	setBasket(props.basket);
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, [basket]);
 
 	//! Chrome
 	// const handleOutsideClickEntry = (e) => {
@@ -34,23 +45,24 @@ const Wrapper_title_Container = (props) => {
 	// 	document.body.addEventListener('click', handleOutsideClickBracket);
 	// }, []);
 
-	const products = [
-		{ id: 1, product: 'wine', count: 1 },
-		{ id: 2, product: 'wine', count: 2 },
-		{ id: 3, product: 'wine', count: 15 }
-	];
-
 	return (
 		<Wrapper_title
+			deleteBasketById={deleteBasketById}
 			entryRef={entryRef}
 			bracketRef={bracketRef}
 			onToggleEntry={onToggleEntry}
 			entry={entry}
+			basket={props.basket}
 			bracket={bracket}
 			onToggleBracket={onToggleBracket}
-			products={products}
+			isAuth={props.isAuth}
 		/>
 	);
 };
 
-export default Wrapper_title_Container;
+let mapStateToProps = (state) => ({
+	basket: state.stocksData.basket,
+	isAuth: state.authData.isAuth
+});
+
+export default connect(mapStateToProps, { deleteBasketByidDispatch })(Wrapper_title_Container);
