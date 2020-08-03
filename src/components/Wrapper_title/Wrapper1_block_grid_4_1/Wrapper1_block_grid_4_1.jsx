@@ -36,7 +36,7 @@ const Wrapper1_block_grid_4_1 = (props) => {
 		validationSchema,
 		onSubmit
 	});
-	console.log('Visited fields', formik.touched);
+	console.log(formik);
 
 	return (
 		<div className='wrapper1_block_grid_4_1'>
@@ -49,9 +49,10 @@ const Wrapper1_block_grid_4_1 = (props) => {
 						name='email'
 						type='email'
 						placeholder='логин или E-mail'
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.email}
+						// onChange={formik.handleChange}
+						// onBlur={formik.handleBlur}
+						// value={formik.values.email}
+						{...formik.getFieldProps('email')}
 					/>
 				</div>
 				{formik.errors.email && formik.touched.email ? <div className='errors_name_form'>{formik.errors.email}</div> : null}
@@ -60,9 +61,10 @@ const Wrapper1_block_grid_4_1 = (props) => {
 						name='password'
 						type='password'
 						placeholder='пароль'
-						onChange={formik.handleChange}
-						onBlur={formik.handleBlur}
-						value={formik.values.password}
+						// onChange={formik.handleChange}
+						// onBlur={formik.handleBlur}
+						// value={formik.values.password}
+						{...formik.getFieldProps('password')}
 					/>
 				</div>
 				{formik.errors.password && formik.touched.password ? <div className='errors_password_form'>{formik.errors.password}</div> : null}
