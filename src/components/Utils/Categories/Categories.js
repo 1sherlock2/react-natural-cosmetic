@@ -10,7 +10,6 @@ export const Categories = ({ defaultHeaderName, categories, selectCategories, ac
 				{activeCategoried ? (
 					<ul className='list-group list-group-flush'>
 						{categories.map((item, index) => {
-							// return <li className='list-group-item'>{item}</li>;
 							return (
 								<li
 									key={index}

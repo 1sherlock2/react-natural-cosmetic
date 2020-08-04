@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Wrapper_title from './Wrapper_title';
 import { connect } from 'react-redux';
-import { deleteBasketByidDispatch } from '../../redux/reducers/StocksReducer';
 import { authThunk } from '../../redux/reducers/AuthDataReducer';
 import { Redirect } from 'react-router-dom';
+import { deleteBasketByidDispatch } from '../../redux/generalDispatchs/generalDispatch';
 
 const Wrapper_title_Container = (props) => {
 	const [entry, setEntry] = useState(false);

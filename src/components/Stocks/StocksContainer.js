@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Stocks from './Stocks';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import {
-	stocksThunk,
-	selectStockDispatch,
-	increasePriceDispatch,
-	sortStockByPrice,
-	sortStockByBrend,
-	sortStockDate,
-	decreasePriceDispatch,
-	priceDifferentIndexDispatch,
-	addInBasketDispatch
-} from '../../redux/reducers/StocksReducer';
+import { stocksThunk, selectStockDispatch, sortStockByPrice, sortStockByBrend, sortStockDate } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
+import {
+	decreasePriceDispatch,
+	increasePriceDispatch,
+	addInBasketDispatch,
+	priceDifferentIndexDispatch
+} from '../../redux/generalDispatchs/generalDispatch';
 
 const Stocks_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -55,7 +51,6 @@ const Stocks_Container = React.memo((props) => {
 	const selectCategories = () => {
 		setActiveCategoried(!activeCategoried);
 	};
-
 	useEffect(() => {
 		props.stocksThunk();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -70,7 +65,7 @@ const Stocks_Container = React.memo((props) => {
 		props.addInBasketDispatch(item, count);
 	};
 
-	if (props.isLoding === false) {
+	if (props.isLoading === false) {
 		return <ContentLoaderByComponent />;
 	} else {
 		return (
@@ -108,7 +103,6 @@ let mapStateToProps = (state) => {
 		items: state.stocksData.items,
 		isLoaded: state.stocksData.isLoaded,
 		isLoading: state.stocksData.isLoading,
-		count: state.stocksData.count,
 		price: state.stocksData.price,
 		priceIndex: state.stocksData.priceIndex
 	};
@@ -126,6 +120,5 @@ export default compose(
 		addInBasketDispatch,
 		priceDifferentIndexDispatch
 	}),
-
 	withRouter
 )(Stocks_Container);

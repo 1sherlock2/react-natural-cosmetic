@@ -1,18 +1,21 @@
 import { API } from '../API/API';
+import { changeIsLoadingDispatchFalse, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
+import {
+	SET_ISLOADED,
+	INCREASE_PRICE,
+	CHANGE_IS_LOADING_TRUE,
+	CHANGE_IS_LOADING_FALSE,
+	DECREASE_PRICE,
+	DELETE_BASKET_BY_ID,
+	PRICE_DIFFERENT_INDEX,
+	ADD_IN_BASKET
+} from '../namesTypeFofDispatch/namesTypeFofDispatch';
 
 const SET_STOCKS = 'SET_STOCKS';
 const SELECT_STOCK = 'SELECT_STOCK';
 const SORT_STOCK_BY_PRICE = 'SORT_STOCK_BY_PRICE';
 const SORT_STOCK_BY_BREND = 'SORT_STOCK_BY_BREND';
 const SORT_STOCK_BY_DATE = 'SORT_STOCK_BY_DATE';
-const SET_ISLOADED = 'SET_ISLOADED';
-const CHANGE_IS_LOADING_TRUE = 'CHANGE_IS_LOADING_TRUE';
-const CHANGE_IS_LOADING_FALSE = 'CHANGE_IS_LOADING_FALSE';
-const DECREASE_PRICE = 'DECREASE_PRICE';
-const INCREASE_PRICE = 'INCREASE_PRICE';
-const PRICE_DIFFERENT_INDEX = 'PRICE_DIFFERENT_INDEX';
-const ADD_IN_BASKET = 'ADD_IN_BASKET';
-const DELETE_BASKET_BY_ID = 'DELETE_BASKET_BY_ID';
 
 let initialState = {
 	product: null,
@@ -119,21 +122,6 @@ export const selectStockDispatch = (id) => ({ type: SELECT_STOCK, id });
 export const sortStockByPrice = () => ({ type: SORT_STOCK_BY_PRICE });
 export const sortStockByBrend = () => ({ type: SORT_STOCK_BY_BREND });
 export const sortStockDate = () => ({ type: SORT_STOCK_BY_DATE });
-const isLoadedDispatch = (isLoaded) => ({ type: SET_ISLOADED, isLoaded });
-const changeIsLoadingDispatchFalse = () => ({ type: CHANGE_IS_LOADING_FALSE });
-const changeIsLoadingDispatchTrue = () => ({ type: CHANGE_IS_LOADING_TRUE });
-export const decreasePriceDispatch = (count) => ({ type: DECREASE_PRICE, count });
-export const increasePriceDispatch = (count) => ({ type: INCREASE_PRICE, count });
-export const priceDifferentIndexDispatch = (index) => ({ type: PRICE_DIFFERENT_INDEX, index });
-export const addInBasketDispatch = (item, count) => {
-	const countObj = count;
-	item.count = countObj;
-	return {
-		type: ADD_IN_BASKET,
-		item
-	};
-};
-export const deleteBasketByidDispatch = (id) => ({ type: DELETE_BASKET_BY_ID, id });
 
 export const stocksThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
