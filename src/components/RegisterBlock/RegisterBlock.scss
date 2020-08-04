@@ -1,4 +1,20 @@
-.register_container_form {
-	width: 70%;
-	margin: 5% auto;
+.container-fluid {
+	justify-content: center;
+	.container {
+		display: grid;
+		justify-items: center;
+
+		.register_container_form {
+			width: 70%;
+			margin: 5% auto;
+			.btn-primary {
+				background-color: rgba(51, 51, 51, 0.739);
+			}
+			.register_success {
+				margin: 2.5% auto;
+				text-align: center;
+				color: rgba(0, 255, 55, 0.918);
+			}
+		}
+	}
 }

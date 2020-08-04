@@ -67,12 +67,13 @@
 			position: relative;
 			cursor: pointer;
 			justify-content: right;
-			i {
+			.svg_wrapper1_block_grid_4 {
 				font-size: 20px;
 				position: absolute;
-				left: 20px;
-				top: 20px;
+				left: -5%;
+				top: 20%;
 				width: 150px;
+				color: white;
 			}
 			span {
 				position: absolute;
@@ -225,12 +226,13 @@
 		.wrapper1_block_grid_5 {
 			cursor: pointer;
 			position: relative;
-			i {
+			.svg_wrapper1_block_grid_5 {
 				font-size: 20px;
 				position: absolute;
-				left: 120px;
-				top: 20px;
+				left: 20%;
+				top: 30%;
 				width: 150px;
+				color: white;
 			}
 			span {
 				width: 150px;
@@ -279,6 +281,10 @@
 					}
 				}
 			}
+		}
+		.isAuth_success_entry {
+			margin-top: 5%;
+			color: rgb(11, 235, 78);
 		}
 	}
 }
@@ -356,12 +362,13 @@
 				position: relative;
 				padding-left: 50px;
 
-				i {
+				svg {
 					font-size: 60px;
 					position: absolute;
 					left: 60px;
 					top: 30%;
 					width: 100px;
+					color: white;
 				}
 				span {
 					display: none;

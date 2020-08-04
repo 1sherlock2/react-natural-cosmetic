@@ -46,11 +46,13 @@ const RegisterBlock = (props) => {
 							</button>
 						</Form>
 					</Formik>
+					{props.registerSuccess ? (
+						<div className='register_success'>
+							Регистрация прошла успешно, для полноценного пользования всеми преимуществами сайта - войдите в свой личный кабинет
+						</div>
+					) : null}
 				</div>
 			</div>
-			{props.registerSuccess ? (
-				<div>Регистрация прошла успешно, для полноценного пользования всеми преимуществами сайта - войдите в свой личный кабинет</div>
-			) : null}
 		</div>
 	);
 };

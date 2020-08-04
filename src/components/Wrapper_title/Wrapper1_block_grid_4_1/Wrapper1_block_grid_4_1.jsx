@@ -46,6 +46,7 @@ const Wrapper1_block_grid_4_1 = (props) => {
 					</div>
 				</Form>
 			</Formik>
+			{props.isAuth ? <div className='isAuth_success_entry'>Вы вошли в личный кабинет</div> : null}
 		</div>
 	);
 };
