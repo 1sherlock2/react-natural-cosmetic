@@ -21,7 +21,7 @@ const Wrapper_title = (props) => {
 						<i className='fa fa-user-o' aria-hidden='true'></i>
 						<span>Войти</span>
 					</div>
-					{props.entry ? <Wrapper1_block_grid_4_1 /> : null}
+					{props.entry ? <Wrapper1_block_grid_4_1 onSubmit={props.onSubmit} /> : null}
 				</div>
 				<div className='wrapper1_block_grid_5'>
 					<div ref={props.bracketRef} onClick={props.onToggleBracket}>

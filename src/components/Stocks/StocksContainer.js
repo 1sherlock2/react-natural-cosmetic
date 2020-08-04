@@ -13,6 +13,8 @@ import {
 	addInBasketDispatch
 } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
+import { compose } from 'redux';
+import { withRouter } from 'react-router-dom';
 
 const Stocks_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -112,14 +114,18 @@ let mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, {
-	decreasePriceDispatch,
-	increasePriceDispatch,
-	stocksThunk,
-	selectStockDispatch,
-	sortStockByPrice,
-	sortStockByBrend,
-	sortStockDate,
-	addInBasketDispatch,
-	priceDifferentIndexDispatch
-})(Stocks_Container);
+export default compose(
+	connect(mapStateToProps, {
+		decreasePriceDispatch,
+		increasePriceDispatch,
+		stocksThunk,
+		selectStockDispatch,
+		sortStockByPrice,
+		sortStockByBrend,
+		sortStockDate,
+		addInBasketDispatch,
+		priceDifferentIndexDispatch
+	}),
+
+	withRouter
+)(Stocks_Container);

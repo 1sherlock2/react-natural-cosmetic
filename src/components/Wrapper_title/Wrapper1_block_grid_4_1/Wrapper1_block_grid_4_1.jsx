@@ -2,26 +2,24 @@ import React from 'react';
 import '../Wrapper_title.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
-const initialValues = {
-	email: '',
-	password: ''
-};
-
-const onSubmit = (values) => console.log(values); //? thunk on server
-
-const validationSchema = Yup.object({
-	email: Yup.string().email('Неправильный формат email').required('Необходимо заполнить поле'),
-	password: Yup.string().required('Необходимо заполнить поле').min(8, 'Не меньше 8 символов')
-});
+import { NavLink, withRouter } from 'react-router-dom';
 
 const Wrapper1_block_grid_4_1 = (props) => {
+	const initialValues = {
+		email: '',
+		password: ''
+	};
+
+	const validationSchema = Yup.object({
+		email: Yup.string().email('Неправильный формат email').required('Необходимо заполнить поле'),
+		password: Yup.string().required('Необходимо заполнить поле').min(8, 'Не меньше 8 символов')
+	});
 	return (
 		<div className='wrapper1_block_grid_4_1'>
 			<div className='wrapper1_block_entrance'>
 				<h1> Личный кабинет</h1>
 			</div>
-			<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+			<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
 				<Form>
 					<div className='wrapper1_block_email'>
 						<Field name='email' type='email' placeholder='логин или E-mail' />
@@ -36,10 +34,14 @@ const Wrapper1_block_grid_4_1 = (props) => {
 							<button className='atuin-btn'>Войти</button>
 						</div>
 						<div className='registr'>
-							<a className='registr_a'>Регистрация</a>
+							<NavLink to={'/register'} className='registr_a'>
+								Регистрация
+							</NavLink>
 						</div>
 						<div className='forgot_password'>
-							<a className='forgot_password_a'>Забыли пароль?</a>
+							<NavLink to={'#'} className='forgot_password_a'>
+								Забыли пароль?
+							</NavLink>
 						</div>
 					</div>
 				</Form>
@@ -48,4 +50,4 @@ const Wrapper1_block_grid_4_1 = (props) => {
 	);
 };
 
-export default Wrapper1_block_grid_4_1;
+export default withRouter(Wrapper1_block_grid_4_1);

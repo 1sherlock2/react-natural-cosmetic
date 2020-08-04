@@ -8,11 +8,13 @@ import { navigationProductReducer } from '../reducers/main_content_reducers/Navi
 import { stocksContainerReducer } from '../reducers/main_content_reducers/StocksContainerReducer';
 import { wrapperImgContentReducer } from '../reducers/main_content_reducers/WrapperImgContentReducer';
 import { koreaReducer } from '../reducers/KoreaReducer';
+import { wripperTitleReducer } from '../reducers/WrapperTitleReducer';
 const { combineReducers, createStore, applyMiddleware } = require('redux');
 
 const redurPack = combineReducers({
 	authData: authDataReducer,
 	stocksData: stocksReducer,
+	wripperTitleData: wripperTitleReducer,
 	contentData: contentReducer,
 	adversitingStockData: adversitingStockReducer,
 	navigationProductData: navigationProductReducer,

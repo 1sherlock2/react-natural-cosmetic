@@ -1,12 +1,21 @@
 import * as axios from 'axios';
 
-const instance = axios.create({});
+const instance = axios.create({
+	baseURL: 'http://localhost:3001',
+	withCredentials: true
+});
 
 export const API = {
+	authAPI(values) {
+		return instance.post('/auth', values);
+	},
+	authRegisterAPI(values) {
+		return instance.post('/auth', values);
+	},
 	stocksAPI() {
-		return axios.get('http://localhost:3001/stocks');
+		return instance.get('/stocks');
 	},
 	koreaAPI() {
-		return axios.get('http://localhost:3001/korea');
+		return instance.get('/korea');
 	}
 };

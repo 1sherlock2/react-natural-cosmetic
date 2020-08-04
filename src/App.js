@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import './App.scss';
-import { withRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import { withRouter, BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Provider, connect } from 'react-redux';
 import store from './redux/store/Store';
 import Wrapper_title_Container from './components/Wrapper_title/Wrapper_title_Container';
 import Wrapper_navigation_Container from './components/Wrapper_navigation/Wrapper_navigation_Container';
@@ -14,6 +14,8 @@ import Accessories_Container from './components/Accessories/AccessoriesContainer
 import Kids_Container from './components/Kids/KidsContainer';
 import Gift_Container from './components/GIft/GiftContainer';
 import ContentLoaderByComponent from './components/Utils/ContentLoaderByComponent/ContentLoaderByComponent';
+import RegisterBlockContainer from './components/RegisterBlock/RegisterBlockContainer';
+import { compose } from 'redux';
 
 // const Wrapper_title_Container = React.lazy(() => import('./components/Wrapper_title/Wrapper_title_Container'));
 // const Wrapper_navigation_Container = React.lazy(() => import('./components/Wrapper_navigation/Wrapper_navigation_Container'));
@@ -21,7 +23,7 @@ const Main_content_Container = React.lazy(() => import('./components/Main_conten
 const Stocks_Container = React.lazy(() => import('./components/Stocks/StocksContainer'));
 const Korea_Container = React.lazy(() => import('./components/Korea/KoreaContainer'));
 
-const App = () => {
+const App = (props) => {
 	return (
 		<Switch>
 			<div className='container-natural'>
@@ -29,6 +31,7 @@ const App = () => {
 				<Wrapper_navigation_Container />
 				<Suspense fallback={<ContentLoaderByComponent />}>
 					<Route exact path={'/'} render={() => <Main_content_Container />} />
+					<Route exact path={'/register'} render={() => <RegisterBlockContainer />} />
 					<Route exact path={'/stocks'} render={() => <Stocks_Container />} />
 					<Route exact path={`/korea`} render={() => <Korea_Container />} />
 					<Route exact path={`/perfumery`} render={() => <Perfumery_Container />} />
@@ -44,7 +47,11 @@ const App = () => {
 	);
 };
 
-const AppContainer = withRouter(App);
+let mapStateToProps = (state) => ({
+	isAuth: state.authData.isAuth
+});
+
+const AppContainer = compose(connect(mapStateToProps, {}), withRouter)(App);
 
 const MainApp = () => {
 	return (
