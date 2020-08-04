@@ -37,26 +37,6 @@ const Wrapper_title_Container = (props) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [basket]);
 
-	//! Chrome
-	// const handleOutsideClickEntry = (e) => {
-	// 	if (!e.path.includes(entryRef.current)) {
-	// 		setEntry(false);
-	// 		console.log('entry');
-	// 	}
-	// };
-	// const handleOutsideClickBracket = (e) => {
-	// 	if (!e.path.includes(bracketRef.current)) {
-	// 		setBracket(false);
-	// 		console.log('bracket');
-	// 	}
-	// };
-	// useEffect(() => {
-	// 	document.body.addEventListener('click', handleOutsideClickEntry);
-	// }, []);
-	// useEffect(() => {
-	// 	document.body.addEventListener('click', handleOutsideClickBracket);
-	// }, []);
-
 	return (
 		<Wrapper_title
 			onSubmit={onSubmit}
@@ -79,3 +59,23 @@ let mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { deleteBasketByidDispatch, authThunk })(Wrapper_title_Container);
+
+//! Chrome
+// const handleOutsideClickEntry = (e) => {
+// 	if (!e.path.includes(entryRef.current)) {
+// 		setEntry(false);
+// 		console.log('entry');
+// 	}
+// };
+// const handleOutsideClickBracket = (e) => {
+// 	if (!e.path.includes(bracketRef.current)) {
+// 		setBracket(false);
+// 		console.log('bracket');
+// 	}
+// };
+// useEffect(() => {
+// 	document.body.addEventListener('click', handleOutsideClickEntry);
+// }, []);
+// useEffect(() => {
+// 	document.body.addEventListener('click', handleOutsideClickBracket);
+// }, []);

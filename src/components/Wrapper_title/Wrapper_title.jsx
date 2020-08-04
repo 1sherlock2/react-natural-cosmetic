@@ -30,7 +30,7 @@ const Wrapper_title = (props) => {
 						<br />
 						<span className>1</span>
 					</div>
-					{props.bracket ? <Wrapper1_block_bracket isAuth={props.isAuth} basket={props.basket} /> : null}
+					{props.bracket ? <Wrapper1_block_bracket deleteBasketById={props.deleteBasketById} isAuth={props.isAuth} basket={props.basket} /> : null}
 				</div>
 			</div>
 		</div>
