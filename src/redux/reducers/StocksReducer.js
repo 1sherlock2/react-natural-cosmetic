@@ -1,5 +1,5 @@
 import { API } from '../API/API';
-import { changeIsLoadingDispatchFalse, stocksDispatch, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
+import { changeIsLoadingDispatchFalse, setItemsDispatch, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
 
 let initialState = {
 	product: null,
@@ -13,12 +13,12 @@ let initialState = {
 
 export const stocksReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'SET_STOCKS':
+		case 'SET_ITEMS':
 			return {
 				...state,
 				items: action.items
 			};
-		case 'SELECT_STOCK':
+		case 'SELECT_ITEMS':
 			let b = state.items.filter((item) => item.id === action.id);
 			let obj = b.reduce((result, item, index) => {
 				result[index] = item;
@@ -29,17 +29,17 @@ export const stocksReducer = (state = initialState, action) => {
 				product: state.items.filter((item) => item.id === action.id),
 				price: obj.price
 			};
-		case 'SORT_STOCK_BY_PRICE':
+		case 'SORT_ITEMS_BY_PRICE':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.price > b.price ? 1 : -1))
 			};
-		case 'SORT_STOCK_BY_BREND':
+		case 'SORT_ITEMS_BY_BREND':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.brend > b.brend ? 1 : -1))
 			};
-		case 'SORT_STOCK_BY_DATE':
+		case 'SORT_ITEMS_BY_DATE':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.date > b.date ? 1 : -1))
@@ -105,7 +105,7 @@ export const stocksThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
 	return API.stocksAPI().then((response) => {
 		if (response.status === 200) {
-			dispatch(stocksDispatch(response.data.items));
+			dispatch(setItemsDispatch(response.data.items));
 			dispatch(isLoadedDispatch(response.data.isLoaded));
 			dispatch(changeIsLoadingDispatchTrue());
 		}

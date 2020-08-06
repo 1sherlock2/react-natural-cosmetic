@@ -8,10 +8,10 @@ import {
 	increasePriceDispatch,
 	addInBasketDispatch,
 	priceDifferentIndexDispatch,
-	selectPerfumeryDispatch,
-	sortPerfumeryByPrice,
-	sortPerfumeryByBrend,
-	sortPerfumeryDate
+	selectItemsDispatch,
+	sortItemsByPrice,
+	sortItemsByBrend,
+	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 
@@ -26,13 +26,13 @@ const Perfumery_Container = (props) => {
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
 		if (element === 'по цене') {
-			props.sortPerfumeryByPrice();
+			props.sortItemsByPrice();
 		}
 		if (element === 'по бренду') {
-			props.sortPerfumeryByBrend();
+			props.sortItemsByBrend();
 		}
 		if (element === 'по новизне') {
-			props.sortPerfumeryDate();
+			props.sortItemsByBrend();
 		}
 		setDefaultHeaderName(element);
 	};
@@ -75,7 +75,7 @@ const Perfumery_Container = (props) => {
 				increaseCount={increaseCount}
 				decreaseCount={decreaseCount}
 				isLoaded={props.isLoaded}
-				selectPerfumeryDispatch={props.selectPerfumeryDispatch}
+				selectItemsDispatch={props.selectItemsDispatch}
 				selectCategoriesItemFunc={selectCategoriesItemFunc}
 				selectCategoriesItem={selectCategoriesItem}
 				activeCategoried={activeCategoried}
@@ -105,11 +105,11 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
 	addInBasketDispatch,
 	perfumeryThunk,
-	selectPerfumeryDispatch,
-	sortPerfumeryByPrice,
-	sortPerfumeryByBrend,
+	selectItemsDispatch,
+	sortItemsByPrice,
+	sortItemsByBrend,
+	sortItemsDate,
 	decreasePriceDispatch,
 	increasePriceDispatch,
-	priceDifferentIndexDispatch,
-	sortPerfumeryDate
+	priceDifferentIndexDispatch
 })(Perfumery_Container);

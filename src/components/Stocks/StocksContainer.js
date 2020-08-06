@@ -10,10 +10,10 @@ import {
 	increasePriceDispatch,
 	addInBasketDispatch,
 	priceDifferentIndexDispatch,
-	selectStockDispatch,
-	sortStockByPrice,
-	sortStockByBrend,
-	sortStockDate
+	selectItemsDispatch,
+	sortItemsByPrice,
+	sortItemsByBrend,
+	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
 
 const Stocks_Container = React.memo((props) => {
@@ -27,13 +27,13 @@ const Stocks_Container = React.memo((props) => {
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
 		if (element === 'по цене') {
-			props.sortStockByPrice();
+			props.sortItemsByPrice();
 		}
 		if (element === 'по бренду') {
-			props.sortStockByBrend();
+			props.sortItemsByBrend();
 		}
 		if (element === 'по новизне') {
-			props.sortStockDate();
+			props.sortItemsDate();
 		}
 		setDefaultHeaderName(element);
 	};
@@ -83,7 +83,7 @@ const Stocks_Container = React.memo((props) => {
 					increaseCount={increaseCount}
 					decreaseCount={decreaseCount}
 					isLoaded={props.isLoaded}
-					selectStockDispatch={props.selectStockDispatch}
+					selectItemsDispatch={props.selectItemsDispatch}
 					selectCategoriesItemFunc={selectCategoriesItemFunc}
 					selectCategoriesItem={selectCategoriesItem}
 					activeCategoried={activeCategoried}
@@ -118,10 +118,10 @@ export default compose(
 		increasePriceDispatch,
 		addInBasketDispatch,
 		priceDifferentIndexDispatch,
-		selectStockDispatch,
-		sortStockByPrice,
-		sortStockByBrend,
-		sortStockDate,
+		selectItemsDispatch,
+		sortItemsByPrice,
+		sortItemsByBrend,
+		sortItemsDate,
 		stocksThunk
 	}),
 	withRouter

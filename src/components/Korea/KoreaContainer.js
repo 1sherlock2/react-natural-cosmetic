@@ -8,10 +8,10 @@ import {
 	increasePriceDispatch,
 	addInBasketDispatch,
 	priceDifferentIndexDispatch,
-	selectKoreaDispatch,
-	sortKoreaByPrice,
-	sortKoreaByBrend,
-	sortKoreaDate
+	selectItemsDispatch,
+	sortItemsByPrice,
+	sortItemsByBrend,
+	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
 
 const Korea_Container = (props) => {
@@ -25,13 +25,13 @@ const Korea_Container = (props) => {
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
 		if (element === 'по цене') {
-			props.sortKoreaByPrice();
+			props.sortItemsByPrice();
 		}
 		if (element === 'по бренду') {
-			props.sortKoreaByBrend();
+			props.sortItemsByBrend();
 		}
 		if (element === 'по новизне') {
-			props.sortKoreaDate();
+			props.sortItemsDate();
 		}
 		setDefaultHeaderName(element);
 	};
@@ -74,7 +74,7 @@ const Korea_Container = (props) => {
 				increaseCount={increaseCount}
 				decreaseCount={decreaseCount}
 				isLoaded={props.isLoaded}
-				selectKoreaDispatch={props.selectKoreaDispatch}
+				selectItemsDispatch={props.selectItemsDispatch}
 				selectCategoriesItemFunc={selectCategoriesItemFunc}
 				selectCategoriesItem={selectCategoriesItem}
 				activeCategoried={activeCategoried}
@@ -104,11 +104,11 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
 	addInBasketDispatch,
 	koreaThunk,
-	selectKoreaDispatch,
-	sortKoreaByPrice,
-	sortKoreaByBrend,
+	selectItemsDispatch,
+	sortItemsByPrice,
+	sortItemsByBrend,
+	sortItemsDate,
 	decreasePriceDispatch,
 	increasePriceDispatch,
-	priceDifferentIndexDispatch,
-	sortKoreaDate
+	priceDifferentIndexDispatch
 })(Korea_Container);

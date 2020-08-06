@@ -23,5 +23,11 @@ export const API = {
 	},
 	perfumeryAPI() {
 		return instance.get('/perfumery');
+	},
+	skinCareAPI() {
+		return instance.get('/skinCare');
+	},
+	makeUpAPI() {
+		return instance.get('/makeUp');
 	}
 };

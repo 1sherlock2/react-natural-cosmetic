@@ -1,5 +1,5 @@
 import { API } from '../API/API';
-import { changeIsLoadingDispatchFalse, isLoadedDispatch, changeIsLoadingDispatchTrue, setItemsDispatch } from '../generalDispatchs/generalDispatch';
+import { changeIsLoadingDispatchFalse, setItemsDispatch, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
 
 let initialState = {
 	product: null,
@@ -11,7 +11,7 @@ let initialState = {
 	basket: []
 };
 
-export const perfumeryReducer = (state = initialState, action) => {
+export const makeUpReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'SET_ITEMS':
 			return {
@@ -101,11 +101,13 @@ export const perfumeryReducer = (state = initialState, action) => {
 	}
 };
 
-export const perfumeryThunk = () => (dispatch) => {
+export const makeUpThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
-	return API.perfumeryAPI().then((response) => {
-		dispatch(setItemsDispatch(response.data.items));
-		dispatch(isLoadedDispatch(response.data.isLoaded));
-		dispatch(changeIsLoadingDispatchTrue());
+	return API.makeUpAPI().then((response) => {
+		if (response.status === 200) {
+			dispatch(setItemsDispatch(response.data.items));
+			dispatch(isLoadedDispatch(response.data.isLoaded));
+			dispatch(changeIsLoadingDispatchTrue());
+		}
 	});
 };
