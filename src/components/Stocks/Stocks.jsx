@@ -31,7 +31,7 @@ const Stocks = (props) => {
 						props.product.map((item, index) => {
 							return (
 								<div>
-									<div className='card' key={`${item.id} ${index}`}>
+									<div className='card card_elements' key={`${item.id} ${index}`}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
 											<h5 className='card-title'>{item.name}</h5>
