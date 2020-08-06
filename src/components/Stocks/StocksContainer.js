@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Stocks from './Stocks';
-import { connect, useDispatch, useSelector } from 'react-redux';
-import { stocksThunk, selectStockDispatch, sortStockByPrice, sortStockByBrend, sortStockDate } from '../../redux/reducers/StocksReducer';
+import { connect } from 'react-redux';
+import { stocksThunk } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -9,7 +9,11 @@ import {
 	decreasePriceDispatch,
 	increasePriceDispatch,
 	addInBasketDispatch,
-	priceDifferentIndexDispatch
+	priceDifferentIndexDispatch,
+	selectStockDispatch,
+	sortStockByPrice,
+	sortStockByBrend,
+	sortStockDate
 } from '../../redux/generalDispatchs/generalDispatch';
 
 const Stocks_Container = React.memo((props) => {
@@ -112,13 +116,13 @@ export default compose(
 	connect(mapStateToProps, {
 		decreasePriceDispatch,
 		increasePriceDispatch,
-		stocksThunk,
+		addInBasketDispatch,
+		priceDifferentIndexDispatch,
 		selectStockDispatch,
 		sortStockByPrice,
 		sortStockByBrend,
 		sortStockDate,
-		addInBasketDispatch,
-		priceDifferentIndexDispatch
+		stocksThunk
 	}),
 	withRouter
 )(Stocks_Container);

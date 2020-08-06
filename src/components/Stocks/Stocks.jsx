@@ -112,7 +112,8 @@ const Stocks = (props) => {
 									<div className='card' key={`${index} ${item.id}`} onClick={() => props.selectStockDispatch(item.id)}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
-											<p className='card-text'>{item.name} </p>
+											<p className='card-text card_items_name'>{item.name} </p>
+											<p className='card-text card_items_price'>{item.price} р.</p>
 										</div>
 									</div>
 								</NavLink>

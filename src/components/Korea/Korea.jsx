@@ -56,14 +56,14 @@ const Korea = React.memo((props) => {
 																<button
 																	type='button'
 																	className='btn btn-secondary btn-secondary_1'
-																	onClick={props.decreaseCount}>
+																	onClick={() => props.decreaseCount()}>
 																	-
 																</button>
 																<span>{props.count}</span>
 																<button
 																	type='button'
 																	className='btn btn-secondary btn-secondary_2'
-																	onClick={props.increaseCount}>
+																	onClick={() => props.increaseCount()}>
 																	+
 																</button>
 															</div>
@@ -112,7 +112,8 @@ const Korea = React.memo((props) => {
 									<div className='card' key={`${index} ${item.name}`} onClick={() => props.selectKoreaDispatch(item.id)}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
-											<p className='card-text'>{item.name} </p>
+											<p className='card-text card_items_name'>{item.name} </p>
+											<p className='card-text card_items_price'>{item.price} р.</p>
 										</div>
 									</div>
 								</NavLink>

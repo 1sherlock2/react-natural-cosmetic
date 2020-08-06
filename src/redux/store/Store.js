@@ -9,6 +9,7 @@ import { stocksContainerReducer } from '../reducers/main_content_reducers/Stocks
 import { wrapperImgContentReducer } from '../reducers/main_content_reducers/WrapperImgContentReducer';
 import { koreaReducer } from '../reducers/KoreaReducer';
 import { wripperTitleReducer } from '../reducers/WrapperTitleReducer';
+import { perfumeryReducer } from '../reducers/PerfumeryReducer';
 const { combineReducers, createStore, applyMiddleware } = require('redux');
 
 const redurPack = combineReducers({
@@ -20,6 +21,7 @@ const redurPack = combineReducers({
 	navigationProductData: navigationProductReducer,
 	stocksContainerData: stocksContainerReducer,
 	koreaData: koreaReducer,
+	perfumeryData: perfumeryReducer,
 	wrapperImgContentData: wrapperImgContentReducer
 });
 

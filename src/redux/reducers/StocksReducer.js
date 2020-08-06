@@ -1,21 +1,5 @@
 import { API } from '../API/API';
-import { changeIsLoadingDispatchFalse, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
-import {
-	SET_ISLOADED,
-	INCREASE_PRICE,
-	CHANGE_IS_LOADING_TRUE,
-	CHANGE_IS_LOADING_FALSE,
-	DECREASE_PRICE,
-	DELETE_BASKET_BY_ID,
-	PRICE_DIFFERENT_INDEX,
-	ADD_IN_BASKET
-} from '../namesTypeFofDispatch/namesTypeFofDispatch';
-
-const SET_STOCKS = 'SET_STOCKS';
-const SELECT_STOCK = 'SELECT_STOCK';
-const SORT_STOCK_BY_PRICE = 'SORT_STOCK_BY_PRICE';
-const SORT_STOCK_BY_BREND = 'SORT_STOCK_BY_BREND';
-const SORT_STOCK_BY_DATE = 'SORT_STOCK_BY_DATE';
+import { changeIsLoadingDispatchFalse, stocksDispatch, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
 
 let initialState = {
 	product: null,
@@ -29,12 +13,12 @@ let initialState = {
 
 export const stocksReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case SET_STOCKS:
+		case 'SET_STOCKS':
 			return {
 				...state,
 				items: action.items
 			};
-		case SELECT_STOCK:
+		case 'SELECT_STOCK':
 			let b = state.items.filter((item) => item.id === action.id);
 			let obj = b.reduce((result, item, index) => {
 				result[index] = item;
@@ -45,37 +29,37 @@ export const stocksReducer = (state = initialState, action) => {
 				product: state.items.filter((item) => item.id === action.id),
 				price: obj.price
 			};
-		case SORT_STOCK_BY_PRICE:
+		case 'SORT_STOCK_BY_PRICE':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.price > b.price ? 1 : -1))
 			};
-		case SORT_STOCK_BY_BREND:
+		case 'SORT_STOCK_BY_BREND':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.brend > b.brend ? 1 : -1))
 			};
-		case SORT_STOCK_BY_DATE:
+		case 'SORT_STOCK_BY_DATE':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.date > b.date ? 1 : -1))
 			};
-		case SET_ISLOADED:
+		case 'SET_ISLOADED':
 			return {
 				...state,
 				isLoaded: action.isLoaded
 			};
-		case CHANGE_IS_LOADING_FALSE:
+		case 'CHANGE_IS_LOADING_FALSE':
 			return {
 				...state,
 				isLoading: false
 			};
-		case CHANGE_IS_LOADING_TRUE:
+		case 'CHANGE_IS_LOADING_TRUE':
 			return {
 				...state,
 				isLoading: true
 			};
-		case DECREASE_PRICE:
+		case 'DECREASE_PRICE':
 			return {
 				...state,
 				product: state.product.reduce((result, item) => {
@@ -87,7 +71,7 @@ export const stocksReducer = (state = initialState, action) => {
 					}
 				}, state.product)
 			};
-		case INCREASE_PRICE:
+		case 'INCREASE_PRICE':
 			return {
 				...state,
 				product: state.product.reduce((result, item) => {
@@ -95,17 +79,17 @@ export const stocksReducer = (state = initialState, action) => {
 					return result;
 				}, state.product)
 			};
-		case PRICE_DIFFERENT_INDEX:
+		case 'PRICE_DIFFERENT_INDEX':
 			return {
 				...state,
 				priceIndex: action.index
 			};
-		case ADD_IN_BASKET:
+		case 'ADD_IN_BASKET':
 			return {
 				...state,
 				basket: [...state.basket, action.item]
 			};
-		case DELETE_BASKET_BY_ID:
+		case 'DELETE_BASKET_BY_ID':
 			return {
 				...state,
 				basket: [...state.basket.filter((item) => item.id !== action.id)]
@@ -116,12 +100,6 @@ export const stocksReducer = (state = initialState, action) => {
 			};
 	}
 };
-
-const stocksDispatch = (items) => ({ type: SET_STOCKS, items });
-export const selectStockDispatch = (id) => ({ type: SELECT_STOCK, id });
-export const sortStockByPrice = () => ({ type: SORT_STOCK_BY_PRICE });
-export const sortStockByBrend = () => ({ type: SORT_STOCK_BY_BREND });
-export const sortStockDate = () => ({ type: SORT_STOCK_BY_DATE });
 
 export const stocksThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());

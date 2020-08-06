@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Korea from './Korea';
-import { koreaThunk, selectKoreaDispatch, sortKoreaByPrice, sortKoreaByBrend, sortKoreaDate } from '../../redux/reducers/KoreaReducer';
+import { koreaThunk } from '../../redux/reducers/KoreaReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import {
 	decreasePriceDispatch,
 	increasePriceDispatch,
 	addInBasketDispatch,
-	priceDifferentIndexDispatch
+	priceDifferentIndexDispatch,
+	selectKoreaDispatch,
+	sortKoreaByPrice,
+	sortKoreaByBrend,
+	sortKoreaDate
 } from '../../redux/generalDispatchs/generalDispatch';
 
 const Korea_Container = (props) => {
@@ -55,7 +59,7 @@ const Korea_Container = (props) => {
 
 	const selectItem = (index) => {
 		setActivePriceDifferent(index);
-		// props.priceDifferentIndexDispatch(index);
+		props.priceDifferentIndexDispatch(index);
 	};
 	const addInBasket = (item, count) => {
 		props.addInBasketDispatch(item, count);
@@ -103,5 +107,8 @@ export default connect(mapStateToProps, {
 	selectKoreaDispatch,
 	sortKoreaByPrice,
 	sortKoreaByBrend,
+	decreasePriceDispatch,
+	increasePriceDispatch,
+	priceDifferentIndexDispatch,
 	sortKoreaDate
 })(Korea_Container);

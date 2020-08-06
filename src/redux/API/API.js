@@ -17,5 +17,8 @@ export const API = {
 	},
 	koreaAPI() {
 		return instance.get('/korea');
+	},
+	perfumeryAPI() {
+		return instance.get('/perfumery');
 	}
 };

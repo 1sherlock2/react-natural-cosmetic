@@ -2,13 +2,16 @@ import React from 'react';
 import './Wrapper_title.scss';
 import Wrapper1_block_grid_4_1 from './Wrapper1_block_grid_4_1/Wrapper1_block_grid_4_1';
 import Wrapper1_block_bracket from './Wrapper1_block_bracket/Wrapper1_block_bracket';
+import { NavLink } from 'react-router-dom';
 
 const Wrapper_title = (props) => {
 	return (
 		<div className='wrapper_title'>
 			<div className='wrapper_block'>
 				<div className='wrapper1_block_grid_1'>
-					<img src='img/logo.jpg' alt='' />
+					<NavLink to='/'>
+						<img src='img/logo.jpg' alt='' />
+					</NavLink>
 				</div>
 				<div className='wrapper1_block_grid_3'>
 					<form method='post' action='#'>

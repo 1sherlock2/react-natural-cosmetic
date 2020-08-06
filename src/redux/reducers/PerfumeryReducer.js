@@ -1,5 +1,5 @@
 import { API } from '../API/API';
-import { changeIsLoadingDispatchFalse, koreaDispatch, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
+import { changeIsLoadingDispatchFalse, isLoadedDispatch, changeIsLoadingDispatchTrue, perfumeryDispatch } from '../generalDispatchs/generalDispatch';
 
 let initialState = {
 	product: null,
@@ -11,14 +11,14 @@ let initialState = {
 	basket: []
 };
 
-export const koreaReducer = (state = initialState, action) => {
+export const perfumeryReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case 'SET_KOREA':
+		case 'SET_PERFUMERY':
 			return {
 				...state,
 				items: action.items
 			};
-		case 'SELECT_KOREA':
+		case 'SELECT_PERFUMERY':
 			let b = state.items.filter((item) => item.id === action.id);
 			let obj = b.reduce((result, item, index) => {
 				result[index] = item;
@@ -29,17 +29,17 @@ export const koreaReducer = (state = initialState, action) => {
 				product: state.items.filter((item) => item.id === action.id),
 				price: obj.price
 			};
-		case 'SORT_KOREA_BY_PRICE':
+		case 'SORT_PERFUMERY_BY_PRICE':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.price > b.price ? 1 : -1))
 			};
-		case 'SORT_KOREA_BY_BREND':
+		case 'SORT_PERFUMERY_BY_BREND':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.brend > b.brend ? 1 : -1))
 			};
-		case 'SORT_KOREA_BY_DATE':
+		case 'SORT_PERFUMERY_BY_DATE':
 			return {
 				...state,
 				items: state.items.sort((a, b) => (a.date > b.date ? 1 : -1))
@@ -60,8 +60,9 @@ export const koreaReducer = (state = initialState, action) => {
 				isLoading: true
 			};
 		case 'DECREASE_PRICE':
-			const product = {
-				...state.product.reduce((result, item) => {
+			return {
+				...state,
+				product: state.product.reduce((result, item) => {
 					if (action.count < 1) {
 						return state.product;
 					} else {
@@ -69,10 +70,6 @@ export const koreaReducer = (state = initialState, action) => {
 						return result;
 					}
 				}, state.product)
-			};
-			return {
-				...state,
-				product: product
 			};
 		case 'INCREASE_PRICE':
 			return {
@@ -104,10 +101,10 @@ export const koreaReducer = (state = initialState, action) => {
 	}
 };
 
-export const koreaThunk = () => (dispatch) => {
+export const perfumeryThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
-	return API.koreaAPI().then((response) => {
-		dispatch(koreaDispatch(response.data.items));
+	return API.perfumeryAPI().then((response) => {
+		dispatch(perfumeryDispatch(response.data.items));
 		dispatch(isLoadedDispatch(response.data.isLoaded));
 		dispatch(changeIsLoadingDispatchTrue());
 	});
