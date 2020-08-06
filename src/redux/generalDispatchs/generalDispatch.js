@@ -1,3 +1,7 @@
+//main content
+//wrapperImgContent
+export const wrapperImgContent = (items) => ({ type: 'SET_WRAPPER_IMG_CONTENT' });
+
 // stocks
 export const stocksDispatch = (items) => ({ type: 'SET_STOCKS', items });
 export const selectStockDispatch = (id) => ({ type: 'SELECT_STOCK', id });

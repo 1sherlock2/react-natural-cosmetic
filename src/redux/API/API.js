@@ -6,6 +6,9 @@ const instance = axios.create({
 });
 
 export const API = {
+	mainAPI() {
+		return instance.get('/mainContent');
+	},
 	authAPI(values) {
 		return instance.post('/auth', values);
 	},

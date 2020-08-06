@@ -12,12 +12,19 @@ const RegisterBlockContainer = (props) => {
 		props.authRegisterThunk(values);
 	};
 
+	// if (props.isRegister === true) {
+	// 	setTimeout(() => {
+	// 		return <Redirect to='/' />;
+	// 	}, 1000);
+	// }
+
 	return <RegisterBlock onSubmit={onSubmit} registerSuccess={props.registerSuccess} />;
 };
 
 const mapStateToProps = (state) => ({
 	registerSuccess: state.authData.registerSuccess,
-	isAuth: state.authData.isAuth
+	isAuth: state.authData.isAuth,
+	isRegister: state.authData.isRegister
 });
 
 export default compose(connect(mapStateToProps, { authRegisterThunk }), withRouter)(RegisterBlockContainer);

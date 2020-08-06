@@ -6,6 +6,14 @@
 	.korea_container_info {
 		display: grid;
 		margin: 4% auto auto 5%;
+		.default_block {
+			display: grid;
+			grid-template-columns: 1fr 0.7fr;
+			.default_block_otherInformation {
+				margin: 60% auto auto 10%;
+				font-family: cursive;
+			}
+		}
 		.card {
 			width: 100%;
 			height: auto;
@@ -114,17 +122,33 @@
 					background-size: cover;
 				}
 				.card-body {
-					.card_items_name {
-						font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-						font-size: 16px;
-					}
-					.card_items_price {
-						font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-						font-size: 14px;
-					}
-					.card-text {
-						margin: 0 auto 1% auto;
-						text-align: center;
+					.card_body_grid {
+						display: grid;
+						grid-template-areas:
+							'name price'
+							'brend price';
+						.card_items_name {
+							width: 100%;
+							grid-area: name;
+							font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+							font-size: 16px;
+						}
+						.card_items_price {
+							padding-top: 10%;
+							grid-area: price;
+							font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+							font-size: 14px;
+						}
+						.card_items_brend {
+							width: 100%;
+							grid-area: brend;
+							font-family: cursive;
+							font-size: 13px;
+						}
+						.card-text {
+							margin: 0 auto 1% auto;
+							text-align: center;
+						}
 					}
 				}
 			}

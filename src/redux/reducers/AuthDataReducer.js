@@ -5,6 +5,7 @@ const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 
 const initialState = {
 	isAuth: false,
+	isRegister: false,
 	auth: null,
 	registerSuccess: false
 };
@@ -20,7 +21,8 @@ export const authDataReducer = (state = initialState, action) => {
 		case REGISTER_SUCCESS:
 			return {
 				...state,
-				registerSuccess: true
+				registerSuccess: true,
+				isRegister: true
 			};
 		default:
 			return { ...state };

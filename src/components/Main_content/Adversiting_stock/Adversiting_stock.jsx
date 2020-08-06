@@ -6,8 +6,8 @@ const Adversiting_stock = (props) => {
 	const { items } = props;
 	return (
 		<div className='adversiting_stock'>
-			{items &&
-				items.map((item) => {
+			{props.adversitingStock &&
+				props.adversitingStock.map((item) => {
 					return (
 						<div key={item.id} className='adversiting_stock_div'>
 							<NavLink to={item.url}>

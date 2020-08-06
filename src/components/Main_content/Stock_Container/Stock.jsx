@@ -7,8 +7,8 @@ const Stock = (props) => {
 	return (
 		<div className='stock'>
 			<div className='for_us'>
-				{props.items &&
-					props.items.map((item, index) => {
+				{props.stocksMain &&
+					props.stocksMain.map((item, index) => {
 						return (
 							<NavLink to={item.url} className='block_stock' key={item.id}>
 								<div className='block_stock_div'>

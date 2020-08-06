@@ -3,10 +3,194 @@
     "email": "alim.gazdiev@gmail.com",
     "password": "34896GAZ"
   },
+  "mainContent": {
+    "wrapperImgContent": [
+      {
+        "id": 1,
+        "url": "#",
+        "src": "./img/content1.jpg"
+      },
+      {
+        "id": 2,
+        "url": "#",
+        "src": "./img/content2.jpg"
+      },
+      {
+        "id": 3,
+        "url": "#",
+        "src": "./img/content3.jpg"
+      },
+      {
+        "id": 4,
+        "url": "#",
+        "src": "./img/content4.jpg"
+      },
+      {
+        "id": 5,
+        "url": "#",
+        "src": "./img/content5.jpg"
+      },
+      {
+        "id": 6,
+        "url": "#",
+        "src": "./img/content6.jpg"
+      }
+    ],
+    "content": [
+      {
+        "id": 1,
+        "url": "#",
+        "src": "img/content1.jpg"
+      },
+      {
+        "id": 2,
+        "url": "#",
+        "src": "img/content2.jpg"
+      },
+      {
+        "id": 3,
+        "url": "#",
+        "src": "img/content3.jpg"
+      },
+      {
+        "id": 4,
+        "url": "#",
+        "src": "img/content4.jpg"
+      },
+      {
+        "id": 5,
+        "url": "#",
+        "src": "img/content5.jpg"
+      },
+      {
+        "id": 6,
+        "url": "#",
+        "src": "img/content6.jpg"
+      }
+    ],
+    "navigationProduct": [
+      {
+        "id": 1,
+        "url": "#",
+        "children": "Для вас"
+      },
+      {
+        "id": 2,
+        "url": "#",
+        "children": "Бестселлеры"
+      },
+      {
+        "id": 3,
+        "url": "#",
+        "children": "Новенькое"
+      },
+      {
+        "id": 4,
+        "url": "#",
+        "children": "Идеи для подарка"
+      }
+    ],
+    "stocksMain": [
+      {
+        "id": 1,
+        "image": "../../img/stock1.jpg",
+        "text": "Zo Skin health ossential daily power defense. Ежедневное защитное средство, 50мл",
+        "oldPrice": 11000,
+        "newPrice": 8050,
+        "url": "#",
+        "alt": "#"
+      },
+      {
+        "id": 2,
+        "image": "../../img/stock2.jpg",
+        "text": "'Zo*Skin health effects expliating polish anti-aging formula",
+        "oldPrice": 5250,
+        "newPrice": 4075,
+        "url": "#",
+        "alt": ""
+      },
+      {
+        "id": 3,
+        "image": "../../img/stock3.jpg",
+        "text": "3",
+        "oldPrice": 5250,
+        "newPrice": 4075,
+        "url": "3",
+        "alt": ""
+      },
+      {
+        "id": 4,
+        "image": "../../img/stock4.jpg",
+        "text": "3",
+        "oldPrice": 5250,
+        "newPrice": 4075,
+        "url": "#",
+        "alt": ""
+      },
+      {
+        "id": 5,
+        "image": "../../img/stock5.jpg",
+        "text": "3",
+        "oldPrice": 5250,
+        "newPrice": 4075,
+        "url": "#",
+        "alt": ""
+      },
+      {
+        "id": 6,
+        "image": "../../img/stock6.jpg",
+        "text": "Weekend",
+        "oldPrice": 5250,
+        "newPrice": 4075,
+        "url": "#",
+        "alt": ""
+      },
+      {
+        "id": 7,
+        "image": "../../img/stock7.jpg",
+        "text": "Nina",
+        "oldPrice": 5250,
+        "newPrice": 4075,
+        "url": "#",
+        "alt": ""
+      },
+      {
+        "id": 8,
+        "image": "../../img/stock8.jpg",
+        "text": "Bright Crystal",
+        "oldPrice": 5250,
+        "newPrice": 4075,
+        "url": "#",
+        "alt": ""
+      }
+    ],
+    "adversitingStock": [
+      {
+        "id": 1,
+        "url": "#",
+        "src": "app/img/adversiting_stock1.jpg"
+      },
+      {
+        "id": 2,
+        "url": "#",
+        "src": "app/img/adversiting_stock2.jpg"
+      },
+      {
+        "id": 3,
+        "url": "#",
+        "src": "app/img/adversiting_stock3.jpg"
+      },
+      {
+        "id": 4,
+        "url": "#",
+        "src": "app/img/adversiting_stock4.jpg"
+      }
+    ]
+  },
   "stocks": {
     "isLoaded": {
-      "img": "https://images.unsplash.com/photo-1594651103761-4c88c06a7abe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=800",
-      "stocksInformation": "Today we are presentation new collections stock available"
+      "img": "https://images.unsplash.com/photo-1561920723-e0c68a4fe723?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=421&q=80",
+      "otherInformation": "В данном разделе вы найдете выгодные предложения по заниженным ценам "
     },
     "items": [
       {
@@ -153,8 +337,8 @@
   },
   "korea": {
     "isLoaded": {
-      "img": "https://images.unsplash.com/photo-1594651103761-4c88c06a7abe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=800",
-      "stocksInformation": "Today we are presentation new collections stock available"
+      "img": "https://images.unsplash.com/photo-1515688594390-b649af70d282?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
+      "otherInformation": "В данном разделе представлена коллекция косметики из Южной Кореи"
     },
     "items": [
       {
@@ -300,8 +484,8 @@
   },
   "perfumery": {
     "isLoaded": {
-      "img": "https://images.unsplash.com/photo-1594651103761-4c88c06a7abe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=401&q=800",
-      "stocksInformation": "Today we are presentation new collections stock available"
+      "img": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+      "otherInformation": "В данном разделе представлена фирменная коллекция порфюмерии"
     },
     "items": [
       {

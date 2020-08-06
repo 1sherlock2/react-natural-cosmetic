@@ -20,9 +20,9 @@ const Stocks = (props) => {
 					{!props.product ? (
 						<div>
 							{props.isLoaded && (
-								<div>
+								<div className='default_block'>
 									<img src={props.isLoaded.img} alt='stocks' />
-									<div>{props.isLoaded.stocksInformation}</div>
+									<div className='default_block_otherInformation'>{props.isLoaded.otherInformation}</div>
 								</div>
 							)}
 						</div>
@@ -112,8 +112,11 @@ const Stocks = (props) => {
 									<div className='card' key={`${index} ${item.id}`} onClick={() => props.selectStockDispatch(item.id)}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
-											<p className='card-text card_items_name'>{item.name} </p>
-											<p className='card-text card_items_price'>{item.price} р.</p>
+											<div className='card_body_grid'>
+												<p className='card-text card_items_name'>{item.name} </p>
+												<p className='card-text card_items_brend'>{item.brend} </p>
+												<p className='card-text card_items_price'>{item.price} р.</p>
+											</div>
 										</div>
 									</div>
 								</NavLink>

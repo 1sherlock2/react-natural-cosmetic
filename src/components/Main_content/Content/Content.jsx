@@ -8,8 +8,8 @@ const Content = (props) => {
 		<div className='content'>
 			<h1> Новинки сезона </h1>
 			<div className='content_block'>
-				{items &&
-					items.map((item) => {
+				{props.content &&
+					props.content.map((item) => {
 						return (
 							<div key={item.id} className='content_img'>
 								<NavLink to={item.url}>

@@ -14,8 +14,8 @@ const Navigation_product = (props) => {
 		<div className='navigation_product'>
 			<div className='navigation_product_block'>
 				<ul>
-					{items &&
-						items.map((item, index) => {
+					{props.navigationProduct &&
+						props.navigationProduct.map((item, index) => {
 							return (
 								<NavLink
 									to={item.url}
