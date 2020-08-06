@@ -1,5 +1,3 @@
-//main content
-//wrapperImgContent
 export const wrapperImgContent = (items) => ({ type: 'SET_WRAPPER_IMG_CONTENT' });
 
 // items

@@ -29,5 +29,17 @@ export const API = {
 	},
 	makeUpAPI() {
 		return instance.get('/makeUp');
+	},
+	menAPI() {
+		return instance.get('/men');
+	},
+	accessoriesAPI() {
+		return instance.get('/accessories');
+	},
+	kidsAPI() {
+		return instance.get('/kids');
+	},
+	giftAPI() {
+		return instance.get('/gift');
 	}
 };

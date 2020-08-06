@@ -772,5 +772,473 @@
 				"text": ["оптом", "розница"]
 			}
 		]
+	},
+	"men": {
+		"isLoaded": {
+			"img": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+			"otherInformation": "В данном разделе представлена фирменная коллекция порфюмерии"
+		},
+		"items": [
+			{
+				"id": 0,
+				"name": "Sauvage Parfum",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/F99600455_mainLG.jpg",
+				"description": "description1 sadfaslifasi asdnfjandslkfjn alskd fasdf iasdfiasdifwhsinf iasdfil asdf ausidf iasd",
+				"price": 11,
+				"reviews": "reviews1",
+				"brend": "asd",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 1,
+				"date": "31.09.2010",
+				"name": "K by Dolce&Gabbana",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/3423473049654_1LG.jpg",
+				"description": "description2",
+				"price": 22,
+				"reviews": "reviews2",
+				"brend": "fgdfg",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 2,
+				"date": "01.09.2010",
+				"name": "Beau de Jour",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/ESTT8EG01LG.jpg",
+				"description": "description3",
+				"price": 3112,
+				"reviews": "reviews3",
+				"brend": "sdfsdf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 3,
+				"date": "23.09.2010",
+				"name": "Eros Flame",
+				"img": "https://www.letu.ru/common/img/products/8011003845354_250.jpg",
+				"description": "description4",
+				"price": 4,
+				"reviews": "reviews4",
+				"brend": "fadsf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 4,
+				"date": "11.09.2010",
+				"name": "Guilty Love Edition pour homme",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/3614225299520_1LG.jpg",
+				"description": "description5",
+				"price": 5,
+				"reviews": "reviews5",
+				"brend": "agr",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 5,
+				"date": "14.09.2010",
+				"name": "Moustache",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/WLLC17A01LG.jpg",
+				"description": "description6",
+				"price": 26,
+				"reviews": "reviews6",
+				"brend": "hrter",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 6,
+				"date": "01.09.2010",
+				"name": "Green Wood",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DSQ005D10LG.jpg",
+				"description": "description7",
+				"price": 7,
+				"reviews": "reviews7",
+				"brend": "sdfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 7,
+				"date": "23.09.2010",
+				"name": "Ombre Leather",
+				"img": "https://www.letu.ru/common/img/products/888066075145_250.jpg",
+				"description": "description8",
+				"price": 81,
+				"reviews": "reviews8",
+				"brend": "uuj",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 8,
+				"date": "51.09.2010",
+				"name": "Blue Seduction Doses For Men",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/BAN147579LG.jpg",
+				"description": "description9",
+				"price": 9,
+				"reviews": "reviews9",
+				"brend": "rhfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 9,
+				"date": "43.09.2010",
+				"name": "King Of Seduction Doses",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/BAN147605LG.jpg",
+				"description": "description10",
+				"price": 10,
+				"brend": "fdsaf",
+				"reviews": "reviews10",
+				"text": ["оптом", "розница"]
+			}
+		]
+	},
+	"accessories": {
+		"isLoaded": {
+			"img": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+			"otherInformation": "В данном разделе представлена фирменная коллекция порфюмерии"
+		},
+		"items": [
+			{
+				"id": 0,
+				"name": "Губка для душа",
+				"img": "https://www.letu.ru/common/img/uploaded/product/big/2011/10/19/DMDF00030.jpg",
+				"description": "description1 sadfaslifasi asdnfjandslkfjn alskd fasdf iasdfiasdifwhsinf iasdfil asdf ausidf iasd",
+				"price": 11,
+				"reviews": "reviews1",
+				"brend": "asd",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 1,
+				"date": "31.09.2010",
+				"name": "Массажная губка для душа",
+				"img": "https://www.letu.ru/common/img/products/DMDF47852.jpg",
+				"description": "description2",
+				"price": 22,
+				"reviews": "reviews2",
+				"brend": "fgdfg",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 2,
+				"date": "01.09.2010",
+				"name": "Пустая палетка на 6 оттенков",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/BXM3886BX_mainLG.jpg",
+				"description": "description3",
+				"price": 3112,
+				"reviews": "reviews3",
+				"brend": "sdfsdf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 3,
+				"date": "23.09.2010",
+				"name": "Магнитный футляр для теней и румян Beauty Box Trio Limited Edition Лимитированный выпуск",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DEC100969LG.jpg",
+				"description": "description4",
+				"price": 4,
+				"reviews": "reviews4",
+				"brend": "fadsf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 4,
+				"date": "11.09.2010",
+				"name": "Ватные подушечки",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CDB5658CP_mainLG.jpg",
+				"description": "description5",
+				"price": 5,
+				"reviews": "reviews5",
+				"brend": "agr",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 5,
+				"date": "14.09.2010",
+				"name": "Футляр для губной помады THE ONLY ONE",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DGB857385_mainLG.jpg",
+				"description": "description6",
+				"price": 26,
+				"reviews": "reviews6",
+				"brend": "hrter",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 6,
+				"date": "01.09.2010",
+				"name": "Футляр для губной помады Rouge G de Guerlain Xmas 2019",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/GUE042974LG.jpg",
+				"description": "description7",
+				"price": 7,
+				"reviews": "reviews7",
+				"brend": "sdfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 7,
+				"date": "23.09.2010",
+				"name": "Аромат для комнаты English Pear & Freesia Scent Surround Room Spray",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/JOM028481LG.jpg",
+				"description": "description8",
+				"price": 81,
+				"reviews": "reviews8",
+				"brend": "uuj",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 8,
+				"date": "51.09.2010",
+				"name": "Аромат для комнаты Lime Basil & Mandarin Scent Surround Room Spray",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/JOM024537LG.jpg",
+				"description": "description9",
+				"price": 9,
+				"reviews": "reviews9",
+				"brend": "rhfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 9,
+				"date": "43.09.2010",
+				"name": "Аромат для комнаты Pomegranate Noir Scent Surround Room Spray",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/JOM024544LG.jpg",
+				"description": "description10",
+				"price": 10,
+				"brend": "fdsaf",
+				"reviews": "reviews10",
+				"text": ["оптом", "розница"]
+			}
+		]
+	},
+	"kids": {
+		"isLoaded": {
+			"img": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+			"otherInformation": "В данном разделе представлена фирменная коллекция порфюмерии"
+		},
+		"items": [
+			{
+				"id": 0,
+				"name": "Набор для девочек",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/SAM498667_mainLG.jpg",
+				"description": "description1 sadfaslifasi asdnfjandslkfjn alskd fasdf iasdfiasdifwhsinf iasdfil asdf ausidf iasd",
+				"price": 11,
+				"reviews": "reviews1",
+				"brend": "asd",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 1,
+				"date": "31.09.2010",
+				"name": "Набор для мальчиков",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/SAM498934_mainLG.jpg",
+				"description": "description2",
+				"price": 22,
+				"reviews": "reviews2",
+				"brend": "fgdfg",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 2,
+				"date": "01.09.2010",
+				"name": "Детский гель для интимной гигиены",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/BNR0153ENLG.jpg",
+				"description": "description3",
+				"price": 3112,
+				"reviews": "reviews3",
+				"brend": "sdfsdf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 3,
+				"date": "23.09.2010",
+				"name": "Ароматизированная вода детская Ариэль",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DIP030090LG.jpg",
+				"description": "description4",
+				"price": 4,
+				"reviews": "reviews4",
+				"brend": "fadsf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 4,
+				"date": "11.09.2010",
+				"name": "Ароматизированная вода детская Рапунцель",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DIP330300LG.jpg",
+				"description": "description5",
+				"price": 5,
+				"reviews": "reviews5",
+				"brend": "agr",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 5,
+				"date": "14.09.2010",
+				"name": "Ароматизированная вода с блестками детская Золушка",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DIP303009LG.jpg",
+				"description": "description6",
+				"price": 26,
+				"reviews": "reviews6",
+				"brend": "hrter",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 6,
+				"date": "01.09.2010",
+				"name": "Пена для ванны детская Белль",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DIP073000LG.jpg",
+				"description": "description7",
+				"price": 7,
+				"reviews": "reviews7",
+				"brend": "sdfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 7,
+				"date": "23.09.2010",
+				"name": "Пена для ванны детская Золушка",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DIP330730LG.jpg",
+				"description": "description8",
+				"price": 81,
+				"reviews": "reviews8",
+				"brend": "uuj",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 8,
+				"date": "51.09.2010",
+				"name": "Спрей для волос с блестками детский Принцесса",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DIP330590LG.jpg",
+				"description": "description9",
+				"price": 9,
+				"reviews": "reviews9",
+				"brend": "rhfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 9,
+				"date": "43.09.2010",
+				"name": "Спрей-кондиционер для волос детский",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/DIP059000LG.jpg",
+				"description": "description10",
+				"price": 10,
+				"brend": "fdsaf",
+				"reviews": "reviews10",
+				"text": ["оптом", "розница"]
+			}
+		]
+	},
+	"gift": {
+		"isLoaded": {
+			"img": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80",
+			"otherInformation": "В данном разделе представлена фирменная коллекция порфюмерии"
+		},
+		"items": [
+			{
+				"id": 0,
+				"name": "Набор Dolce Milk 129",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20126_mainLG.jpg",
+				"description": "description1 sadfaslifasi asdnfjandslkfjn alskd fasdf iasdfiasdifwhsinf iasdfil asdf ausidf iasd",
+				"price": 11,
+				"reviews": "reviews1",
+				"brend": "asd",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 1,
+				"date": "31.09.2010",
+				"name": "Набор 130",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20127_mainLG.jpg",
+				"description": "description2",
+				"price": 22,
+				"reviews": "reviews2",
+				"brend": "fgdfg",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 2,
+				"date": "01.09.2010",
+				"name": "Набор 131",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20128_mainLG.jpg",
+				"description": "description3",
+				"price": 3112,
+				"reviews": "reviews3",
+				"brend": "sdfsdf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 3,
+				"date": "23.09.2010",
+				"name": "Набор 132",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20129_mainLG.jpg",
+				"description": "description4",
+				"price": 4,
+				"reviews": "reviews4",
+				"brend": "fadsf",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 4,
+				"date": "11.09.2010",
+				"name": "Набор Dolce Milk 133",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20218_mainLG.jpg",
+				"description": "description5",
+				"price": 5,
+				"reviews": "reviews5",
+				"brend": "agr",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 5,
+				"date": "14.09.2010",
+				"name": "Набор 134",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20240LG.jpg",
+				"description": "description6",
+				"price": 26,
+				"reviews": "reviews6",
+				"brend": "hrter",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 6,
+				"date": "01.09.2010",
+				"name": "Набор 135",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20241LG.jpg",
+				"description": "description7",
+				"price": 7,
+				"reviews": "reviews7",
+				"brend": "sdfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 7,
+				"date": "23.09.2010",
+				"name": "Набор 135",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20242LG.jpg",
+				"description": "description8",
+				"price": 81,
+				"reviews": "reviews8",
+				"brend": "uuj",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 8,
+				"date": "51.09.2010",
+				"name": "Набор Dolce Milk 137",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20219_mainLG.jpg",
+				"description": "description9",
+				"price": 9,
+				"reviews": "reviews9",
+				"brend": "rhfgh",
+				"text": ["оптом", "розница"]
+			},
+			{
+				"id": 9,
+				"date": "43.09.2010",
+				"name": "Набор Dolce Milk 138",
+				"img": "https://www.letu.ru/common/img/uploaded/productImageFolder/CLOR20220_mainLG.jpgg",
+				"description": "description10",
+				"price": 10,
+				"brend": "fdsaf",
+				"reviews": "reviews10",
+				"text": ["оптом", "розница"]
+			}
+		]
 	}
 }

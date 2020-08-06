@@ -7,6 +7,10 @@ import { perfumeryReducer } from '../reducers/PerfumeryReducer';
 import { skinCareReducer } from '../reducers/SkinCareReducer';
 import { makeUpReducer } from '../reducers/MakeUpReducer';
 import { mainContentReducer } from '../reducers/main_content_reducers/MainContentReducer';
+import { menReducer } from '../reducers/MenReducer';
+import { accessoriesReducer } from '../reducers/AccessoriesReducer';
+import { kidsReducer } from '../reducers/KidsReducer';
+import { giftReducer } from '../reducers/GiftReducer';
 const { combineReducers, createStore, applyMiddleware } = require('redux');
 
 const redurPack = combineReducers({
@@ -16,7 +20,11 @@ const redurPack = combineReducers({
 	koreaData: koreaReducer,
 	perfumeryData: perfumeryReducer,
 	skinCareData: skinCareReducer,
-	makeUpData: makeUpReducer
+	makeUpData: makeUpReducer,
+	menData: menReducer,
+	accessoriesData: accessoriesReducer,
+	kids: kidsReducer,
+	giftData: giftReducer
 });
 const store = createStore(redurPack, composeWithDevTools(applyMiddleware(thunkMiddleWare)));
 
