@@ -1,4 +1,4 @@
-const { AuthModel } = require('../models/Auth');
+const { LoginModel } = require('../models/LoginModel');
 const { Router } = require('express');
 const router = Router();
 const bcrypt = require('bcryptjs');
@@ -7,14 +7,14 @@ const jwt = require('jsonwebtoken');
 router.post('/register', (req, res) => {
 	try {
 		const { email, password } = req.body;
-		AuthModel.findOne({ email }).then((item) => {
+		return LoginModel.findOne({ email }).then((item) => {
 			if (item) {
 				return res.status(400).json({
 					message: 'it user was created'
 				});
 			}
 			bcrypt.hash(password, 12).then((hashPassword) => {
-				const login = new AuthModel({
+				const login = new LoginModel({
 					email: email,
 					password: hashPassword
 				});
@@ -36,7 +36,7 @@ router.post('/auth', (req, res) => {
 	try {
 		const { email, password } = req.body;
 		console.log(email, password);
-		return AuthModel.findOne({ email }).then((user) => {
+		return LoginModel.findOne({ email }).then((user) => {
 			console.log(user);
 			if (!user) {
 				return res.status(400).json({

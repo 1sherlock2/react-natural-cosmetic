@@ -2,16 +2,15 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const auth = require('./controllers/AuthController');
-const mainContent = require('./controllers/ProductsController');
-const stocks = require('./controllers/StocksController');
+const login = require('./controllers/LoginController');
+const products = require('./controllers/ProductsController');
 const app = express();
 const config = require('config');
 const path = require('path');
 
 const PORT = config.get('port');
 
-let urlencodedFalse = bodyParser.urlencoded({ extended: true });
+let urlencodedFalse = bodyParser.urlencoded({ extended: false });
 let bodyParserJsonTrue = bodyParser.json({
 	inflate: true,
 	strict: true
@@ -20,16 +19,8 @@ let bodyParserJsonTrue = bodyParser.json({
 app.use(cors({ credentials: true, origin: true }));
 
 // routers
-app.use('/auth', urlencodedFalse, bodyParserJsonTrue, auth);
-app.use('/products', urlencodedFalse, bodyParserJsonTrue, mainContent);
-// app.use('/stocks', urlencodedFalse, bodyParserJsonTrue, stocks);
-
-// if (process.env.NODE_ENV === 'production') {
-// 	app.use('/', express.static(path.join(__dirname, 'mern_study_react', 'build')));
-// 	app.get('*', (req, res) => {
-// 		res.sendFile(path.resolve(__dirname, 'mern_study_react', 'build', 'index.html'));
-// 	});
-// }
+app.use('/api', urlencodedFalse, bodyParserJsonTrue, login);
+app.use('/products', urlencodedFalse, bodyParserJsonTrue, products);
 
 mongoose.connect(config.get('mongoUri'), {
 	useNewUrlParser: true,
@@ -41,3 +32,10 @@ mongoose.connect(config.get('mongoUri'), {
 app.listen(PORT, () => {
 	console.log(`server was started in ${PORT} port`);
 });
+
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use('/', express.static(path.join(__dirname, 'mern_study_react', 'build')));
+// 	app.get('*', (req, res) => {
+// 		res.sendFile(path.resolve(__dirname, 'mern_study_react', 'build', 'index.html'));
+// 	});
+// }

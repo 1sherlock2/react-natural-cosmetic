@@ -1,5 +1,7 @@
-const { MainContentModel } = require('../models/products/MainContentModel');
-const { ContentModel } = require('../models/products/ContentModel');
+const { WrapperImgContent } = require('../models/products/mainContent/WrapperImgContent');
+const { ContentModel } = require('../models/products/mainContent/ContentModel');
+const { NavigationProductModel } = require('../models/products/mainContent/NavigationProductModel');
+
 const { StocksMainModel } = require('../models/products/StocksMainModel');
 const { AdversitingStockModel } = require('../models/products/AdversitingStockModel');
 const { StocksModel } = require('../models/products/StocksModel');
@@ -14,12 +16,12 @@ const { GiftModel } = require('../models/products/GiftModel');
 const { Router } = require('express');
 const router = Router();
 
-//mainContent
+//wrapperImgContent
 router.post('/mainContent/wrapperImgContent', (req, res) => {
 	try {
 		const data = req.body;
 		console.log(data);
-		const post = new MainContentModel({
+		const post = new WrapperImgContent({
 			wrapperImgContent: [{ url: data.url, src: data.src }]
 		});
 		post.save().then(() => {
@@ -29,7 +31,47 @@ router.post('/mainContent/wrapperImgContent', (req, res) => {
 });
 
 router.get('/mainContent/wrapperImgContent', (req, res) => {
-	MainContentModel.find().then((items) => {
+	WrapperImgContent.find().then((items) => {
+		res.status(200).json({ items });
+	});
+});
+
+//content
+router.post('/mainContent/content', (req, res) => {
+	try {
+		const data = req.body;
+		console.log(data);
+		const post = new ContentModel({
+			content: [{ src: data.src }]
+		});
+		post.save().then(() => {
+			res.status(200).json({ post });
+		});
+	} catch (e) {}
+});
+
+router.get('/mainContent/wrapperImgContent', (req, res) => {
+	ContentModel.find().then((items) => {
+		res.status(200).json({ items });
+	});
+});
+
+//navigationProduct
+router.post('/mainContent/navigationProduct', (req, res) => {
+	try {
+		const data = req.body;
+		console.log(data);
+		const post = new NavigationProductModel({
+			navigationProduct: [{ children: data.children }]
+		});
+		post.save().then(() => {
+			res.status(200).json({ post });
+		});
+	} catch (e) {}
+});
+
+router.get('/mainContent/wrapperImgContent', (req, res) => {
+	NavigationProductModel.find().then((items) => {
 		res.status(200).json({ items });
 	});
 });
