@@ -22,7 +22,11 @@ const Perfumery_Container = (props) => {
 	const [activeCategoried, setActiveCategoried] = useState(false);
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
 	let [count, setCount] = useState(1);
-
+	const [isLoaded, setIsLoaded] = useState({
+		img: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+		otherInformation: 'В данном разделе представлена коллекция духов'
+	});
+	const text = ['оптом', 'розница'];
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
 		if (element === 'по цене') {
@@ -70,11 +74,12 @@ const Perfumery_Container = (props) => {
 	} else {
 		return (
 			<Perfumery
+				text={text}
 				addInBasket={addInBasket}
 				count={count}
 				increaseCount={increaseCount}
 				decreaseCount={decreaseCount}
-				isLoaded={props.isLoaded}
+				isLoaded={isLoaded}
 				selectItemsDispatch={props.selectItemsDispatch}
 				selectCategoriesItemFunc={selectCategoriesItemFunc}
 				selectCategoriesItem={selectCategoriesItem}
@@ -96,7 +101,6 @@ let mapStateToProps = (state) => {
 	return {
 		items: state.perfumeryData.items,
 		product: state.perfumeryData.product,
-		isLoaded: state.perfumeryData.isLoaded,
 		isLoading: state.perfumeryData.isLoading,
 		price: state.perfumeryData.price,
 		priceIndex: state.perfumeryData.priceIndex

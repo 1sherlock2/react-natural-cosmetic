@@ -1,7 +1,11 @@
-export const wrapperImgContent = (items) => ({ type: 'SET_WRAPPER_IMG_CONTENT' });
+export const wrapperImgContent = (items) => ({ type: 'SET_WRAPPER_IMG_CONTENT', items });
+export const contentDispatch = (items) => ({ type: 'SET_CONTENT', items });
+export const navigationProductDispatch = (items) => ({ type: 'SET_NAVIGATION_PRODUCT', items });
+export const stockMainDispatch = (items) => ({ type: 'SET_STOCK_MAIN', items });
+export const adversitingStockDispatch = (items) => ({ type: 'SET_ADVERSITING_STOCK', items });
 
 // items
-export const setItemsDispatch = (items) => ({ type: 'SET_ITEMS', items });
+export const setItemsDispatch = (halfItems) => ({ type: 'SET_ITEMS', halfItems });
 export const selectItemsDispatch = (id) => ({ type: 'SELECT_ITEMS', id });
 export const sortItemsByPrice = () => ({ type: 'SORT_ITEMS_BY_PRICE' });
 export const sortItemsByBrend = () => ({ type: 'SORT_ITEMS_BY_BREND' });

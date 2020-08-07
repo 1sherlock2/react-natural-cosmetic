@@ -14,20 +14,28 @@ let initialState = {
 export const makeUpReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'SET_ITEMS':
-			return {
-				...state,
-				items: action.items
-			};
-		case 'SELECT_ITEMS':
-			let b = state.items.filter((item) => item.id === action.id);
-			let obj = b.reduce((result, item, index) => {
-				result[index] = item;
-				return result;
+			const text = ['оптом', 'розница'];
+			const items = action.halfItems.map((element) => {
+				return {
+					...element,
+					text: text
+				};
 			});
 			return {
 				...state,
-				product: state.items.filter((item) => item.id === action.id),
-				price: obj.price
+				items: items,
+				product: null
+			};
+		case 'SELECT_ITEMS':
+			// let b = state.items.filter((item) => item.id === action.id);
+			// let obj = b.reduce((result, item, index) => {
+			// 	result[index] = item;
+			// 	return result;
+			// });
+			return {
+				...state,
+				product: state.items.filter((item) => item._id === action.id)
+				// price: obj.price
 			};
 		case 'SORT_ITEMS_BY_PRICE':
 			return {

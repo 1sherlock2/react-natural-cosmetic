@@ -10,10 +10,10 @@ export const API = {
 		return instance.get('/products/mainContent/wrapperImgContent');
 	},
 	authAPI(values) {
-		return instance.post('/auth', values);
+		return instance.post('/api/auth', values);
 	},
 	authRegisterAPI(values) {
-		return instance.post('/auth', values);
+		return instance.post('/api/register', values);
 	},
 	stocksAPI() {
 		return instance.get('/products/stocks');
@@ -43,6 +43,18 @@ export const API = {
 		return instance.get('/products/gift');
 	},
 	wrapperImgContentAPI() {
-		return instance.get('/mainContent/wrapperImgContent');
+		return instance.get('/products/wrapperImgContent');
+	},
+	contentAPI() {
+		return instance.get('/products/content');
+	},
+	navigationProductAPI() {
+		return instance.get('/products/navigationProduct');
+	},
+	stockMainAPI() {
+		return instance.get('/products/stocksMain');
+	},
+	adversitingStockAPI() {
+		return instance.get('/products/adversitingStock');
 	}
 };

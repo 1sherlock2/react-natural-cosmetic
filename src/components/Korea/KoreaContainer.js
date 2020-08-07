@@ -21,7 +21,11 @@ const Korea_Container = (props) => {
 	const [activeCategoried, setActiveCategoried] = useState(false);
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
 	let [count, setCount] = useState(1);
-
+	const [isLoaded, setIsLoaded] = useState({
+		img: 'https://images.unsplash.com/photo-1515688594390-b649af70d282?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60',
+		otherInformation: 'В данном разделе представлена коллекция косметики из Южной Кореи'
+	});
+	const text = ['оптом', 'розница'];
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
 		if (element === 'по цене') {
@@ -69,11 +73,12 @@ const Korea_Container = (props) => {
 	} else {
 		return (
 			<Korea
+				text={text}
 				addInBasket={addInBasket}
 				count={count}
 				increaseCount={increaseCount}
 				decreaseCount={decreaseCount}
-				isLoaded={props.isLoaded}
+				isLoaded={isLoaded}
 				selectItemsDispatch={props.selectItemsDispatch}
 				selectCategoriesItemFunc={selectCategoriesItemFunc}
 				selectCategoriesItem={selectCategoriesItem}
@@ -95,7 +100,6 @@ let mapStateToProps = (state) => {
 	return {
 		items: state.koreaData.items,
 		product: state.koreaData.product,
-		isLoaded: state.koreaData.isLoaded,
 		isLoading: state.stocksData.isLoading,
 		price: state.stocksData.price,
 		priceIndex: state.stocksData.priceIndex

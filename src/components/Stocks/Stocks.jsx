@@ -109,7 +109,7 @@ const Stocks = (props) => {
 						props.items.map((item, index) => {
 							return (
 								<NavLink to='#'>
-									<div className='card' key={`${index} ${item.id}`} onClick={() => props.selectItemsDispatch(item.id)}>
+									<div className='card' key={`${index} ${item._id}`} onClick={() => props.selectItemsDispatch(item._id)}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
 											<div className='card_body_grid'>

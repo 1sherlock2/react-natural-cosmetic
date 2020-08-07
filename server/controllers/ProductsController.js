@@ -1,9 +1,10 @@
-const { WrapperImgContent } = require('../models/products/mainContent/WrapperImgContent');
+//mainContentModels
+const { WrapperImgContentModel } = require('../models/products/mainContent/WrapperImgContentModel');
 const { ContentModel } = require('../models/products/mainContent/ContentModel');
 const { NavigationProductModel } = require('../models/products/mainContent/NavigationProductModel');
-
-const { StocksMainModel } = require('../models/products/StocksMainModel');
-const { AdversitingStockModel } = require('../models/products/AdversitingStockModel');
+const { StocksMainModel } = require('../models/products/mainContent/StocksMainModel');
+const { AdversitingStockModel } = require('../models/products/mainContent/AdversitingStockModel');
+//productsModels
 const { StocksModel } = require('../models/products/StocksModel');
 const { KoreaModel } = require('../models/products/KoreaModel');
 const { PerfumeryModel } = require('../models/products/PerfumeryModel');
@@ -17,12 +18,12 @@ const { Router } = require('express');
 const router = Router();
 
 //wrapperImgContent
-router.post('/mainContent/wrapperImgContent', (req, res) => {
+router.post('/wrapperImgContent', (req, res) => {
 	try {
 		const data = req.body;
 		console.log(data);
-		const post = new WrapperImgContent({
-			wrapperImgContent: [{ url: data.url, src: data.src }]
+		const post = new WrapperImgContentModel({
+			src: data.src
 		});
 		post.save().then(() => {
 			res.status(200).json({ post });
@@ -30,19 +31,19 @@ router.post('/mainContent/wrapperImgContent', (req, res) => {
 	} catch (e) {}
 });
 
-router.get('/mainContent/wrapperImgContent', (req, res) => {
-	WrapperImgContent.find().then((items) => {
+router.get('/wrapperImgContent', (req, res) => {
+	WrapperImgContentModel.find().then((items) => {
 		res.status(200).json({ items });
 	});
 });
 
 //content
-router.post('/mainContent/content', (req, res) => {
+router.post('/content', (req, res) => {
 	try {
 		const data = req.body;
 		console.log(data);
 		const post = new ContentModel({
-			content: [{ src: data.src }]
+			src: data.src
 		});
 		post.save().then(() => {
 			res.status(200).json({ post });
@@ -50,19 +51,19 @@ router.post('/mainContent/content', (req, res) => {
 	} catch (e) {}
 });
 
-router.get('/mainContent/wrapperImgContent', (req, res) => {
+router.get('/content', (req, res) => {
 	ContentModel.find().then((items) => {
 		res.status(200).json({ items });
 	});
 });
 
 //navigationProduct
-router.post('/mainContent/navigationProduct', (req, res) => {
+router.post('/navigationProduct', (req, res) => {
 	try {
 		const data = req.body;
 		console.log(data);
 		const post = new NavigationProductModel({
-			navigationProduct: [{ children: data.children }]
+			children: data.children
 		});
 		post.save().then(() => {
 			res.status(200).json({ post });
@@ -70,8 +71,51 @@ router.post('/mainContent/navigationProduct', (req, res) => {
 	} catch (e) {}
 });
 
-router.get('/mainContent/wrapperImgContent', (req, res) => {
+router.get('/navigationProduct', (req, res) => {
 	NavigationProductModel.find().then((items) => {
+		res.status(200).json({ items });
+	});
+});
+
+//stocksMain
+router.post('/stocksMain', (req, res) => {
+	try {
+		const data = req.body;
+		console.log(data);
+		const post = new StocksMainModel({
+			image: data.image,
+			text: data.text,
+			oldPrice: data.oldPrice,
+			newPrice: data.newPrice
+		});
+		post.save().then(() => {
+			res.status(200).json({ post });
+		});
+	} catch (e) {}
+});
+
+router.get('/stocksMain', (req, res) => {
+	StocksMainModel.find().then((items) => {
+		res.status(200).json({ items });
+	});
+});
+
+//adversitingStock
+router.post('/adversitingStock', (req, res) => {
+	try {
+		const data = req.body;
+		console.log(data);
+		const post = new AdversitingStockModel({
+			src: data.src
+		});
+		post.save().then(() => {
+			res.status(200).json({ post });
+		});
+	} catch (e) {}
+});
+
+router.get('/adversitingStock', (req, res) => {
+	AdversitingStockModel.find().then((items) => {
 		res.status(200).json({ items });
 	});
 });

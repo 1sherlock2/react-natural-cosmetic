@@ -34,7 +34,7 @@ const registerSuccessDispath = () => ({ type: REGISTER_SUCCESS });
 
 export const authThunk = (values) => (dispatch) => {
 	return API.authAPI(values).then((response) => {
-		if (response.request.status === 201) {
+		if (response.request.status === 200) {
 			console.log(response);
 			dispatch(authDispatch(response.data));
 		}

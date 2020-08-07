@@ -23,6 +23,11 @@ const Accessories_Container = React.memo((props) => {
 	const [activeCategoried, setActiveCategoried] = useState(false);
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
 	let [count, setCount] = useState(1);
+	const [isLoaded, setIsLoaded] = useState({
+		img: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+		otherInformation: 'В данном разделе представлена фирменная коллекция различных аксессуаров'
+	});
+	const text = ['оптом', 'розница'];
 
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
@@ -80,9 +85,10 @@ const Accessories_Container = React.memo((props) => {
 					increasePriceDispatch={props.increasePriceDispatch}
 					decreasePriceDispatch={props.decreasePriceDispatch}
 					count={count}
+					text={text}
 					increaseCount={increaseCount}
 					decreaseCount={decreaseCount}
-					isLoaded={props.isLoaded}
+					isLoaded={isLoaded}
 					selectItemsDispatch={props.selectItemsDispatch}
 					selectCategoriesItemFunc={selectCategoriesItemFunc}
 					selectCategoriesItem={selectCategoriesItem}
@@ -105,7 +111,6 @@ let mapStateToProps = (state) => {
 	return {
 		product: state.stocksData.product,
 		items: state.stocksData.items,
-		isLoaded: state.stocksData.isLoaded,
 		isLoading: state.stocksData.isLoading,
 		price: state.stocksData.price,
 		priceIndex: state.stocksData.priceIndex

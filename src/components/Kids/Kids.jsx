@@ -37,7 +37,7 @@ const Kids = (props) => {
 											<h5 className='card-title'>{item.name}</h5>
 											<p className='card-text'>{item.description} </p>
 											<div className='price_different'>
-												{item.text.map((element, index) => (
+												{props.text.map((element, index) => (
 													<span
 														key={`${element.id} ${index}`}
 														onClick={() => props.selectItem(index)}
@@ -109,7 +109,7 @@ const Kids = (props) => {
 						props.items.map((item, index) => {
 							return (
 								<NavLink to='#'>
-									<div className='card' key={`${index} ${item.id}`} onClick={() => props.selectItemsDispatch(item.id)}>
+									<div className='card' key={`${index} ${item.id}`} onClick={() => props.selectItemsDispatch(item._id)}>
 										<img className='card-img-top' src={item.img} alt='Card image cap' />
 										<div className='card-body'>
 											<div className='card_body_grid'>

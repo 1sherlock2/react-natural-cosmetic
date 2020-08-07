@@ -1,5 +1,5 @@
 import { API } from '../API/API';
-import { changeIsLoadingDispatchFalse, setItemsDispatch, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
+import { changeIsLoadingDispatchFalse, setItemsDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
 
 let initialState = {
 	product: null,
@@ -14,20 +14,28 @@ let initialState = {
 export const stocksReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case 'SET_ITEMS':
-			return {
-				...state,
-				items: action.items
-			};
-		case 'SELECT_ITEMS':
-			let b = state.items.filter((item) => item.id === action.id);
-			let obj = b.reduce((result, item, index) => {
-				result[index] = item;
-				return result;
+			const text = ['оптом', 'розница'];
+			const items = action.halfItems.map((element) => {
+				return {
+					...element,
+					text: text
+				};
 			});
 			return {
 				...state,
-				product: state.items.filter((item) => item.id === action.id),
-				price: obj.price
+				items: items,
+				product: null
+			};
+		case 'SELECT_ITEMS':
+			// let b = state.items.filter((item) => item.id === action.id);
+			// let obj = b.reduce((result, item, index) => {
+			// 	result[index] = item;
+			// 	return result;
+			// });
+			return {
+				...state,
+				product: state.items.filter((item) => item._id === action.id)
+				// price: obj.price
 			};
 		case 'SORT_ITEMS_BY_PRICE':
 			return {
@@ -106,7 +114,6 @@ export const stocksThunk = () => (dispatch) => {
 	return API.stocksAPI().then((response) => {
 		if (response.status === 200) {
 			dispatch(setItemsDispatch(response.data.items));
-			dispatch(isLoadedDispatch(response.data.isLoaded));
 			dispatch(changeIsLoadingDispatchTrue());
 		}
 	});

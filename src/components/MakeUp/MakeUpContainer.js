@@ -23,7 +23,11 @@ const MakeUp_Container = React.memo((props) => {
 	const [activeCategoried, setActiveCategoried] = useState(false);
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
 	let [count, setCount] = useState(1);
-
+	const [isLoaded, setIsLoaded] = useState({
+		img: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+		otherInformation: 'В данном разделе представлена коллекция товаров для ухода за волосами'
+	});
+	const text = ['оптом', 'розница'];
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
 		if (element === 'по цене') {
@@ -75,6 +79,7 @@ const MakeUp_Container = React.memo((props) => {
 		return (
 			<div>
 				<MakeUp
+					text={text}
 					priceIndex={props.priceIndex}
 					price={props.price}
 					increasePriceDispatch={props.increasePriceDispatch}
@@ -82,7 +87,7 @@ const MakeUp_Container = React.memo((props) => {
 					count={count}
 					increaseCount={increaseCount}
 					decreaseCount={decreaseCount}
-					isLoaded={props.isLoaded}
+					isLoaded={isLoaded}
 					selectItemsDispatch={props.selectItemsDispatch}
 					selectCategoriesItemFunc={selectCategoriesItemFunc}
 					selectCategoriesItem={selectCategoriesItem}
@@ -105,7 +110,6 @@ let mapStateToProps = (state) => {
 	return {
 		product: state.makeUpData.product,
 		items: state.makeUpData.items,
-		isLoaded: state.makeUpData.isLoaded,
 		isLoading: state.makeUpData.isLoading,
 		price: state.makeUpData.price,
 		priceIndex: state.makeUpData.priceIndex

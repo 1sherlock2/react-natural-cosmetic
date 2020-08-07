@@ -13,7 +13,7 @@ const Wrapper_img_content = (props) => {
 								<img src={item.src} title='first' />
 								<div className='img_slider_svg_prev'>
 									<svg
-										onClick={props.selectItemPrev()}
+										// onClick={props.selectItemPrev()}
 										width='3em'
 										height='3em'
 										viewBox='0 0 16 16'
@@ -30,7 +30,7 @@ const Wrapper_img_content = (props) => {
 								</div>
 								<div className='img_slider_svg_next'>
 									<svg
-										onClick={props.selectItemNext()}
+										// onClick={props.selectItemNext()}
 										width='3em'
 										height='3em'
 										viewBox='0 0 16 16'

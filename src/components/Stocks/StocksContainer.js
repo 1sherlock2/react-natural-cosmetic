@@ -23,7 +23,10 @@ const Stocks_Container = React.memo((props) => {
 	const [activeCategoried, setActiveCategoried] = useState(false);
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
 	let [count, setCount] = useState(1);
-
+	const [isLoaded, setIsLoaded] = useState({
+		img: 'https://images.unsplash.com/photo-1561920723-e0c68a4fe723?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=421&q=80',
+		otherInformation: 'В данном разделе вы найдете выгодные предложения по заниженным ценам'
+	});
 	const selectCategoriesItemFunc = (element, index) => {
 		setSelectCategoriesItem(index);
 		if (element === 'по цене') {
@@ -82,7 +85,7 @@ const Stocks_Container = React.memo((props) => {
 					count={count}
 					increaseCount={increaseCount}
 					decreaseCount={decreaseCount}
-					isLoaded={props.isLoaded}
+					isLoaded={isLoaded}
 					selectItemsDispatch={props.selectItemsDispatch}
 					selectCategoriesItemFunc={selectCategoriesItemFunc}
 					selectCategoriesItem={selectCategoriesItem}
@@ -105,7 +108,6 @@ let mapStateToProps = (state) => {
 	return {
 		product: state.stocksData.product,
 		items: state.stocksData.items,
-		isLoaded: state.stocksData.isLoaded,
 		isLoading: state.stocksData.isLoading,
 		price: state.stocksData.price,
 		priceIndex: state.stocksData.priceIndex
