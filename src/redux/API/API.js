@@ -1,13 +1,13 @@
 import * as axios from 'axios';
 
 const instance = axios.create({
-	baseURL: 'http://localhost:3001',
+	baseURL: 'http://localhost:4000',
 	withCredentials: true
 });
 
 export const API = {
 	mainAPI() {
-		return instance.get('/mainContent');
+		return instance.get('/products/mainContent/wrapperImgContent');
 	},
 	authAPI(values) {
 		return instance.post('/auth', values);
@@ -16,31 +16,31 @@ export const API = {
 		return instance.post('/auth', values);
 	},
 	stocksAPI() {
-		return instance.get('/stocks');
+		return instance.get('/products/stocks');
 	},
 	koreaAPI() {
-		return instance.get('/korea');
+		return instance.get('/products/korea');
 	},
 	perfumeryAPI() {
-		return instance.get('/perfumery');
+		return instance.get('/products/perfumery');
 	},
 	skinCareAPI() {
-		return instance.get('/skinCare');
+		return instance.get('/products/skinCare');
 	},
 	makeUpAPI() {
-		return instance.get('/makeUp');
+		return instance.get('/products/makeUp');
 	},
 	menAPI() {
-		return instance.get('/men');
+		return instance.get('/products/men');
 	},
 	accessoriesAPI() {
-		return instance.get('/accessories');
+		return instance.get('/products/accessories');
 	},
 	kidsAPI() {
-		return instance.get('/kids');
+		return instance.get('/products/kids');
 	},
 	giftAPI() {
-		return instance.get('/gift');
+		return instance.get('/products/gift');
 	},
 	wrapperImgContentAPI() {
 		return instance.get('/mainContent/wrapperImgContent');

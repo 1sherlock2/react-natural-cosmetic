@@ -1,15 +1,43 @@
-const jsonServer = require('json-server');
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const auth = require('./controllers/AuthController');
+const mainContent = require('./controllers/ProductsController');
+const stocks = require('./controllers/StocksController');
+const app = express();
+const config = require('config');
 const path = require('path');
 
-const server = jsonServer.create();
-const middlewares = jsonServer.defaults();
-const router = jsonServer.router(path.join(__dirname, 'data.json'));
+const PORT = config.get('port');
 
-server.use(jsonServer.bodyParser);
-server.use(middlewares);
-server.use(router);
-server.use((req, res, next) => {});
+let urlencodedFalse = bodyParser.urlencoded({ extended: true });
+let bodyParserJsonTrue = bodyParser.json({
+	inflate: true,
+	strict: true
+});
 
-server.listen(3001, () => {
-	console.log('JSON server was  running');
+app.use(cors({ credentials: true, origin: true }));
+
+// routers
+app.use('/auth', urlencodedFalse, bodyParserJsonTrue, auth);
+app.use('/products', urlencodedFalse, bodyParserJsonTrue, mainContent);
+// app.use('/stocks', urlencodedFalse, bodyParserJsonTrue, stocks);
+
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use('/', express.static(path.join(__dirname, 'mern_study_react', 'build')));
+// 	app.get('*', (req, res) => {
+// 		res.sendFile(path.resolve(__dirname, 'mern_study_react', 'build', 'index.html'));
+// 	});
+// }
+
+mongoose.connect(config.get('mongoUri'), {
+	useNewUrlParser: true,
+	useFindAndModify: false,
+	useUnifiedTopology: true,
+	useCreateIndex: true
+});
+
+app.listen(PORT, () => {
+	console.log(`server was started in ${PORT} port`);
 });
