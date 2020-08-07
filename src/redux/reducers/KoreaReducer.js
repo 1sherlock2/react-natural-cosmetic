@@ -27,15 +27,15 @@ export const koreaReducer = (state = initialState, action) => {
 				product: null
 			};
 		case 'SELECT_ITEMS':
-			// let b = state.items.filter((item) => item.id === action.id);
-			// let obj = b.reduce((result, item, index) => {
-			// 	result[index] = item;
-			// 	return result;
-			// });
+			let b = state.items.filter((item) => item._id === action.id);
+			let obj = b.reduce((result, item, index) => {
+				result[index] = item;
+				return result;
+			});
 			return {
 				...state,
-				product: state.items.filter((item) => item._id === action.id)
-				// price: obj.price
+				product: state.items.filter((item) => item._id === action.id),
+				price: obj.price
 			};
 		case 'SORT_ITEMS_BY_PRICE':
 			return {

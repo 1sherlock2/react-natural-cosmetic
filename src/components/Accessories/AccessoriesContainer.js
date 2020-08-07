@@ -24,7 +24,7 @@ const Accessories_Container = React.memo((props) => {
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
 	let [count, setCount] = useState(1);
 	const [isLoaded, setIsLoaded] = useState({
-		img: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+		img: 'https://www.letu.ru/common/img/banners/KL_mC_feb20_205x264.jpg',
 		otherInformation: 'В данном разделе представлена фирменная коллекция различных аксессуаров'
 	});
 	const text = ['оптом', 'розница'];
