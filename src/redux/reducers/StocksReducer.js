@@ -100,7 +100,7 @@ export const stocksReducer = (state = initialState, action) => {
 		case 'DELETE_BASKET_BY_ID':
 			return {
 				...state,
-				basket: [...state.basket.filter((item) => item.id !== action.id)]
+				basket: [...state.basket.filter((item) => item._id !== action.id)]
 			};
 		default:
 			return {

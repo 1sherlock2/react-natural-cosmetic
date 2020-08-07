@@ -43,7 +43,7 @@ export const authThunk = (values) => (dispatch) => {
 
 export const authRegisterThunk = (values) => (dispatch) => {
 	return API.authRegisterAPI(values).then((response) => {
-		if (response.request.status === 201) {
+		if (response.request.status === 200) {
 			dispatch(registerSuccessDispath());
 		}
 	});

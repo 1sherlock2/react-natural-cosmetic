@@ -37,7 +37,7 @@ const Wrapper1_block_bracket = (props) => {
 										<td>{item.name}</td>
 										<td>{item.count}</td>
 										<td>{item.price}</td>
-										<button onClick={() => props.deleteBasketById(item.id)}>Delete</button>
+										<button onClick={() => props.deleteBasketById(item._id)}>Delete</button>
 									</tr>
 								);
 							})}
