@@ -41,5 +41,8 @@ export const API = {
 	},
 	giftAPI() {
 		return instance.get('/gift');
+	},
+	wrapperImgContentAPI() {
+		return instance.get('/mainContent/wrapperImgContent');
 	}
 };

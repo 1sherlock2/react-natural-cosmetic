@@ -122,7 +122,7 @@
 			.card {
 				display: grid;
 				margin-left: 0;
-				grid-template-rows: 1fr 0.5fr;
+				grid-template-rows: 1fr 0.8fr;
 				width: 15rem;
 				height: 17.5rem;
 				img {
@@ -142,7 +142,9 @@
 						grid-template-areas:
 							'name price'
 							'brend price';
+						grid-gap: 0;
 						.card_items_name {
+							text-align: left;
 							width: 80%;
 							grid-area: name;
 							font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -157,6 +159,7 @@
 							font-size: 14px;
 						}
 						.card_items_brend {
+							text-align: left;
 							width: 80%;
 							grid-area: brend;
 							font-family: cursive;
@@ -164,7 +167,7 @@
 						}
 						.card-text {
 							margin: 0 auto 1% auto;
-							text-align: center;
+							text-align: left;
 						}
 					}
 				}

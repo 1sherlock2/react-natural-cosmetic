@@ -115,7 +115,7 @@ const Stocks = (props) => {
 											<div className='card_body_grid'>
 												<p className='card-text card_items_name'>{item.name} </p>
 												<p className='card-text card_items_brend'>{item.brend} </p>
-												<p className='card-text card_items_price'>{item.price} р.</p>
+												<p className='card-text card_items_price'>{item.price} $</p>
 											</div>
 										</div>
 									</div>

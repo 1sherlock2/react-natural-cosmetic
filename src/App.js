@@ -13,6 +13,7 @@ import Men_Container from './components/Men/MenContainer';
 import Accessories_Container from './components/Accessories/AccessoriesContainer';
 import Kids_Container from './components/Kids/KidsContainer';
 import Gift_Container from './components/GIft/GiftContainer';
+import Brends_Container from './components/Brends/BrendsContainer';
 import ContentLoaderByComponent from './components/Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import RegisterBlockContainer from './components/RegisterBlock/RegisterBlockContainer';
 import { compose } from 'redux';
@@ -41,6 +42,7 @@ const App = (props) => {
 					<Route exact path={`/accessories`} render={() => <Accessories_Container />} />
 					<Route exact path={`/kids`} render={() => <Kids_Container />} />
 					<Route exact path={`/gift`} render={() => <Gift_Container />} />
+					{/* <Route exact path={`/brends`} render={() => <Brends_Container />} /> */}
 				</Suspense>
 			</div>
 		</Switch>

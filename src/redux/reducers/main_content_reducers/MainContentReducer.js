@@ -2,6 +2,7 @@ import { API } from '../../API/API';
 
 const initialState = {
 	wrapperImgContent: null,
+	wrapperImgContentSlider: null,
 	content: null,
 	navigationProduct: null,
 	stocksMain: null,

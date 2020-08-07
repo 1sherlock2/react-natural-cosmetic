@@ -25,6 +25,7 @@ const redurPack = combineReducers({
 	accessoriesData: accessoriesReducer,
 	kids: kidsReducer,
 	giftData: giftReducer
+	// brendsData: brendsReducer
 });
 const store = createStore(redurPack, composeWithDevTools(applyMiddleware(thunkMiddleWare)));
 
