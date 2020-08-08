@@ -79,7 +79,12 @@ const Perfumery = (props) => {
 													</div>
 												)}
 											</ul>
-											<button onClick={() => props.addInBasket(item, props.count)}>Добавить в корзину</button>
+											<button
+												type='button'
+												class='btn btn-primary btn-sm '
+												onClick={() => props.addInBasket(item, props.count)}>
+												Добавить в корзину
+											</button>
 										</div>
 									</div>
 									<div сlassName='reviews'>

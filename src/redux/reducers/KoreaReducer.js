@@ -68,8 +68,9 @@ export const koreaReducer = (state = initialState, action) => {
 				isLoading: true
 			};
 		case 'DECREASE_PRICE':
-			const product = {
-				...state.product.reduce((result, item) => {
+			return {
+				...state,
+				product: state.product.reduce((result, item) => {
 					if (action.count < 1) {
 						return state.product;
 					} else {
@@ -77,10 +78,6 @@ export const koreaReducer = (state = initialState, action) => {
 						return result;
 					}
 				}, state.product)
-			};
-			return {
-				...state,
-				product: product
 			};
 		case 'INCREASE_PRICE':
 			return {

@@ -90,6 +90,12 @@
 					margin: 5% auto;
 					text-align: center;
 				}
+				.btn-primary {
+					background-color: rgb(218, 195, 195);
+					border-color: rgb(218, 195, 195);
+
+					color: #333;
+				}
 			}
 		}
 		.reviews {
@@ -169,6 +175,9 @@
 							margin: 0 auto 1% auto;
 							text-align: left;
 						}
+					}
+					.btn-primary {
+						background-color: rgb(218, 195, 195);
 					}
 				}
 			}
