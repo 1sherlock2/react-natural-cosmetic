@@ -3,7 +3,7 @@ import Wrapper_title from './Wrapper_title';
 import { connect } from 'react-redux';
 import { authThunk } from '../../redux/reducers/AuthDataReducer';
 import { Redirect } from 'react-router-dom';
-import { deleteBasketByidDispatch } from '../../redux/generalDispatchs/generalDispatch';
+import { deleteBasketByidDispatch, logoutDispatch } from '../../redux/generalDispatchs/generalDispatch';
 
 const Wrapper_title_Container = (props) => {
 	const [entry, setEntry] = useState(false);
@@ -27,7 +27,7 @@ const Wrapper_title_Container = (props) => {
 		props.authThunk(values).then(() => {
 			if (props.isAuth === true) {
 				setEntry(false);
-				return <Redirect to='/' />;
+				return <Redirect to="/" />;
 			}
 		});
 	};
@@ -49,6 +49,7 @@ const Wrapper_title_Container = (props) => {
 			bracket={bracket}
 			onToggleBracket={onToggleBracket}
 			isAuth={props.isAuth}
+			logoutDispatch={props.logoutDispatch}
 		/>
 	);
 };
@@ -58,7 +59,7 @@ let mapStateToProps = (state) => ({
 	isAuth: state.authData.isAuth
 });
 
-export default connect(mapStateToProps, { deleteBasketByidDispatch, authThunk })(Wrapper_title_Container);
+export default connect(mapStateToProps, { deleteBasketByidDispatch, authThunk, logoutDispatch })(Wrapper_title_Container);
 
 //! Chrome
 // const handleOutsideClickEntry = (e) => {

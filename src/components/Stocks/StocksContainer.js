@@ -23,6 +23,7 @@ const Stocks_Container = React.memo((props) => {
 	const [activeCategoried, setActiveCategoried] = useState(false);
 	const [selectCategoriesItem, setSelectCategoriesItem] = useState(null);
 	let [count, setCount] = useState(1);
+	const [productForm, setProductForm] = useState(false);
 	const [isLoaded, setIsLoaded] = useState({
 		img: 'https://images.unsplash.com/photo-1561920723-e0c68a4fe723?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=421&q=80',
 		otherInformation: 'В данном разделе вы найдете выгодные предложения по заниженным ценам'
@@ -72,12 +73,22 @@ const Stocks_Container = React.memo((props) => {
 		props.addInBasketDispatch(item, count);
 	};
 
+	const addProduct = () => {
+		setProductForm(!productForm);
+	};
+
+	const onSubmit = (values) => {
+		console.log(values);
+	};
 	if (props.isLoading === false) {
 		return <ContentLoaderByComponent />;
 	} else {
 		return (
 			<div>
 				<Stocks
+					addProduct={addProduct}
+					onSubmit={onSubmit}
+					productForm={productForm}
 					priceIndex={props.priceIndex}
 					price={props.price}
 					increasePriceDispatch={props.increasePriceDispatch}
@@ -98,6 +109,7 @@ const Stocks_Container = React.memo((props) => {
 					activePriceDifferent={activePriceDifferent}
 					selectItem={selectItem}
 					addInBasket={addInBasket}
+					adminAuth={props.adminAuth}
 				/>
 			</div>
 		);
@@ -110,7 +122,8 @@ let mapStateToProps = (state) => {
 		items: state.stocksData.items,
 		isLoading: state.stocksData.isLoading,
 		price: state.stocksData.price,
-		priceIndex: state.stocksData.priceIndex
+		priceIndex: state.stocksData.priceIndex,
+		adminAuth: state.authData.adminAuth
 	};
 };
 

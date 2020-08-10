@@ -1,3 +1,8 @@
+//auth
+export const authDispatch = (token, userId) => ({ type: 'IS_AUTH', token, userId });
+export const authAdminDispatch = (token, userId) => ({ type: 'ADMIN_AUTH', token, userId });
+export const registerSuccessDispath = () => ({ type: 'REGISTER_SUCCESS' });
+
 export const wrapperImgContent = (items) => ({ type: 'SET_WRAPPER_IMG_CONTENT', items });
 export const contentDispatch = (items) => ({ type: 'SET_CONTENT', items });
 export const navigationProductDispatch = (items) => ({ type: 'SET_NAVIGATION_PRODUCT', items });
@@ -23,3 +28,4 @@ export const addInBasketDispatch = (item, count) => {
 	return { type: 'ADD_IN_BASKET', item };
 };
 export const deleteBasketByidDispatch = (id) => ({ type: 'DELETE_BASKET_BY_ID', id });
+export const logoutDispatch = () => ({ type: 'LOGOUT' });

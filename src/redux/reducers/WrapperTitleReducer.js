@@ -1,12 +1,10 @@
-const ON_TOGGLE_REGISTER = 'ON_TOGGLE_REGISTER';
-
 const initialState = {
 	onRegister: false
 };
 
 export const wripperTitleReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case ON_TOGGLE_REGISTER:
+		case 'ON_TOGGLE_REGISTER':
 			return {
 				...state,
 				onRegister: !state.onRegister
@@ -18,4 +16,4 @@ export const wripperTitleReducer = (state = initialState, action) => {
 	}
 };
 
-export const onToggleRegister = () => ({ type: ON_TOGGLE_REGISTER });
+export const onToggleRegister = () => ({ type: 'ON_TOGGLE_REGISTER' });

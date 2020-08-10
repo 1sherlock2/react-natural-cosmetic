@@ -15,38 +15,50 @@ const Wrapper1_block_grid_4_1 = (props) => {
 		password: Yup.string().required('Необходимо заполнить поле').min(8, 'Не меньше 8 символов')
 	});
 	return (
-		<div className='wrapper1_block_grid_4_1'>
-			<div className='wrapper1_block_entrance'>
+		<div className="wrapper1_block_grid_4_1">
+			<div className="wrapper1_block_entrance">
 				<h1> Личный кабинет</h1>
 			</div>
-			<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
-				<Form>
-					<div className='wrapper1_block_email'>
-						<Field name='email' type='email' placeholder='логин или E-mail' />
-					</div>
-					<ErrorMessage name='email' />
-					<div className='wrapper1_block_password'>
-						<Field name='password' type='password' placeholder='пароль' />
-					</div>
-					<ErrorMessage name='password' />
-					<div className='other_link_form'>
-						<div className='wrapper1_block_button'>
-							<button className='atuin-btn'>Войти</button>
+			{!props.isAuth ? (
+				<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={props.onSubmit}>
+					<Form>
+						<div className="wrapper1_block_email">
+							<Field name="email" type="email" placeholder="логин или E-mail" />
 						</div>
-						<div className='registr'>
-							<NavLink to={'/register'} className='registr_a'>
-								Регистрация
-							</NavLink>
+						<ErrorMessage name="email" />
+						<div className="wrapper1_block_password">
+							<Field name="password" type="password" placeholder="пароль" />
 						</div>
-						<div className='forgot_password'>
-							<NavLink to={'#'} className='forgot_password_a'>
-								Забыли пароль?
-							</NavLink>
+						<ErrorMessage name="password" />
+						<div className="other_link_form">
+							<div className="wrapper1_block_button">
+								<button className="atuin-btn">Войти</button>
+							</div>
+							<div className="registr">
+								<NavLink to={'/register'} className="registr_a">
+									Регистрация
+								</NavLink>
+							</div>
+							<div className="forgot_password">
+								<NavLink to={'#'} className="forgot_password_a">
+									Забыли пароль?
+								</NavLink>
+							</div>
 						</div>
+					</Form>
+				</Formik>
+			) : (
+				<div className="personal_room">
+					<div className="personal_settings">
+						<NavLink to="/settings">
+							<button onClick={props.settings}>Settings</button>
+						</NavLink>
 					</div>
-				</Form>
-			</Formik>
-			{props.isAuth ? <div className='isAuth_success_entry'>Вы вошли в личный кабинет</div> : null}
+					<div className="personal_logout">
+						<button onClick={props.logoutDispatch}> Logout</button>
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };

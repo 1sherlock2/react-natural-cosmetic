@@ -12,12 +12,6 @@ const RegisterBlockContainer = (props) => {
 		props.authRegisterThunk(values);
 	};
 
-	// if (props.isRegister === true) {
-	// 	setTimeout(() => {
-	// 		return <Redirect to='/' />;
-	// 	}, 1000);
-	// }
-
 	return <RegisterBlock onSubmit={onSubmit} registerSuccess={props.registerSuccess} />;
 };
 
