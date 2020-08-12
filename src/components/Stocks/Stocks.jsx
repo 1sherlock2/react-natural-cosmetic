@@ -28,7 +28,7 @@ const Stocks = (props) => {
 									<div className="default_block_otherInformation">{props.isLoaded.otherInformation}</div>
 								</div>
 							) : (
-								<AddProductForm onSubmit={props.onSubmit} />
+								<AddProductForm onSubmit={props.onSubmit} postProductSuccess={props.postProductSuccess} />
 							)}
 						</div>
 					) : (

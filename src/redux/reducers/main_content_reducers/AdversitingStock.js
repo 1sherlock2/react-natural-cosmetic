@@ -13,7 +13,7 @@ export const adversitingStockReducer = (state = initialState, action) => {
 				adversitingStock: action.items
 			};
 		default:
-			return { state };
+			return { ...state };
 	}
 };
 

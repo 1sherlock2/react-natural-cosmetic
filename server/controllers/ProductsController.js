@@ -17,6 +17,26 @@ const { GiftModel } = require('../models/products/GiftModel');
 const { Router } = require('express');
 const router = Router();
 
+// image storage
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, './uploads/');
+	},
+	filename: function (req, file, cb) {
+		cb(null, new Date().toISOString() + file.fieldname);
+	}
+});
+const fileFilter = (req, file, cb) => {
+	if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+		cb(null, false);
+	} else {
+		cb(null, true);
+	}
+};
+const upload = multer({ storage: storage, fileSize: 1024 * 1024 * 5, fileFilter: fileFilter });
+
 //wrapperImgContent
 router.post('/wrapperImgContent', (req, res) => {
 	try {
@@ -121,13 +141,13 @@ router.get('/adversitingStock', (req, res) => {
 });
 
 //stocks
-router.post('/stocks', (req, res) => {
+router.post('/stocks', upload.single('img'), (req, res) => {
 	try {
 		const data = req.body;
-		console.log(data);
+		console.log(data.img);
 		const post = new StocksModel({
 			name: data.name,
-			img: data.img,
+			img: req.file.path,
 			description: data.description,
 			price: data.price,
 			reviews: data.reviews,

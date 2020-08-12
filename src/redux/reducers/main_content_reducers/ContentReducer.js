@@ -13,7 +13,7 @@ export const contentReducer = (state = initialState, action) => {
 				content: action.items
 			};
 		default:
-			return { state };
+			return { ...state };
 	}
 };
 

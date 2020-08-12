@@ -13,7 +13,7 @@ export const wrapperImgContentReducer = (state = initialState, action) => {
 				wrapperImgContent: action.items
 			};
 		default:
-			return { state };
+			return { ...state };
 	}
 };
 export const wrapperImgContentThunk = () => (dispatch) => {

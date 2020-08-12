@@ -29,3 +29,6 @@ export const addInBasketDispatch = (item, count) => {
 };
 export const deleteBasketByidDispatch = (id) => ({ type: 'DELETE_BASKET_BY_ID', id });
 export const logoutDispatch = () => ({ type: 'LOGOUT' });
+
+//postPorduct
+export const postProductSuccess = () => ({ type: 'POST_PRODUCT_SUCCESS' });

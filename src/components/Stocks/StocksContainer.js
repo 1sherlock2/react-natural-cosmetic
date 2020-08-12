@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createRef, useRef } from 'react';
 import Stocks from './Stocks';
 import { connect } from 'react-redux';
-import { stocksThunk } from '../../redux/reducers/StocksReducer';
+import { stocksThunk, postProductStocks } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -79,13 +79,16 @@ const Stocks_Container = React.memo((props) => {
 
 	const onSubmit = (values) => {
 		console.log(values);
+		props.postProductStocks(values);
 	};
+
 	if (props.isLoading === false) {
 		return <ContentLoaderByComponent />;
 	} else {
 		return (
 			<div>
 				<Stocks
+					// selectImage={selectImage}
 					addProduct={addProduct}
 					onSubmit={onSubmit}
 					productForm={productForm}
@@ -110,6 +113,7 @@ const Stocks_Container = React.memo((props) => {
 					selectItem={selectItem}
 					addInBasket={addInBasket}
 					adminAuth={props.adminAuth}
+					postProductSuccess={props.postProductSuccess}
 				/>
 			</div>
 		);
@@ -123,7 +127,8 @@ let mapStateToProps = (state) => {
 		isLoading: state.stocksData.isLoading,
 		price: state.stocksData.price,
 		priceIndex: state.stocksData.priceIndex,
-		adminAuth: state.authData.adminAuth
+		adminAuth: state.authData.adminAuth,
+		postProductSuccess: state.stocksData.postProductSuccess
 	};
 };
 
@@ -137,7 +142,8 @@ export default compose(
 		sortItemsByPrice,
 		sortItemsByBrend,
 		sortItemsDate,
-		stocksThunk
+		stocksThunk,
+		postProductStocks
 	}),
 	withRouter
 )(Stocks_Container);

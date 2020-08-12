@@ -1,5 +1,5 @@
 import { API } from '../API/API';
-import { changeIsLoadingDispatchFalse, setItemsDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
+import { changeIsLoadingDispatchFalse, setItemsDispatch, changeIsLoadingDispatchTrue, postProductSuccess } from '../generalDispatchs/generalDispatch';
 
 let initialState = {
 	product: null,
@@ -8,7 +8,8 @@ let initialState = {
 	isLoading: false,
 	price: null,
 	priceIndex: 1,
-	basket: []
+	basket: [],
+	postProductSuccess: false
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -102,6 +103,11 @@ export const stocksReducer = (state = initialState, action) => {
 				...state,
 				basket: [...state.basket.filter((item) => item._id !== action.id)]
 			};
+		case 'POST_PRODUCT_SUCCESS':
+			return {
+				...state,
+				postProductSuccess: true
+			};
 		default:
 			return {
 				...state
@@ -115,6 +121,14 @@ export const stocksThunk = () => (dispatch) => {
 		if (response.status === 200) {
 			dispatch(setItemsDispatch(response.data.items));
 			dispatch(changeIsLoadingDispatchTrue());
+		}
+	});
+};
+
+export const postProductStocks = (values) => (dispatch) => {
+	return API.postStocksAPI(values).then((response) => {
+		if (response.data.message === 'success') {
+			dispatch(postProductSuccess());
 		}
 	});
 };

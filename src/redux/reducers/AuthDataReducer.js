@@ -6,7 +6,6 @@ const initialState = {
 	token: null,
 	userId: null,
 	isRegister: false,
-	auth: null,
 	registerSuccess: false,
 	adminAuth: false
 };
@@ -17,7 +16,8 @@ export const authDataReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isAuth: true,
-				auth: action.values
+				token: action.token,
+				userId: action.userId
 			};
 		case 'REGISTER_SUCCESS':
 			return {
@@ -29,16 +29,18 @@ export const authDataReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isAuth: null,
-				auth: null
+				token: null,
+				userId: null
 			};
 		case 'ADMIN_AUTH':
 			return {
 				...state,
-				auth: action.items,
+				token: action.token,
+				userId: action.userId,
 				adminAuth: true
 			};
 		default:
-			return { state };
+			return { ...state };
 	}
 };
 

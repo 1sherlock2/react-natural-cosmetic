@@ -13,7 +13,7 @@ export const stockMainReducer = (state = initialState, action) => {
 				stockMain: action.items
 			};
 		default:
-			return { state };
+			return { ...state };
 	}
 };
 

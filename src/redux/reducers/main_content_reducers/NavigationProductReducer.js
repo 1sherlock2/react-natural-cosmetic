@@ -13,7 +13,7 @@ export const navigationProductReducer = (state = initialState, action) => {
 				navigationProduct: action.items
 			};
 		default:
-			return { state };
+			return { ...state };
 	}
 };
 

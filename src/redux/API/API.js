@@ -56,5 +56,8 @@ export const API = {
 	},
 	adversitingStockAPI() {
 		return instance.get('/products/adversitingStock');
+	},
+	postStocksAPI(values) {
+		return instance.post('/products/stocks', values);
 	}
 };
