@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const StocksSchema = new Schema({
 	date: { type: Date, default: Date.now() },
 	name: String,
-	img: String,
+	img: { type: String, required: true },
 	description: String,
 	price: Number,
 	reviews: String,

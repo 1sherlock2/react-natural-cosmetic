@@ -20,16 +20,6 @@ let bodyParserJsonTrue = bodyParser.json({
 	strict: true
 });
 
-// app.use((req, res, next) => {
-// 	res.header('Access-Control-Allow-Origin', '*');
-// 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-// 	if (req.method === 'OPTIONS') {
-// 		res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-// 		return res.status(200).json({});
-// 	}
-// 	next();
-// });
-
 app.use(cors({ credentials: true, origin: true }));
 
 // routers
@@ -47,9 +37,20 @@ app.listen(PORT, () => {
 	console.log(`server was started in ${PORT} port`);
 });
 
+// app.use(cors({ credentials: true, origin: true, allowedHeaders: ['Content-Type', 'Authorization'] }));
+
 // if (process.env.NODE_ENV === 'production') {
 // 	app.use('/', express.static(path.join(__dirname, 'mern_study_react', 'build')));
 // 	app.get('*', (req, res) => {
 // 		res.sendFile(path.resolve(__dirname, 'mern_study_react', 'build', 'index.html'));
 // 	});
 // }
+// app.use((req, res, next) => {
+// 	res.header('Access-Control-Allow-Origin', '*');
+// 	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+// 	if (req.method === 'OPTIONS') {
+// 		res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+// 		return res.status(200).json({});
+// 	}
+// 	next();
+// });
