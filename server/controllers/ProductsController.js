@@ -48,7 +48,6 @@ router.post('/stocks', upload.single('img'), (req, res) => {
 			brend: data.brend
 		});
 		post.save().then(() => {
-			res.header('Access-Control-Allow-Origin', '*');
 			res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
 			res.status(200).json({ post });
 		});

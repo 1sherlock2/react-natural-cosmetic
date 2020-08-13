@@ -5,19 +5,22 @@ const instance = axios.create({
 	baseURL: 'http://localhost:4000',
 	withCredentials: true,
 	headers: {
-		'Access-Control-Allow-Origin': '*',
 		'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
 		Accept: 'application/json, text/plain, */*'
-		// 'Content-Type': ['application/json', 'multipart/form-data']
 	}
 });
 
 export const API = {
 	postStocksAPI(values) {
-		// const data = new FormData();
-		// data.append('img', values.img);
-		console.log(values);
-		return instance.post('/products/stocks', values);
+		console.log(`values: ${values}`);
+		const data = new FormData();
+		data.append('name', values.name);
+		data.append('price', values.price);
+		data.append('img', values.img);
+		data.append('description', values.description);
+		data.append('brend', values.brend);
+		console.log(`data: ${data}`);
+		return instance.post('/products/stocks', data, { headers: { 'Content-Type': 'multipart/form-data' } });
 	},
 	mainAPI() {
 		return instance.get('/products/mainContent/wrapperImgContent');
