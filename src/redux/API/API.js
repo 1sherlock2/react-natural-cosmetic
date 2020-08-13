@@ -1,11 +1,24 @@
 import * as axios from 'axios';
 
+// const headers = Object.assign({}, { 'content-type': 'application/json' }, this.getHeaders(), { 'Content-Type': 'multipart/form-data' });
 const instance = axios.create({
 	baseURL: 'http://localhost:4000',
-	withCredentials: true
+	withCredentials: true,
+	headers: {
+		'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+		Accept: 'application/json, text/plain, */*'
+		// 'Content-Type': ['application/json', 'multipart/form-data']
+	}
 });
 
 export const API = {
+	postStocksAPI(values) {
+		// const data = new FormData();
+		// data.append('img', values.img);
+		console.log(values);
+		return instance.post('/products/stocks', values);
+	},
 	mainAPI() {
 		return instance.get('/products/mainContent/wrapperImgContent');
 	},
@@ -56,8 +69,10 @@ export const API = {
 	},
 	adversitingStockAPI() {
 		return instance.get('/products/adversitingStock');
-	},
-	postStocksAPI(values) {
-		return instance.post('/products/stocks', values);
 	}
+	// postStocksAPI(values) {
+	// 	return instance.post('/products/stocks', values, { headers: { 'Content-Type': 'multipart/form-data' } });
+	// }	// 	return instance.post('/products/stocks', values, { headers: { 'Content-Type': 'multipart/form-data' } });
+	// }
 };
+// { headers: { 'Content-Type': 'multipart/form-data' } })

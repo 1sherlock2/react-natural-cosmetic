@@ -78,7 +78,7 @@ const Stocks_Container = React.memo((props) => {
 	};
 
 	const onSubmit = (values) => {
-		console.log(values);
+		// console.log(values);
 		props.postProductStocks(values);
 	};
 
@@ -88,7 +88,6 @@ const Stocks_Container = React.memo((props) => {
 		return (
 			<div>
 				<Stocks
-					// selectImage={selectImage}
 					addProduct={addProduct}
 					onSubmit={onSubmit}
 					productForm={productForm}
