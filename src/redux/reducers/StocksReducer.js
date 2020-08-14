@@ -127,7 +127,8 @@ export const stocksThunk = () => (dispatch) => {
 
 export const postProductStocks = (values) => (dispatch) => {
 	return API.postStocksAPI(values).then((response) => {
-		if (response.data.message === 'success') {
+		console.log(response);
+		if (response.status === 200) {
 			dispatch(postProductSuccess());
 		}
 	});

@@ -12,14 +12,12 @@ const instance = axios.create({
 
 export const API = {
 	postStocksAPI(values) {
-		console.log(`values: ${values}`);
 		const data = new FormData();
 		data.append('name', values.name);
 		data.append('price', values.price);
 		data.append('img', values.img);
 		data.append('description', values.description);
 		data.append('brend', values.brend);
-		console.log(`data: ${data}`);
 		return instance.post('/products/stocks', data, { headers: { 'Content-Type': 'multipart/form-data' } });
 	},
 	mainAPI() {

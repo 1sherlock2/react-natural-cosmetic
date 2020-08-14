@@ -11,15 +11,14 @@ const session = require('express-session');
 const PORT = config.get('port');
 var cookieParser = require('cookie-parser');
 
+app.use('/uploads', express.static('uploads'));
 app.use(cookieParser());
 app.use(session({ secret: 'ssshhh', saveUninitialized: true, resave: true }));
-app.use('/uploads', express.static('uploads'));
 let urlencodedFalse = bodyParser.urlencoded({ extended: false });
 let bodyParserJsonTrue = bodyParser.json({
 	inflate: true,
 	strict: true
 });
-
 app.use(cors({ credentials: true, origin: true }));
 
 // routers

@@ -16,45 +16,8 @@ const { KidsModel } = require('../models/products/KidsModel');
 const { GiftModel } = require('../models/products/GiftModel');
 const { Router } = require('express');
 const router = Router();
+const upload = require('../middleware/imgStorage');
 
-// image storage
-const multer = require('multer');
-const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		cb(null, 'uploads/');
-	},
-	filename: function (req, file, cb) {
-		cb(null, new Date().toISOString() + file.originalname);
-	}
-});
-const fileFilter = (req, file, cb) => {
-	if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-		cb(null, true);
-	} else {
-		cb(null, false);
-	}
-};
-const upload = multer({ storage: storage, fileSize: 1024 * 1024 * 5, fileFilter: fileFilter });
-router.post('/stocks', upload.single('img'), (req, res) => {
-	try {
-		const data = req.body;
-		console.log(data);
-		const post = new StocksModel({
-			name: data.name,
-			img: req.file.path,
-			description: data.description,
-			price: data.price,
-			reviews: data.reviews,
-			brend: data.brend
-		});
-		post.save().then(() => {
-			res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-			res.status(200).json({ post });
-		});
-	} catch (e) {
-		console.log(e.message);
-	}
-});
 //wrapperImgContent
 router.post('/wrapperImgContent', (req, res) => {
 	try {
@@ -158,24 +121,25 @@ router.get('/adversitingStock', (req, res) => {
 	});
 });
 
-//stocks
-// router.post('/stocks', upload.single('img'), (req, res) => {
-// 	try {
-// 		const data = req.body;
-// 		console.log(req.file.path);
-// 		const post = new StocksModel({
-// 			name: data.name,
-// 			img: req.file.path,
-// 			description: data.description,
-// 			price: data.price,
-// 			reviews: data.reviews,
-// 			brend: data.brend
-// 		});
-// 		post.save().then(() => {
-// 			res.status(200).json({ post });
-// 		});
-// 	} catch (e) {}
-// });
+router.post('/stocks', upload.single('img'), (req, res) => {
+	try {
+		const data = req.body;
+		console.log(data);
+		const post = new StocksModel({
+			name: data.name,
+			img: req.file.path,
+			description: data.description,
+			price: data.price,
+			brend: data.brend
+		});
+		post.save().then(() => {
+			res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+			res.status(200).json({ post });
+		});
+	} catch (e) {
+		console.log(e.message);
+	}
+});
 
 router.get('/stocks', (req, res) => {
 	StocksModel.find().then((items) => {

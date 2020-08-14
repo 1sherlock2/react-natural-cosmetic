@@ -78,7 +78,6 @@ const Stocks_Container = React.memo((props) => {
 	};
 
 	const onSubmit = (values) => {
-		// console.log(values);
 		props.postProductStocks(values);
 	};
 
