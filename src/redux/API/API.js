@@ -11,15 +11,6 @@ const instance = axios.create({
 });
 
 export const API = {
-	postStocksAPI(values) {
-		const data = new FormData();
-		data.append('name', values.name);
-		data.append('price', values.price);
-		data.append('img', values.img);
-		data.append('description', values.description);
-		data.append('brend', values.brend);
-		return instance.post('/products/stocks', data, { headers: { 'Content-Type': 'multipart/form-data' } });
-	},
 	mainAPI() {
 		return instance.get('/products/mainContent/wrapperImgContent');
 	},
@@ -29,9 +20,24 @@ export const API = {
 	authRegisterAPI(values) {
 		return instance.post('/api/register', values);
 	},
+
+	//stocks
 	stocksAPI() {
 		return instance.get('/products/stocks');
 	},
+	postStocksAPI(values) {
+		const data = new FormData();
+		data.append('name', values.name);
+		data.append('price', values.price);
+		data.append('img', values.img);
+		data.append('description', values.description);
+		data.append('brend', values.brend);
+		return instance.post('/products/stocks', data, { headers: { 'Content-Type': 'multipart/form-data' } });
+	},
+	deleteStockItemAPI(id) {
+		return instance.delete(`/products/stocks/${id}`);
+	},
+	// korea
 	koreaAPI() {
 		return instance.get('/products/korea');
 	},
@@ -71,9 +77,4 @@ export const API = {
 	adversitingStockAPI() {
 		return instance.get('/products/adversitingStock');
 	}
-	// postStocksAPI(values) {
-	// 	return instance.post('/products/stocks', values, { headers: { 'Content-Type': 'multipart/form-data' } });
-	// }	// 	return instance.post('/products/stocks', values, { headers: { 'Content-Type': 'multipart/form-data' } });
-	// }
 };
-// { headers: { 'Content-Type': 'multipart/form-data' } })

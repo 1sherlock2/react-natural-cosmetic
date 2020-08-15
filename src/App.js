@@ -26,26 +26,23 @@ const Korea_Container = React.lazy(() => import('./components/Korea/KoreaContain
 
 const App = (props) => {
 	return (
-		<Switch>
-			<div className='container-natural'>
-				<Wrapper_title_Container />
-				<Wrapper_navigation_Container />
-				<Suspense fallback={<ContentLoaderByComponent />}>
-					<Route exact path={'/'} render={() => <Main_content_Container />} />
-					<Route exact path={'/register'} render={() => <RegisterBlockContainer />} />
-					<Route exact path={'/stocks'} render={() => <Stocks_Container />} />
-					<Route exact path={`/korea`} render={() => <Korea_Container />} />
-					<Route exact path={`/perfumery`} render={() => <Perfumery_Container />} />
-					<Route exact path={`/makeup`} render={() => <MakeUp_Container />} />
-					<Route exact path={`/skincare`} render={() => <SkinCare_Container />} />
-					<Route exact path={`/men`} render={() => <Men_Container />} />
-					<Route exact path={`/accessories`} render={() => <Accessories_Container />} />
-					<Route exact path={`/kids`} render={() => <Kids_Container />} />
-					<Route exact path={`/gift`} render={() => <Gift_Container />} />
-					{/* <Route exact path={`/brends`} render={() => <Brends_Container />} /> */}
-				</Suspense>
-			</div>
-		</Switch>
+		<div className='container-natural'>
+			<Wrapper_title_Container />
+			<Wrapper_navigation_Container />
+			<Suspense fallback={<ContentLoaderByComponent />}>
+				<Route exact path={'/'} render={() => <Main_content_Container />} />
+				<Route exact path={'/register'} render={() => <RegisterBlockContainer />} />
+				<Route exact path={'/stocks'} render={() => <Stocks_Container />} />
+				<Route exact path={`/korea`} render={() => <Korea_Container />} />
+				<Route exact path={`/perfumery`} render={() => <Perfumery_Container />} />
+				<Route exact path={`/makeup`} render={() => <MakeUp_Container />} />
+				<Route exact path={`/skincare`} render={() => <SkinCare_Container />} />
+				<Route exact path={`/men`} render={() => <Men_Container />} />
+				<Route exact path={`/accessories`} render={() => <Accessories_Container />} />
+				<Route exact path={`/kids`} render={() => <Kids_Container />} />
+				<Route exact path={`/gift`} render={() => <Gift_Container />} />
+			</Suspense>
+		</div>
 	);
 };
 

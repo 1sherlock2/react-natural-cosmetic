@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createRef, useRef } from 'react';
 import Stocks from './Stocks';
 import { connect } from 'react-redux';
-import { stocksThunk, postProductStocks } from '../../redux/reducers/StocksReducer';
+import { stocksThunk, postProductStocks, deleteItemThunk } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -17,6 +17,7 @@ import {
 } from '../../redux/generalDispatchs/generalDispatch';
 
 const Stocks_Container = React.memo((props) => {
+	const [items, setItems] = useState(props.items);
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
 	const [categories, setCategories] = useState(['по цене', 'по бренду', 'по новизне']);
 	const [defaultHeaderName, setDefaultHeaderName] = useState('сортировка');
@@ -61,8 +62,7 @@ const Stocks_Container = React.memo((props) => {
 	};
 	useEffect(() => {
 		props.stocksThunk();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [items]);
 
 	const selectItem = (index) => {
 		setActivePriceDifferent(index);
@@ -81,12 +81,19 @@ const Stocks_Container = React.memo((props) => {
 		props.postProductStocks(values);
 	};
 
+	const deleteItem = (id) => {
+		props.deleteItemThunk(id).then(() => {
+			setItems(props.items);
+		});
+	};
+
 	if (props.isLoading === false) {
 		return <ContentLoaderByComponent />;
 	} else {
 		return (
 			<div>
 				<Stocks
+					deleteItem={deleteItem}
 					addProduct={addProduct}
 					onSubmit={onSubmit}
 					productForm={productForm}
@@ -141,7 +148,8 @@ export default compose(
 		sortItemsByBrend,
 		sortItemsDate,
 		stocksThunk,
-		postProductStocks
+		postProductStocks,
+		deleteItemThunk
 	}),
 	withRouter
 )(Stocks_Container);

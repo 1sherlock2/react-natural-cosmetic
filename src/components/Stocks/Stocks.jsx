@@ -127,6 +127,12 @@ const Stocks = (props) => {
 												<p className='card-text card_items_brend'>{item.brend} </p>
 												<p className='card-text card_items_price'>{item.price} $</p>
 											</div>
+											{props.adminAuth && (
+												<div>
+													<button>изменить</button>
+													<button onClick={() => props.deleteItem(item._id)}>удалить</button>
+												</div>
+											)}
 										</div>
 									</div>
 								</NavLink>

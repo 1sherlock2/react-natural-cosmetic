@@ -133,3 +133,7 @@ export const postProductStocks = (values) => (dispatch) => {
 		}
 	});
 };
+
+export const deleteItemThunk = (id) => (dispatch) => {
+	return API.deleteStockItemAPI(id);
+};
