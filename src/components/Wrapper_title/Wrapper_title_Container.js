@@ -13,10 +13,10 @@ const Wrapper_title_Container = (props) => {
 	const bracketRef = useRef();
 
 	const onToggleEntry = () => {
-		setEntry(!entry);
+		setEntry((entry) => !entry);
 	};
 	const onToggleBracket = () => {
-		setBracket(!bracket);
+		setBracket((bracket) => !bracket);
 	};
 
 	const deleteBasketById = (id) => {
