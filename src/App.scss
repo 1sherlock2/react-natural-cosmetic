@@ -30,6 +30,9 @@ body {
 		width: 100%;
 		min-width: 480px;
 
+		.add_product_form {
+			width: 50%;
+		}
 		.header {
 			display: inline-grid;
 			grid-template-rows: 40px;

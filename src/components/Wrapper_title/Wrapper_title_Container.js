@@ -39,6 +39,7 @@ const Wrapper_title_Container = (props) => {
 
 	return (
 		<Wrapper_title
+			addModalFormTrue={props.addModalFormTrue}
 			onSubmit={onSubmit}
 			deleteBasketById={deleteBasketById}
 			entryRef={entryRef}
@@ -50,13 +51,15 @@ const Wrapper_title_Container = (props) => {
 			onToggleBracket={onToggleBracket}
 			isAuth={props.isAuth}
 			logoutDispatch={props.logoutDispatch}
+			adminAuth={props.adminAuth}
 		/>
 	);
 };
 
 let mapStateToProps = (state) => ({
 	basket: state.stocksData.basket,
-	isAuth: state.authData.isAuth
+	isAuth: state.authData.isAuth,
+	adminAuth: state.authData.adminAuth
 });
 
 export default connect(mapStateToProps, { deleteBasketByidDispatch, authThunk, logoutDispatch })(Wrapper_title_Container);

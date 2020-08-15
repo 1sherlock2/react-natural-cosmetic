@@ -226,6 +226,16 @@
 		.wrapper1_block_grid_5 {
 			cursor: pointer;
 			position: relative;
+			.wrapper_block_add_product {
+				display: grid;
+				grid-template-columns: 0.2fr 1fr;
+				text-align: left;
+				margin-top: 7%;
+				color: #f9f0da;
+				.wrapper_block_add_product_span {
+					text-align: left;
+				}
+			}
 			.svg_wrapper1_block_grid_5 {
 				font-size: 20px;
 				position: absolute;

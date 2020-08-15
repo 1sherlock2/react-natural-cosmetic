@@ -15,9 +15,11 @@ import { contentReducer } from '../reducers/main_content_reducers/ContentReducer
 import { navigationProductReducer } from '../reducers/main_content_reducers/NavigationProductReducer';
 import { stockMainReducer } from '../reducers/main_content_reducers/StocksMain';
 import { adversitingStockReducer } from '../reducers/main_content_reducers/AdversitingStock';
+import { wripperReducer } from '../reducers/WrapperReducer';
 const { combineReducers, createStore, applyMiddleware } = require('redux');
 
 const redurPack = combineReducers({
+	wrapperData: wripperReducer,
 	authData: authDataReducer,
 	stocksData: stocksReducer,
 	koreaData: koreaReducer,

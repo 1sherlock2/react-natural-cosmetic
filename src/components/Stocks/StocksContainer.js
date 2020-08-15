@@ -29,8 +29,9 @@ const Stocks_Container = React.memo((props) => {
 		img: 'https://images.unsplash.com/photo-1561920723-e0c68a4fe723?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=421&q=80',
 		otherInformation: 'В данном разделе вы найдете выгодные предложения по заниженным ценам'
 	});
+	// const [modal, setModal] = useState(false);
 	const selectCategoriesItemFunc = (element, index) => {
-		setSelectCategoriesItem(index);
+		setSelectCategoriesItem((index) => index);
 		if (element === 'по цене') {
 			props.sortItemsByPrice();
 		}
@@ -40,32 +41,32 @@ const Stocks_Container = React.memo((props) => {
 		if (element === 'по новизне') {
 			props.sortItemsDate();
 		}
-		setDefaultHeaderName(element);
+		setDefaultHeaderName((element) => element);
 	};
 
 	if (count <= 0) {
 		setCount(1);
 	}
 	const decreaseCount = () => {
-		setCount(--count);
+		setCount((count) => --count);
 		console.log(count);
 		props.decreasePriceDispatch(count);
 	};
 
 	const increaseCount = () => {
-		setCount(++count);
+		setCount((count) => ++count);
 		props.increasePriceDispatch(count);
 	};
 
 	const selectCategories = () => {
-		setActiveCategoried(!activeCategoried);
+		setActiveCategoried((activeCategoried) => !activeCategoried);
 	};
 	useEffect(() => {
 		props.stocksThunk();
 	}, [items]);
 
 	const selectItem = (index) => {
-		setActivePriceDifferent(index);
+		setActivePriceDifferent((index) => index);
 		props.priceDifferentIndexDispatch(index);
 	};
 
@@ -74,16 +75,17 @@ const Stocks_Container = React.memo((props) => {
 	};
 
 	const addProduct = () => {
-		setProductForm(!productForm);
+		setProductForm((productForm) => !productForm);
 	};
 
 	const onSubmit = (values) => {
+		console.log(values);
 		props.postProductStocks(values);
 	};
 
 	const deleteItem = (id) => {
 		props.deleteItemThunk(id).then(() => {
-			setItems(props.items);
+			setItems((items) => props.items);
 		});
 	};
 
@@ -93,6 +95,7 @@ const Stocks_Container = React.memo((props) => {
 		return (
 			<div>
 				<Stocks
+					addModalFormTrue={props.addModalFormTrue}
 					deleteItem={deleteItem}
 					addProduct={addProduct}
 					onSubmit={onSubmit}
