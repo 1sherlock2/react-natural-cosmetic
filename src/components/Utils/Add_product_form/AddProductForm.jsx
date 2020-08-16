@@ -9,19 +9,17 @@ export const AddProductForm = (props) => {
 		img: null,
 		description: '',
 		price: '',
-		brend: '',
-		items: ''
+		brend: ''
 	};
 	const validationSchema = Yup.object({
 		name: Yup.string().required('Необходимо заполнить поле'),
-		// img: Yup.object().shape({
-		// 	file: Yup.mixed()
-		// 		.required('A file is required')
-		// 		.test('fileFormat', 'PDF only', (value) => {
-		// 			console.log(value);
-		// 			return value && ['application/pdf'].includes(value.type);
+		// img: Yup.object()
+		// 	.shape({
+		// 		file: Yup.object().shape({
+		// 			name: Yup.string().required()
 		// 		})
-		// }),
+		// 	})
+		// 	.required('Необходимо выбрать изображение'),
 		description: '',
 		price: Yup.number().required('Необходимо установить цену'),
 		brend: ''
@@ -97,8 +95,7 @@ export const AddProductForm = (props) => {
 							Добавить
 						</button>
 						<span className="select_button_back" onClick={props.addModalFormTrue}>
-							{' '}
-							Назад{' '}
+							Назад
 						</span>
 					</div>
 				</Form>

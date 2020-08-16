@@ -1,5 +1,11 @@
 import { API } from '../API/API';
-import { changeIsLoadingDispatchFalse, setItemsDispatch, isLoadedDispatch, changeIsLoadingDispatchTrue } from '../generalDispatchs/generalDispatch';
+import {
+	changeIsLoadingDispatchFalse,
+	setItemsDispatch,
+	isLoadedDispatch,
+	changeIsLoadingDispatchTrue,
+	postProductSuccess
+} from '../generalDispatchs/generalDispatch';
 
 let initialState = {
 	product: null,
@@ -112,8 +118,21 @@ export const koreaReducer = (state = initialState, action) => {
 export const koreaThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
 	return API.koreaAPI().then((response) => {
-		dispatch(setItemsDispatch(response.data.items));
-		dispatch(isLoadedDispatch(response.data.isLoaded));
-		dispatch(changeIsLoadingDispatchTrue());
+		if (response.status === 200) {
+			dispatch(setItemsDispatch(response.data.items));
+			dispatch(changeIsLoadingDispatchTrue());
+		}
 	});
+};
+
+export const postProductKoreaThunk = (values) => (dispatch) => {
+	return API.postKoreaAPI(values).then((response) => {
+		if (response.status === 200) {
+			dispatch(postProductSuccess());
+		}
+	});
+};
+
+export const deleteItemThunk = (id) => () => {
+	return API.deleteKoreaItemAPI(id);
 };

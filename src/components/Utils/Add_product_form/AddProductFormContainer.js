@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import { AddProductForm } from './AddProductForm';
 import { connect } from 'react-redux';
-import { postProductStocks } from '../../../redux/reducers/StocksReducer';
+import { postProductStocksThunk } from '../../../redux/reducers/StocksReducer';
+import { postProductKoreaThunk } from '../../../redux/reducers/KoreaReducer';
 
 const AddProductFormContainer = (props) => {
 	const onSubmit = (values) => {
-		console.log(values);
 		if (values.categories === '0') {
-			// delete values.categories;
-			props.postProductStocks(values);
-		}
-		if (values.categories === '1') {
 			delete values.categories;
-			console.log(values);
-			// props.postProductStocks(values);
+			return props.postProductStocksThunk(values);
+		} else if (values.categories === '1') {
+			delete values.categories;
+			return props.postProductKoreaThunk(values);
 		}
 	};
 
-	return <AddProductForm onSubmit={onSubmit} items={props.items} addModalFormTrue={props.addModalFormTrue} />;
+	return (
+		<AddProductForm onSubmit={onSubmit} items={props.items} addModalFormTrue={props.addModalFormTrue} postProductSuccess={props.postProductSuccess} />
+	);
 };
 let mapStateToProps = (state) => ({
-	items: state.wrapperData.items
+	items: state.wrapperData.items,
+	postProductSuccess: state.generalData.postProductSuccess
 });
-export default connect(mapStateToProps, { postProductStocks })(AddProductFormContainer);
+export default connect(mapStateToProps, { postProductStocksThunk, postProductKoreaThunk })(AddProductFormContainer);

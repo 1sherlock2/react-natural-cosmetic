@@ -2,6 +2,8 @@ import { API } from '../API/API';
 import { changeIsLoadingDispatchFalse, setItemsDispatch, changeIsLoadingDispatchTrue, postProductSuccess } from '../generalDispatchs/generalDispatch';
 
 let initialState = {
+	currentPage: 1,
+	pageSize: 10,
 	product: null,
 	items: null,
 	isLoaded: null,
@@ -9,8 +11,7 @@ let initialState = {
 	price: null,
 	priceIndex: 1,
 	basket: [],
-	postProductSuccess: false,
-	sessionCount: null
+	postProductSuccess: false
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -27,7 +28,7 @@ export const stocksReducer = (state = initialState, action) => {
 				...state,
 				items: items,
 				product: null,
-				sessionCount: action.sessionCount
+				totalCount: action.totalCount
 			};
 		case 'SELECT_ITEMS':
 			let b = state.items.filter((item) => item._id === action.id);
@@ -105,11 +106,7 @@ export const stocksReducer = (state = initialState, action) => {
 				...state,
 				basket: [...state.basket.filter((item) => item._id !== action.id)]
 			};
-		case 'POST_PRODUCT_SUCCESS':
-			return {
-				...state,
-				postProductSuccess: true
-			};
+
 		default:
 			return {
 				...state
@@ -117,18 +114,17 @@ export const stocksReducer = (state = initialState, action) => {
 	}
 };
 
-export const stocksThunk = () => (dispatch) => {
+export const stocksThunk = (currentPage, pageSize) => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
 	return API.stocksAPI().then((response) => {
 		if (response.status === 200) {
-			console.log(response.data);
-			dispatch(setItemsDispatch(response.data.items, response.data.sessionCount));
+			dispatch(setItemsDispatch(response.data.items, response.data.totalCount));
 			dispatch(changeIsLoadingDispatchTrue());
 		}
 	});
 };
 
-export const postProductStocks = (values) => (dispatch) => {
+export const postProductStocksThunk = (values) => (dispatch) => {
 	return API.postStocksAPI(values).then((response) => {
 		console.log(response);
 		if (response.status === 200) {
@@ -137,6 +133,6 @@ export const postProductStocks = (values) => (dispatch) => {
 	});
 };
 
-export const deleteItemThunk = (id) => (dispatch) => {
+export const deleteItemThunk = (id) => () => {
 	return API.deleteStockItemAPI(id);
 };

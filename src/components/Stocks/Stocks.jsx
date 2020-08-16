@@ -118,9 +118,11 @@ const Stocks = (props) => {
 												<p className="card-text card_items_price">{item.price} $</p>
 											</div>
 											{props.adminAuth && (
-												<div>
-													<button>изменить</button>
-													<button onClick={() => props.deleteItem(item._id)}>удалить</button>
+												<div className="card_body_button_admin">
+													<button class="btn btn-secondary btn-sm">изменить</button>
+													<button class="btn btn-secondary btn-sm" onClick={() => props.deleteItem(item._id)}>
+														удалить
+													</button>
 												</div>
 											)}
 										</div>

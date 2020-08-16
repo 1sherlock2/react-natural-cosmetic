@@ -156,6 +156,15 @@
 							text-align: center;
 						}
 					}
+					.card_body_button_admin {
+						padding-bottom: 20px;
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						grid-gap: 10px;
+						button {
+							width: 80%;
+						}
+					}
 				}
 			}
 		}

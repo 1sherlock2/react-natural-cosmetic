@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Korea from './Korea';
-import { koreaThunk } from '../../redux/reducers/KoreaReducer';
+import { koreaThunk, deleteItemThunk } from '../../redux/reducers/KoreaReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import {
 	decreasePriceDispatch,
@@ -14,7 +14,8 @@ import {
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
 
-const Korea_Container = (props) => {
+const Korea_Container = React.memo((props) => {
+	const [items, setItems] = useState(props.items);
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
 	const [categories, setCategories] = useState(['по цене', 'по бренду', 'по новизне']);
 	const [defaultHeaderName, setDefaultHeaderName] = useState('сортировка');
@@ -44,22 +45,22 @@ const Korea_Container = (props) => {
 		setCount(1);
 	}
 	const decreaseCount = () => {
-		setCount(--count);
+		setCount((count) => --count);
 		props.decreasePriceDispatch(count);
 	};
 
 	const increaseCount = () => {
-		setCount(++count);
+		setCount((count) => ++count);
 		props.increasePriceDispatch(count);
 	};
 	const selectCategories = () => {
-		setActiveCategoried(!activeCategoried);
+		setActiveCategoried((activeCategoried) => !activeCategoried);
 	};
 
 	useEffect(() => {
 		props.koreaThunk();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+		console.log('korea render');
+	}, [items]);
 
 	const selectItem = (index) => {
 		setActivePriceDifferent(index);
@@ -68,11 +69,19 @@ const Korea_Container = (props) => {
 	const addInBasket = (item, count) => {
 		props.addInBasketDispatch(item, count);
 	};
+
+	const deleteItem = (id) => {
+		props.deleteItemThunk(id).then(() => {
+			setItems((items) => props.items);
+		});
+	};
+
 	if (props.isLoading === false) {
 		return <ContentLoaderByComponent />;
 	} else {
 		return (
 			<Korea
+				deleteItem={deleteItem}
 				text={text}
 				addInBasket={addInBasket}
 				count={count}
@@ -92,17 +101,19 @@ const Korea_Container = (props) => {
 				priceIndex={props.priceIndex}
 				activePriceDifferent={activePriceDifferent}
 				selectItem={selectItem}
+				adminAuth={props.adminAuth}
 			/>
 		);
 	}
-};
+});
 let mapStateToProps = (state) => {
 	return {
 		items: state.koreaData.items,
 		product: state.koreaData.product,
 		isLoading: state.stocksData.isLoading,
 		price: state.stocksData.price,
-		priceIndex: state.stocksData.priceIndex
+		priceIndex: state.stocksData.priceIndex,
+		adminAuth: state.authData.adminAuth
 	};
 };
 export default connect(mapStateToProps, {
@@ -114,5 +125,6 @@ export default connect(mapStateToProps, {
 	sortItemsDate,
 	decreasePriceDispatch,
 	increasePriceDispatch,
-	priceDifferentIndexDispatch
+	priceDifferentIndexDispatch,
+	deleteItemThunk
 })(Korea_Container);

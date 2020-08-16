@@ -10,7 +10,7 @@ export const stockMainDispatch = (items) => ({ type: 'SET_STOCK_MAIN', items });
 export const adversitingStockDispatch = (items) => ({ type: 'SET_ADVERSITING_STOCK', items });
 
 // items
-export const setItemsDispatch = (halfItems, sessionCount) => ({ type: 'SET_ITEMS', halfItems, sessionCount });
+export const setItemsDispatch = (halfItems, totalCount) => ({ type: 'SET_ITEMS', halfItems, totalCount });
 export const selectItemsDispatch = (id) => ({ type: 'SELECT_ITEMS', id });
 export const sortItemsByPrice = () => ({ type: 'SORT_ITEMS_BY_PRICE' });
 export const sortItemsByBrend = () => ({ type: 'SORT_ITEMS_BY_BREND' });
@@ -30,5 +30,5 @@ export const addInBasketDispatch = (item, count) => {
 export const deleteBasketByidDispatch = (id) => ({ type: 'DELETE_BASKET_BY_ID', id });
 export const logoutDispatch = () => ({ type: 'LOGOUT' });
 
-//postPorduct
+//generalDispatch
 export const postProductSuccess = () => ({ type: 'POST_PRODUCT_SUCCESS' });

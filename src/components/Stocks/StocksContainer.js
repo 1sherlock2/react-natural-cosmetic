@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createRef, useRef } from 'react';
 import Stocks from './Stocks';
 import { connect } from 'react-redux';
-import { stocksThunk, postProductStocks, deleteItemThunk } from '../../redux/reducers/StocksReducer';
+import { stocksThunk, deleteItemThunk } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
@@ -63,6 +63,7 @@ const Stocks_Container = React.memo((props) => {
 	};
 	useEffect(() => {
 		props.stocksThunk();
+		console.log('stocks render');
 	}, [items]);
 
 	const selectItem = (index) => {
@@ -76,11 +77,6 @@ const Stocks_Container = React.memo((props) => {
 
 	const addProduct = () => {
 		setProductForm((productForm) => !productForm);
-	};
-
-	const onSubmit = (values) => {
-		console.log(values);
-		props.postProductStocks(values);
 	};
 
 	const deleteItem = (id) => {
@@ -98,7 +94,6 @@ const Stocks_Container = React.memo((props) => {
 					addModalFormTrue={props.addModalFormTrue}
 					deleteItem={deleteItem}
 					addProduct={addProduct}
-					onSubmit={onSubmit}
 					productForm={productForm}
 					priceIndex={props.priceIndex}
 					price={props.price}
@@ -121,7 +116,6 @@ const Stocks_Container = React.memo((props) => {
 					selectItem={selectItem}
 					addInBasket={addInBasket}
 					adminAuth={props.adminAuth}
-					postProductSuccess={props.postProductSuccess}
 					sessionCount={props.sessionCount}
 				/>
 			</div>
@@ -136,9 +130,7 @@ let mapStateToProps = (state) => {
 		isLoading: state.stocksData.isLoading,
 		price: state.stocksData.price,
 		priceIndex: state.stocksData.priceIndex,
-		adminAuth: state.authData.adminAuth,
-		postProductSuccess: state.stocksData.postProductSuccess,
-		sessionCount: state.stocksData.sessionCount
+		adminAuth: state.authData.adminAuth
 	};
 };
 
@@ -153,7 +145,6 @@ export default compose(
 		sortItemsByBrend,
 		sortItemsDate,
 		stocksThunk,
-		postProductStocks,
 		deleteItemThunk
 	}),
 	withRouter
