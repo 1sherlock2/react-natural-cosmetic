@@ -8,6 +8,7 @@ import { AddProductForm } from '../Utils/Add_product_form/AddProductForm';
 const Stocks = (props) => {
 	return (
 		<div>
+			<span>{props.sessionCount}</span>
 			<Categories
 				addModalFormTrue={props.addModalFormTrue}
 				addProduct={props.addProduct}

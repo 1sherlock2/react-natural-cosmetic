@@ -122,6 +122,7 @@ const Stocks_Container = React.memo((props) => {
 					addInBasket={addInBasket}
 					adminAuth={props.adminAuth}
 					postProductSuccess={props.postProductSuccess}
+					sessionCount={props.sessionCount}
 				/>
 			</div>
 		);
@@ -136,7 +137,8 @@ let mapStateToProps = (state) => {
 		price: state.stocksData.price,
 		priceIndex: state.stocksData.priceIndex,
 		adminAuth: state.authData.adminAuth,
-		postProductSuccess: state.stocksData.postProductSuccess
+		postProductSuccess: state.stocksData.postProductSuccess,
+		sessionCount: state.stocksData.sessionCount
 	};
 };
 

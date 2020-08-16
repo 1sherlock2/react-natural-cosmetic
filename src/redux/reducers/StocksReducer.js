@@ -9,7 +9,8 @@ let initialState = {
 	price: null,
 	priceIndex: 1,
 	basket: [],
-	postProductSuccess: false
+	postProductSuccess: false,
+	sessionCount: null
 };
 
 export const stocksReducer = (state = initialState, action) => {
@@ -25,7 +26,8 @@ export const stocksReducer = (state = initialState, action) => {
 			return {
 				...state,
 				items: items,
-				product: null
+				product: null,
+				sessionCount: action.sessionCount
 			};
 		case 'SELECT_ITEMS':
 			let b = state.items.filter((item) => item._id === action.id);
@@ -119,7 +121,8 @@ export const stocksThunk = () => (dispatch) => {
 	dispatch(changeIsLoadingDispatchFalse());
 	return API.stocksAPI().then((response) => {
 		if (response.status === 200) {
-			dispatch(setItemsDispatch(response.data.items));
+			console.log(response.data);
+			dispatch(setItemsDispatch(response.data.items, response.data.sessionCount));
 			dispatch(changeIsLoadingDispatchTrue());
 		}
 	});
