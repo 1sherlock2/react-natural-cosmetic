@@ -17,6 +17,9 @@ export const API = {
 	authRegisterAPI(values) {
 		return instance.post('/api/register', values);
 	},
+	logoutAPI() {
+		return instance.post('/api/logout');
+	},
 
 	//stocks
 	stocksAPI() {

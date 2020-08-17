@@ -55,7 +55,7 @@ const Wrapper1_block_grid_4_1 = (props) => {
 						</NavLink>
 					</div>
 					<div className="personal_logout">
-						<button onClick={props.logoutDispatch}> Logout</button>
+						<button onClick={props.logoutThunk}> Logout </button>
 					</div>
 				</div>
 			)}

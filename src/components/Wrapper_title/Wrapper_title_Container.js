@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Wrapper_title from './Wrapper_title';
 import { connect } from 'react-redux';
-import { authThunk } from '../../redux/reducers/AuthDataReducer';
+import { authThunk, logoutThunk } from '../../redux/reducers/AuthDataReducer';
 import { Redirect } from 'react-router-dom';
-import { deleteBasketByidDispatch, logoutDispatch } from '../../redux/generalDispatchs/generalDispatch';
+import { deleteBasketByidDispatch } from '../../redux/generalDispatchs/generalDispatch';
 
 const Wrapper_title_Container = (props) => {
 	const [entry, setEntry] = useState(false);
@@ -23,7 +23,6 @@ const Wrapper_title_Container = (props) => {
 		props.deleteBasketByidDispatch(id);
 	};
 	const onSubmit = (values) => {
-		console.log(values);
 		props.authThunk(values).then(() => {
 			if (props.isAuth === true) {
 				setEntry(false);
@@ -32,9 +31,7 @@ const Wrapper_title_Container = (props) => {
 		});
 	};
 	useEffect(() => {
-		console.log('useEffect');
 		setBasket(props.basket);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [basket]);
 
 	return (
@@ -50,7 +47,7 @@ const Wrapper_title_Container = (props) => {
 			bracket={bracket}
 			onToggleBracket={onToggleBracket}
 			isAuth={props.isAuth}
-			logoutDispatch={props.logoutDispatch}
+			logoutThunk={props.logoutThunk}
 			adminAuth={props.adminAuth}
 		/>
 	);
@@ -62,8 +59,7 @@ let mapStateToProps = (state) => ({
 	adminAuth: state.authData.adminAuth
 });
 
-export default connect(mapStateToProps, { deleteBasketByidDispatch, authThunk, logoutDispatch })(Wrapper_title_Container);
-
+export default connect(mapStateToProps, { deleteBasketByidDispatch, authThunk, logoutThunk })(Wrapper_title_Container);
 //! Chrome
 // const handleOutsideClickEntry = (e) => {
 // 	if (!e.path.includes(entryRef.current)) {

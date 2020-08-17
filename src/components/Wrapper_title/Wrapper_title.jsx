@@ -53,7 +53,7 @@ const Wrapper_title = (props) => {
 						</svg>
 						<span>Войти</span>
 					</div>
-					{props.entry ? <Wrapper1_block_grid_4_1 logoutDispatch={props.logoutDispatch} onSubmit={props.onSubmit} isAuth={props.isAuth} /> : null}
+					{props.entry ? <Wrapper1_block_grid_4_1 logoutThunk={props.logoutThunk} onSubmit={props.onSubmit} isAuth={props.isAuth} /> : null}
 				</div>
 				<div className="wrapper1_block_grid_5">
 					<div ref={props.bracketRef} onClick={props.onToggleBracket}>
