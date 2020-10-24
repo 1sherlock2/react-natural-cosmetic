@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import Perfumery from './Perfumery';
 import { perfumeryThunk } from '../../redux/reducers/PerfumeryReducer';
 
 import {
@@ -14,6 +13,7 @@ import {
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
+import LayoutPageForNavigation from '../../layouts/LayoutPageForNavigation/LayoutPageForNavigation';
 
 const Perfumery_Container = (props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -73,7 +73,7 @@ const Perfumery_Container = (props) => {
 		return <ContentLoaderByComponent />;
 	} else {
 		return (
-			<Perfumery
+			<LayoutPageForNavigation
 				text={text}
 				addInBasket={addInBasket}
 				count={count}

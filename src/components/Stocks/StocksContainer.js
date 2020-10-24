@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createRef, useRef } from 'react';
-import Stocks from './Stocks';
 import { connect } from 'react-redux';
 import { stocksThunk, deleteItemThunk } from '../../redux/reducers/StocksReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
@@ -15,6 +14,7 @@ import {
 	sortItemsByBrend,
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
+import LayoutPageForNavigation from '../../layouts/LayoutPageForNavigation/LayoutPageForNavigation';
 
 const Stocks_Container = React.memo((props) => {
 	const [items, setItems] = useState(props.items);
@@ -90,7 +90,7 @@ const Stocks_Container = React.memo((props) => {
 	} else {
 		return (
 			<div>
-				<Stocks
+				<LayoutPageForNavigation
 					addModalFormTrue={props.addModalFormTrue}
 					deleteItem={deleteItem}
 					addProduct={addProduct}

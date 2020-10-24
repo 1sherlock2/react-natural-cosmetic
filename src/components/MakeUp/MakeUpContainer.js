@@ -15,6 +15,7 @@ import {
 	sortItemsByBrend,
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
+import LayoutPageForNavigation from '../../layouts/LayoutPageForNavigation/LayoutPageForNavigation';
 
 const MakeUp_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -78,7 +79,7 @@ const MakeUp_Container = React.memo((props) => {
 	} else {
 		return (
 			<div>
-				<MakeUp
+				<LayoutPageForNavigation
 					text={text}
 					priceIndex={props.priceIndex}
 					price={props.price}

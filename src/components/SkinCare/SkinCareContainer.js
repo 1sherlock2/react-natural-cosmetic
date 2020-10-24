@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import SkinCare from './SkinCare';
 import { connect } from 'react-redux';
 import { skinCareThunk } from '../../redux/reducers/SkinCareReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
@@ -15,6 +14,7 @@ import {
 	sortItemsByBrend,
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
+import LayoutPageForNavigation from '../../layouts/LayoutPageForNavigation/LayoutPageForNavigation';
 
 const SkinCare_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -78,7 +78,7 @@ const SkinCare_Container = React.memo((props) => {
 	} else {
 		return (
 			<div>
-				<SkinCare
+				<LayoutPageForNavigation
 					text={text}
 					priceIndex={props.priceIndex}
 					price={props.price}

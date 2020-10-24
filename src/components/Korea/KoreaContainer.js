@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import Korea from './Korea';
 import { koreaThunk, deleteItemThunk } from '../../redux/reducers/KoreaReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
 import {
@@ -13,6 +12,7 @@ import {
 	sortItemsByBrend,
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
+import LayoutPageForNavigation from '../../layouts/LayoutPageForNavigation/LayoutPageForNavigation';
 
 const Korea_Container = React.memo((props) => {
 	const [items, setItems] = useState(props.items);
@@ -80,7 +80,7 @@ const Korea_Container = React.memo((props) => {
 		return <ContentLoaderByComponent />;
 	} else {
 		return (
-			<Korea
+			<LayoutPageForNavigation
 				deleteItem={deleteItem}
 				text={text}
 				addInBasket={addInBasket}

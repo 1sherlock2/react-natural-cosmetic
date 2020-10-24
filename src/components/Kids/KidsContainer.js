@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import Kids from './Kids';
 import React, { useState, useEffect } from 'react';
 import { kidsThunk } from '../../redux/reducers/KidsReducer';
 import ContentLoaderByComponent from '../Utils/ContentLoaderByComponent/ContentLoaderByComponent';
@@ -15,6 +14,7 @@ import {
 	sortItemsByBrend,
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
+import LayoutPageForNavigation from '../../layouts/LayoutPageForNavigation/LayoutPageForNavigation';
 
 const Kids_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -78,7 +78,7 @@ const Kids_Container = React.memo((props) => {
 	} else {
 		return (
 			<div>
-				<Kids
+				<LayoutPageForNavigation
 					text={text}
 					priceIndex={props.priceIndex}
 					price={props.price}

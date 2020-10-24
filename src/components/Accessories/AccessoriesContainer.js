@@ -15,6 +15,7 @@ import {
 	sortItemsByBrend,
 	sortItemsDate
 } from '../../redux/generalDispatchs/generalDispatch';
+import LayoutPageForNavigation from '../../layouts/LayoutPageForNavigation/LayoutPageForNavigation';
 
 const Accessories_Container = React.memo((props) => {
 	const [activePriceDifferent, setActivePriceDifferent] = useState(null);
@@ -48,7 +49,6 @@ const Accessories_Container = React.memo((props) => {
 	}
 	const decreaseCount = () => {
 		setCount(--count);
-		console.log(count);
 		props.decreasePriceDispatch(count);
 	};
 
@@ -79,7 +79,7 @@ const Accessories_Container = React.memo((props) => {
 	} else {
 		return (
 			<div>
-				<Accessories
+				<LayoutPageForNavigation
 					priceIndex={props.priceIndex}
 					price={props.price}
 					increasePriceDispatch={props.increasePriceDispatch}
